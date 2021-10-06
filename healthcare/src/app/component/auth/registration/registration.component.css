@@ -57,6 +57,10 @@ font-weight:700;
 .form-control{
   margin-bottom: 1rem !important;
 }
+.form-select{
+  margin-bottom: 1rem !important;
+
+}
 label{
   font-weight: 500;
 }
