@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {ButtonModule} from 'primeng/button';
 
@@ -14,7 +15,8 @@ import { RegistrationComponent } from './component/auth/registration/registratio
   ],
   imports: [
     BrowserModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
