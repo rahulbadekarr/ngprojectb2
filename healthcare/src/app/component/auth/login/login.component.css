@@ -1,15 +1,25 @@
 .ng-invalid.ng-dirty[name="username"]{
-    border-bottom: 2px tomato solid;
-  }
-  
-  .ng-valid.ng-dirty[name="username"]{
-    border-bottom: 2px lightgreen solid;
-  }
-  
-  .ng-invalid.ng-dirty[name="password"]{
-    border-bottom: 2px tomato solid;
-  }
-  
-  .ng-valid.ng-dirty[name="password"]{
-    border-bottom: 2px lightgreen solid;
-  }
+  border-bottom: 2px tomato solid;
+}
+.ng-valid.ng-dirty[name="username"]{
+  border-bottom: 2px lightgreen solid;
+}
+
+.ng-invalid.ng-dirty[name="password"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="password"]{
+  border-bottom: 2px lightgreen solid;
+}
+
+.btn-block{
+width: 100% !important;
+font-weight:700;
+}
+.form-control{
+  margin-bottom: 1rem !important;
+}
+label{
+  font-weight: 500;
+}

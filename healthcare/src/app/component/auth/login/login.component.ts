@@ -8,30 +8,29 @@ import { FormControl, FormGroup, FormBuilder, Validators, ValidationErrors, Abst
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  [x: string]: any;
-  name = new FormControl('',[
+  loginForm : FormGroup;
+  role = ["Admin", "Patient","Physician"]
+  // [x: string]: any;
+  username = new FormControl('',[
     Validators.required,
-    Validators.email
+    Validators.minLength(4),
   ]);
   password = new FormControl('', [
     Validators.required,
     Validators.minLength(6),
-    this.hasExclamation('@')
+    this.hasAttherate('@')
   ]);
-
-  loginForm : FormGroup;
-
   constructor(private fb : FormBuilder) {
     this.loginForm = this.fb.group({
-      name : this.name,
+      username : this.username,
       password : this.password
     })
   }
 
-  hasExclamation(symbol: string) : ValidatorFn {
+  hasAttherate(symbol: string) : ValidatorFn {
     return function(control : AbstractControl) : ValidationErrors | null{
-      const exclamation = control.value.indexOf(symbol) >= 0
-      return exclamation ? null : {"exclamationError": true};
+      const attherate = control.value.indexOf(symbol) >= 0
+      return attherate ? null : {"attherateError": true};
     }
   }
 onlogin(){
