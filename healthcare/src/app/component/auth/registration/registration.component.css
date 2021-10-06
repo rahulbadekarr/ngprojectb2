@@ -1,0 +1,62 @@
+.ng-invalid.ng-dirty[name="firstname"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="firstname"]{
+  border-bottom: 2px lightgreen solid;
+}
+.ng-invalid.ng-dirty[name="lastname"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="lastname"]{
+  border-bottom: 2px lightgreen solid;
+}
+
+.ng-invalid.ng-dirty[name="password"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="password"]{
+  border-bottom: 2px lightgreen solid;
+}
+
+.ng-invalid.ng-dirty[name="retypepassword"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="retypepassword"]{
+  border-bottom: 2px lightgreen solid;
+}
+.ng-invalid.ng-dirty[name="email"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="email"]{
+  border-bottom: 2px lightgreen solid;
+}
+
+.ng-invalid.ng-dirty[name="phone"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="phone"]{
+  border-bottom: 2px lightgreen solid;
+}
+.ng-invalid.ng-dirty[name="date"]{
+  border-bottom: 2px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="date"]{
+  border-bottom: 2px lightgreen solid;
+}
+.btn-block{
+width: 100% !important;
+font-weight:700;
+}
+.form-control{
+  margin-bottom: 1rem !important;
+}
+label{
+  font-weight: 500;
+}
