@@ -4,7 +4,7 @@
       "id": "1",
       "username": "ssss",
       "email": "user_1@email.com",
-      "role": "admin",
+      "role": "patient",
       "password": "111",
       "createdDate": "10/06/2021"
     }

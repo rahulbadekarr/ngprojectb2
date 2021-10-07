@@ -29,6 +29,13 @@ export class RegistrationComponent implements OnInit {
     Validators.minLength(6),
     this.hasExclamation('@')
   ]);
+  date = new FormControl('', [
+    Validators.required,
+  ]);
+  phone = new FormControl('', [
+    Validators.required,
+
+  ]);
 
   registerForm : FormGroup;
   role = ["Admin", "Patient","Physician"]
@@ -39,8 +46,8 @@ export class RegistrationComponent implements OnInit {
       lastname : this.lastname,
       password : this.password,
       retypepassword : this.retypepassword,
-      // phone : this.phone,
-      // date : this.date,
+      phone : this.phone,
+      dateofbirth : this.date,
       role : new FormControl('', Validators.required),
     })
   }
