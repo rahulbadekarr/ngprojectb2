@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { RegistrationComponent } from './component/auth/registration/registration.component';
+import { DashboardComponent } from './component/auth/dashboard/dashboard.component';
 
 
 const APP_ROUTES:Routes=[
@@ -19,7 +20,8 @@ const APP_ROUTES:Routes=[
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

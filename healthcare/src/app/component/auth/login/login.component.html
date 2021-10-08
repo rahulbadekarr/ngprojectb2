@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="row">
     <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5">
         <div class="card">
@@ -12,9 +13,9 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label for="username">Name: </label>
-                                    <input  type="text" name="username" class="form-control" formControlName="username"
+                                    <input  type="text" name="username" class="form-control p-2" formControlName="username"
                                         minlength="4" required>
-                                        <p>Forgot Usernam?</p>
+                                        <p class="text-primary">Forgot Usernam?</p>
                                 </div>
                                 <div>
                                     <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
@@ -32,9 +33,9 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label for="password">Password : </label>
-                                    <input type="password" name="password" class="form-control"
+                                    <input type="password" name="password" class="form-control p-2"
                                         formControlName="password" minlength="6" required>
-                                        <p>Forgot Password?</p>
+                                        <p class="text-primary">Forgot Password?</p>
                                 </div>
                                 <div>
                                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
@@ -73,4 +74,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
