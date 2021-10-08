@@ -13,6 +13,7 @@ import { DashboardComponent } from './component/auth/dashboard/dashboard.compone
 const APP_ROUTES:Routes=[
   {path:'',component:LoginComponent,pathMatch:'full'},
   {path:'registration',component:RegistrationComponent},
+  {path:'dashboard', component:DashboardComponent},
   {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
