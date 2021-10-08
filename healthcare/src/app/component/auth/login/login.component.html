@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5">
         <div class="card">
             <div class="card-header">
                 <h5 class="text-center">Login to Patient Portal</h5>
@@ -14,6 +14,7 @@
                                     <label for="username">Name: </label>
                                     <input  type="text" name="username" class="form-control" formControlName="username"
                                         minlength="4" required>
+                                        <p>Forgot Usernam?</p>
                                 </div>
                                 <div>
                                     <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
@@ -33,6 +34,7 @@
                                     <label for="password">Password : </label>
                                     <input type="password" name="password" class="form-control"
                                         formControlName="password" minlength="6" required>
+                                        <p>Forgot Password?</p>
                                 </div>
                                 <div>
                                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
