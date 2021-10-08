@@ -34,11 +34,12 @@ export class RegistrationComponent implements OnInit {
   ]);
   phone = new FormControl('', [
     Validators.required,
-
+    Validators.pattern('^(0|[1-9][0-9]*)$'),
+    Validators.minLength(10),
   ]);
 
   registerForm : FormGroup;
-  role = ["Admin", "Patient","Physician"]
+  roles = ["Admin", "Patient","Physician"]
 
   constructor(private fb : FormBuilder) {
     this.registerForm = this.fb.group({

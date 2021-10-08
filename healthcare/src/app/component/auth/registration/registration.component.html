@@ -126,20 +126,17 @@
   <div class="col-sm-6">
     <div class="form-group">
       <label>Role:</label>
-
-        <select name="role" formControlName="role" class="form-select" placeholder="Select Role" >
-            <option >Admin</option>
-            <option >Patient</option>
-            <option >Physician</option>
+         <select name="role"  formControlName="role" class="form-select" placeholder="Select Role" >
+            <option *ngFor="let role of roles" value="{{role}}">
+               {{role}}
+            </option>
         </select>
-
-    </div>
+      </div>
   </div>
   <div class="col-sm-6">
     <div class="form-group">
       <label>Mobile number:</label>
-      <input type="text" name="phone" class="form-control" [formControl]="phone"/>
-      <div [hidden]="phone.valid || phone.untouched">
+      <input type="text" name="phone" class="form-control" maxlength="10" [formControl]="phone"/>      <div [hidden]="phone.valid || phone.untouched">
         <div [hidden]="!phone.hasError('required')" class="text-danger">
           <p>Phone number is required!</p>
         </div>
@@ -154,7 +151,9 @@
               <div class="row">
                 <div class="col-sm-6">
                   <button class="btn btn-success btn-block"
+                    [disabled]="registerForm.invalid"      
                     (click)="onRegister()">Register</button>
+                    
                 </div>
                 <div class="col-sm-6">
                   <button class="btn btn-secondary  btn-block">Cancel</button>

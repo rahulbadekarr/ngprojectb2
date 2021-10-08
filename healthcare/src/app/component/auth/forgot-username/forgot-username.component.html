@@ -1,0 +1,49 @@
+
+<div class="modal" tabindex="-1" style="display: unset;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Recover Your Username</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="forgotusernameForm">
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Recover using email addresss</label>
+                <input type="text" class="form-control" placeholder="Email addresss"   [formControl]="email">
+                <div [hidden]="email.valid || email.untouched">
+                  <div [hidden]="!email.hasError('required')" class="alert alert-danger">
+                    <p>Email is required!</p>
+                  </div>
+                  <div [hidden]="!email.hasError('email')" class="alert alert-danger">
+                    <p>*Email should be in proper format</p>
+                  </div>
+
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Recover using mobile number</label>
+                <input type="text" class="form-control"  placeholder="Mobile number" [formControl]="phone">
+                <div [hidden]="phone.valid || phone.untouched">
+                  <div [hidden]="!phone.hasError('required')" class="alert alert-danger">
+                    <p>Phone number is required!</p>
+                  </div>
+                  <div [hidden]="!phone.hasError('minlength')" class="alert alert-danger">
+                    <p>* Mobile number must have 10 digit at least.</p>
+                  </div>
+                  <div [hidden]="!phone.hasError('pattern')" class="alert alert-danger">
+                    <p>* Mobile number should be digit only</p>
+                  </div>
+          
+                </div>
+              </div>
+        </div>
+ 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal"  (click)="onRegister()">Recover username</button>
+          <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+      
+    </form>
+    </div>
+  </div>
