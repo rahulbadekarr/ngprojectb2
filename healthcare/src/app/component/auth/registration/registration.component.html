@@ -151,8 +151,9 @@
               <div class="row">
                 <div class="col-sm-6">
                   <button class="btn btn-success btn-block"
+                    [disabled]="registerForm.invalid"      
                     (click)="onRegister()">Register</button>
-                    [disabled]="registerForm.invalid"
+                    
                 </div>
                 <div class="col-sm-6">
                   <button class="btn btn-secondary  btn-block">Cancel</button>
