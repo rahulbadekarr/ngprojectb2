@@ -1,59 +1,50 @@
 <div class="row">
-    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="text-center">Login to Patient Portal</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <form formControlName="loginForm">
-                            <!-- Username field -->
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="name">Name: </label>
-                                    <input id="name" type="text" name="name" class="form-control"
-                                        formControlName="name" minlength="6" required>
-                                </div>
-                                <div >
-                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
-
-                                        <div *ngIf="name.errors?.required">
-                                            Name is required.
-                                        </div>
-                                        <div *ngIf="name.errors?.minlength">
-                                            Name must be at least 6 characters long.
-                                        </div>
-                                        <div *ngIf="name.errors?.forbiddenName">
-                                            Name cannot be Bob.
-                                        </div>
-
-                                    </div>
-                                </div>
-                                </div>
-                                <!-- Password Field -->
-                                <div class="row">
-                                    <div class="form-group">
-                                        <label for="password">Password : </label>
-                                        <input type="password" name="password" class="form-control"
-                                            formControlName="password">
-                                    </div>
-                                </div>
-
-                                <!-- Buttons -->
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button class="btn btn-success btn-block" (click)="onlogin()">Login</button>
-                                    </div>
-                                </div>
-                                <h6 class="text-center">Register here</h6>
-                                <div class="col-6">
-                                    <button class="btn btn-primary btn-block">Create Account</button>
-                                </div>
-                        </form>
-                    </div>
+  <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="text-center">Login</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="loginForm">
+              <div class="row">
+                <div class="form-group">
+                  <label for="name">Name: </label>
+                  <input id="name" type="text" class="form-control" formControlName="username">
+                  <span *ngIf="!username.valid && username.touched && username.hasError('required')" class="help-block">Please enter valid username
+                  </span>
+                  <span *ngIf="!username.valid && username.touched && username.hasError('email')" class="help-block">Please enter valid
+                    email
+                  </span>
                 </div>
-            </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group">
+                  <label for="password">Password : </label>
+                  <input type="password" name="password" class="form-control" formControlName="password">
+                  <span *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')" class="help-block">Please enter valid
+                    password
+                  </span>
+                  <span *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('minlength')" class="help-block">Please enter valid
+                    password upto 8 characters
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button class="btn btn-success btn-block" (click)="onlogin()">Login</button>
+                </div>
+              </div>
+              <h6 class="text-center">Register here</h6>
+              <div class="col-6">
+                <button class="btn btn-primary btn-block">Create Account</button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

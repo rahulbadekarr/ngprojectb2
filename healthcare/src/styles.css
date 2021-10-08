@@ -58,3 +58,11 @@ form{
   background-color: transparent;
   opacity: 0.7;
 }
+
+input.ng-invalid.ng-touched{
+  border: 2px #cc0000 solid;
+}
+
+.help-block{
+color: #cc0000;
+}
