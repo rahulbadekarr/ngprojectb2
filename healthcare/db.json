@@ -7,6 +7,14 @@
       "role": "patient",
       "password": "111",
       "createdDate": "10/06/2021"
+    },
+    {
+      "username": "abhay",
+      "password": "$2a$10$NBKfWeD42ZOTR1jcpuMVqugE3MTxkvQJNqctcJEVw3ugMBodDJjxq",
+      "role": "Patient",
+      "email": "test@test.com",
+      "createdDate": "9/6/2021",
+      "id": "U510nSm"
     }
   ],
   "demographics": [
@@ -26,6 +34,14 @@
       "family_medical_history": "",
       "surgery": "",
       "insurance_provider": ""
+    },
+    {
+      "first_name": "test123",
+      "last_name": "test123",
+      "mobile": "1234567890",
+      "dob": "2021-10-09",
+      "patient_id": "U510nSm",
+      "id": "YxgbFeV"
     }
   ],
   "medication_allergies": [

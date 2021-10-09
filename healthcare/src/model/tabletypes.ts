@@ -1,4 +1,5 @@
 import { Time } from "@angular/common";
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 //not sure about time
 
 export class Users {
@@ -7,10 +8,10 @@ export class Users {
   email: string;
   role: string;
   password: string;
-  createdDate: Date;
+  createdDate: string;
 }
 
-export interface Demographics {
+export class Demographics {
   id: number;
   patient_id: number;
   first_name: string;

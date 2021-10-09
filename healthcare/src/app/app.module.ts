@@ -4,19 +4,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {ButtonModule} from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { AuthModule } from './component/auth/auth.module';
 
 import { AppComponent } from './app.component';
-// import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
-
-
 
 const APP_ROUTES:Routes=[
   { path: '', redirectTo:'/login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./component/auth/auth.module').then(m => m.AuthModule) },
-
-  // {path:'forgot-username',component:ForgotUsernameComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
@@ -24,7 +18,6 @@ const APP_ROUTES:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
-    // ForgotUsernameComponent,
     ForgotPasswordComponent
   ],
   imports: [
@@ -33,8 +26,7 @@ const APP_ROUTES:Routes=[
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES),
-    // AuthModule
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
