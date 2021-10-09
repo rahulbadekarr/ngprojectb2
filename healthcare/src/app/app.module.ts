@@ -3,29 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// import { AuthModule } from './component/auth/auth.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './component/auth/login/login.component';
-import { RegistrationComponent } from './component/auth/registration/registration.component';
-import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
+// import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
 
 
 
 const APP_ROUTES:Routes=[
-  {path:'',component:LoginComponent,pathMatch:'full'},
-  {path:'registration',component:RegistrationComponent},
-  {path:'forgot-username',component:ForgotUsernameComponent},
+  { path: '', redirectTo:'/login', pathMatch: 'full' },
+  { path: 'login', loadChildren: () => import('./component/auth/auth.module').then(m => m.AuthModule) },
+
+  // {path:'forgot-username',component:ForgotUsernameComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full' }
+  {path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistrationComponent,
-    ForgotUsernameComponent,
+    // ForgotUsernameComponent,
     ForgotPasswordComponent
   ],
   imports: [
@@ -33,7 +31,8 @@ const APP_ROUTES:Routes=[
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    // AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
