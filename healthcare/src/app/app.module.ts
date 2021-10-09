@@ -10,7 +10,7 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
-import { DashboardComponent } from './component/auth/dashboard/dashboard.component';
+
 
 
 const APP_ROUTES:Routes=[
@@ -18,7 +18,6 @@ const APP_ROUTES:Routes=[
   {path:'registration',component:RegistrationComponent},
   {path:'forgot-username',component:ForgotUsernameComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
-  {path:'dashboard', component:DashboardComponent},
   {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -28,8 +27,7 @@ const APP_ROUTES:Routes=[
     LoginComponent,
     RegistrationComponent,
     ForgotUsernameComponent,
-    ForgotPasswordComponent,
-    DashboardComponent
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
