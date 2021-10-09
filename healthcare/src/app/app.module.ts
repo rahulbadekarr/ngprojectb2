@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
-import {ButtonModule} from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,7 +21,6 @@ const APP_ROUTES:Routes=[
   ],
   imports: [
     BrowserModule,
-    ButtonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
