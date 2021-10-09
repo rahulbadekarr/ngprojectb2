@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 // import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
 
+
+
 const APP_ROUTES:Routes=[
   { path: '', redirectTo:'/login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./component/auth/auth.module').then(m => m.AuthModule) },
