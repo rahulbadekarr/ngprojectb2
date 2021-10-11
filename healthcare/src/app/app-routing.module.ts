@@ -9,11 +9,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./component/auth/auth.module').then((m) => m.AuthModule),
   },
-  // {
-  //   path: 'portal',
-  //   loadChildren: () =>
-  //     import('./component/portal/portal.module').then((m) => m.PortalModule),
-  // },
+  {
+    path: 'portal',
+    loadChildren: () =>
+      import('./component/portal/portal.module').then((m) => m.PortalModule),
+  },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
