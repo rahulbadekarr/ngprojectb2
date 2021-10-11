@@ -39,7 +39,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+  // mat module starts from here 
+    CommonModule,
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    MatNativeDateModule,
+    MatRippleModule,
+    MatSidenavModule,
+    PortalModule,
+    ScrollingModule,
+    MatSliderModule,
+    MatSidenavContainer,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatNavList,
+    MatSidenavContent, 
+    MatSidenav,
+    MatIcon, 
+    MatIconRegistry
+     // mat module ends from here 
   ],
   exports:[
     CommonModule,
