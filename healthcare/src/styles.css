@@ -1,20 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 /* .login-btn{
-  
+
 } */
 /* button{
   width: 140px;
 } */
-.example-spacer {
-  flex: 1 1 auto;
-}
 .card{
   background: var(--surface-e);
     padding: 2rem;
     box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
     border-radius: 4px;
     margin-bottom: 2rem;
-}
+} */
 .p-fluid .p-inputtext{
   height: 3rem;
   width: 100%;
@@ -62,14 +59,14 @@
   }
 
 }
-form{
+/* form{
   background-color: transparent;
   opacity: 0.7;
-}
+} */
 
-input.ng-invalid.ng-touched{
+/* input.ng-invalid.ng-touched{
   border: 2px #cc0000 solid;
-}
+} */
 
 .help-block{
 color: #cc0000;

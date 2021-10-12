@@ -3,7 +3,7 @@ import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 //not sure about time
 
 export class Users {
-  id: number;
+  id: string;
   username: string;
   email: string;
   role: string;
@@ -13,7 +13,7 @@ export class Users {
 
 export class Demographics {
   id: number;
-  patient_id: number;
+  patient_id: string;
   first_name: string;
   last_name: string;
   dob: Date;
@@ -31,7 +31,7 @@ export class Demographics {
 
 export interface Med_allergy {
   id: number;
-  patient_id: number;
+  patient_id: string;
   current_medication: string;
   otc_medication: string;
   natural_product_hurbs: string;
@@ -43,14 +43,14 @@ export interface Med_allergy {
 
 export interface Immune {
   id: number;
-  patient_id: number;
+  patient_id: string;
   covid_19_vaccine: string;
   general_vaccine: string;
 }
 
 export interface Schd_appt {
   id: number;
-  patient_id: number;
+  patient_id: string;
   meeting_title: string;
   description: string;
   physication: string;
@@ -61,7 +61,7 @@ export interface Schd_appt {
 
 export interface Order {
   id: number;
-  patient_id: number;
+  patient_id: string;
   patient_vitals: string;
   procedure_code: string;
   diagnosis_code: string;
@@ -72,7 +72,7 @@ export interface Order {
 
 export interface Pay_details {
   id: number;
-  patient_id: number;
+  patient_id: string;
   patient_bill: number;
   payment_method: string;
   payment_history: string;

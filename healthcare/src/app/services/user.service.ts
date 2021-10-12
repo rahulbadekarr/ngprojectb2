@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Demographics, Users } from 'src/model/tabletypes';
+import { Demographics,  Users } from 'src/model/tabletypes';
 import { map } from 'rxjs/operators';
 import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class UserService {
   private userDemographicUrl = 'http://localhost:3004/demographics';
 
   login(username: string, password: string) {
-    return this.http.get(`${this.baseUrl}?email=${username}`).pipe(
+    return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
       map((data: Users[]) => {
         let userData: Users;
         if (data.length > 0) {
@@ -51,9 +51,14 @@ export class UserService {
     return this.http.post(this.userDemographicUrl, demographicData);
   }
 
-  getUserDetails(): Users | null {
+  getUserDetails(): Users |null {
     console.log(JSON.parse(localStorage.getItem('user')));
     return JSON.parse(localStorage.getItem('user'));
+  }
+
+  getUserProfiles(userId:string):Observable<Demographics>  |null {
+    console.log(userId)
+    return this.http.get<Demographics>(`${this.userDemographicUrl}?patient_id=${userId}`);
   }
 
   logout() {

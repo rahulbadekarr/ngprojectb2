@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'portal', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
