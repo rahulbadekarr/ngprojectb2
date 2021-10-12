@@ -10,15 +10,16 @@ import {ChangeDetectorRef,  OnDestroy} from '@angular/core';
 export class SidebarComponent implements  OnDestroy {
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
+  // fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
 
-  fillerContent = Array.from({length: 10}, () =>
-      `Chanchshivi212@gmail.com`);
+  // fillerContent = Array.from({length: 10}, () =>
+  //     `we are consistently delivers best-in-class solutions and an unmatched 
+  //     cost advantage to healthcare organizations worldwide.`);
 
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 500px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
