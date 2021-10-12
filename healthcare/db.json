@@ -15,6 +15,14 @@
       "email": "test@test.com",
       "createdDate": "9/6/2021",
       "id": "U510nSm"
+    },
+    {
+      "username": "abhay",
+      "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
+      "role": "Patient",
+      "email": "rahulb@gmail.com",
+      "createdDate": "9/1/2021",
+      "id": "drdUoGE"
     }
   ],
   "demographics": [
@@ -41,7 +49,16 @@
       "mobile": "1234567890",
       "dob": "2021-10-09",
       "patient_id": "U510nSm",
-      "id": "YxgbFeV"
+      "id": "YxgbFeV",
+      "gender": "Male"
+    },
+    {
+      "first_name": "rahul",
+      "last_name": "badekar",
+      "mobile": "9860636760",
+      "dob": "2021-10-06",
+      "patient_id": "drdUoGE",
+      "id": "J7kJeWl"
     }
   ],
   "medication_allergies": [
