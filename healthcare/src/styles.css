@@ -5,6 +5,9 @@
 /* button{
   width: 140px;
 } */
+.example-spacer {
+  flex: 1 1 auto;
+}
 .card{
   background: var(--surface-e);
     padding: 2rem;

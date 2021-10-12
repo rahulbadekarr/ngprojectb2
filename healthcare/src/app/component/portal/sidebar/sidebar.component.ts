@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef,  OnDestroy} from '@angular/core';
 
@@ -7,7 +7,7 @@ import {ChangeDetectorRef,  OnDestroy} from '@angular/core';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnDestroy {
+export class SidebarComponent implements  OnDestroy {
   mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
@@ -25,6 +25,9 @@ export class SidebarComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+  onLogout(){
+    
   }
 }
 
