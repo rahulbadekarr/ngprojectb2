@@ -16,7 +16,7 @@ export class UserService {
   private userDemographicUrl = 'http://localhost:3004/demographics';
 
   login(username: string, password: string) {
-    return this.http.get(`${this.baseUrl}?email=${username}`).pipe(
+    return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
       map((data: Users[]) => {
         let userData: Users;
         if (data.length > 0) {
