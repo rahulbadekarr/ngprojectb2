@@ -1,5 +1,5 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
- 
+ <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
     <mat-toolbar color="primary" class="example-toolbar d-flex flex-row">
       <button mat-icon-button class="m-2" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name m-2">Health Care App</h1>
@@ -9,7 +9,7 @@
        <button mat-raised-button (click)="onLogout()">Logout</button>
     </mat-toolbar>
 
-    
+
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
@@ -21,25 +21,26 @@
           <a mat-list-item routerLink="/" >Registration</a>
         </mat-nav-list>
       </mat-sidenav>
-  
+
       <mat-sidenav-content>
         <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
+        <ng-content></ng-content>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
 
 
 
-  
-  
-  
 
-  
+
+
+
+
 
 <!-- pre set -->
-<br>
+<!-- <br>
 <a routerLink="dashboard">Dashboard</a>
 <br>
 <a routerLink="patient/patient-demographics">Patient Demographics</a>
 <br>
-<a routerLink="patient/patient-immunization">Patient Immunization</a>
+<a routerLink="patient/patient-immunization">Patient Immunization</a> -->
