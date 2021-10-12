@@ -5,6 +5,9 @@
 /* button{
   width: 140px;
 } */
+.example-spacer {
+  flex: 1 1 auto;
+}
 .card{
   background: var(--surface-e);
     padding: 2rem;
@@ -71,3 +74,6 @@ input.ng-invalid.ng-touched{
 .help-block{
 color: #cc0000;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
