@@ -1,130 +1,170 @@
-<div class="background">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8 col-md-8 col-xs-2 ">
-        <div class="card ">
-          <div class="card-header">
-            <h5 class="text-center">Patient Portal - Registration</h5>
+<mat-card>
+  <mat-card-content>
+    <h2>Register</h2>
+    <form [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput formControlName="username" placeholder="User Name">
+                  <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
+                    Please enter username
+                  </mat-error>
+                  <mat-error *ngIf="!username.valid && username.touched && username.hasError('UserExistsError')">
+                    Username already taken! please enter different username.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput formControlName="firstname" placeholder="First Name">
+                  <mat-error *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
+                    Please enter firstname
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-12">
-                <form [formGroup]="registerForm">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="float-input">First Name:</label>
-                        <input type="text" name="firstname" class="form-control" placeholder="First Name"
-                          formControlName="firstname" />
-                          <span *ngIf="!firstname.valid && firstname.touched" class="help-block">Please enter first name
-                          </span>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Last Name:</label>
-                        <input type="text" name="lastname" class="form-control" placeholder="Last Name"
-                        formControlName="lastname" />
-                          <span *ngIf="!lastname.valid && lastname.touched" class="help-block">Please enter last name
-                          </span>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Email:</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email Name"
-                        formControlName="email" />
-                        <span *ngIf="!email.valid && email.touched && email.hasError('required')" class="help-block">Please enter email
-                        </span>
-                        <span *ngIf="!email.valid && email.touched && email.hasError('email')" class="help-block">Please enter valid
-                          email
-                        </span>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Password:</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password"
-                        formControlName="password" />
-                        <span *ngIf="!password.valid && password.touched  && password.hasError('required')" class="help-block">Please enter password
-                        </span>
-                        <span *ngIf="!password.valid && password.touched  && password.hasError('minlength')" class="help-block">Please enter valid
-                          password upto 8 characters
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Retype Password:</label>
-                        <input type="password" name="retypepassword" placeholder="Retype Password" class="form-control"
-                        formControlName="retypepassword" />
-                        <div [hidden]="retypepassword.valid || password.untouched">
-                          <span *ngIf="!retypepassword.valid && retypepassword.touched  && retypepassword.hasError('required')" class="help-block">Please enter password
-                          </span>
-                          <span *ngIf="!retypepassword.valid && retypepassword.touched  && retypepassword.hasError('minlength')" class="help-block">Please enter valid
-                            password upto 8 characters
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Date of birth:</label>
-                        <input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth" />
-                        <span *ngIf="!dateofbirth.valid && dateofbirth.touched" class="help-block">Please enter date of birth
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Role:</label>
-                        <select name="role"  formControlName="role" class="form-select" placeholder="Select Role" >
-                          <option *ngFor="let role of roles" value="{{role}}">
-                             {{role}}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Mobile number:</label>
-                        <input type="text" name="phone" class="form-control" maxlength="10" formControlName="phone" />
-                        <span *ngIf="!phone.valid && phone.touched" class="help-block">Please enter phone number
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <button class="btn btn-success btn-block" [disabled]="registerForm.invalid"
-                        (click)="onRegister()">Register</button>
-
-                    </div>
-                    <div class="col-sm-6">
-                      <button class="btn btn-secondary  btn-block">Cancel</button>
-                    </div>
-                  </div>
-
-                </form>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput formControlName="lastname" placeholder="Last Name">
+                  <mat-error *ngIf="!lastname.valid && lastname.touched && lastname.hasError('required')">
+                    Please enter lastname
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput formControlName="email" placeholder="Email">
+                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
+                    Please enter email
+                  </mat-error>
+                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
+                    Please enter valid email
+                  </mat-error>
+                </mat-form-field>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput type="password" formControlName="password" placeholder="Password">
+                  <mat-error *ngIf="!password.valid && password.touched  && password.hasError('required')">
+                    Please enter password
+                  </mat-error>
+                  <mat-error *ngIf="!password.valid && password.touched  && password.hasError('minlength')">
+                    Password must be upto 8 characters
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput type="password" formControlName="retypepassword" placeholder="Re-Type Password">
+                  <mat-error
+                    *ngIf="!retypepassword.valid && retypepassword.touched  && retypepassword.hasError('required')">
+                    Please enter password
+                  </mat-error>
+                  <mat-error
+                    *ngIf="!retypepassword.valid && retypepassword.touched  && retypepassword.hasError('minlength')">
+                    Password must be upto 8 characters
+                  </mat-error>
+                  <mat-error
+                    *ngIf="!retypepassword.valid && retypepassword.touched  && retypepassword.hasError('mustMatch')">
+                    Password must match
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Date of birth</mat-label>
+                  <input matInput formControlName="dateofbirth" [matDatepicker]="dobpicker">
+                  <mat-datepicker-toggle matSuffix [for]="dobpicker">
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #dobpicker></mat-datepicker>
+                  <mat-error *ngIf="!dateofbirth.valid && dateofbirth.touched && dateofbirth.hasError('required')">
+                    Please enter date of birth
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Role</mat-label>
+                  <mat-select formControlName="role" name="role">
+                    <mat-option *ngFor="let role of roles" [value]="role">
+                      {{role}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="!role.valid && role.touched && role.hasError('required')">
+                    Please select role
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput formControlName="phone" placeholder="Phone">
+                  <mat-error *ngIf="!phone.valid && phone.touched && phone.hasError('required')">
+                    Please enter phone number
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input matInput formControlName="address" placeholder="Address">
+                <mat-error *ngIf="!address.valid && address.touched && address.hasError('required')">
+                  Please enter address
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <button mat-raised-button color="primary" [disabled]="registerForm.invalid"
+            (click)="onRegister()">Register</button>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" mat-raised-button>Cancel</button>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

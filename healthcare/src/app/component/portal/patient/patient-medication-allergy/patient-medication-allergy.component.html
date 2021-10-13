@@ -1,0 +1,107 @@
+<div class="background">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 col-md-8 col-xs-2">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="text-center">
+              Patient Portal - Medication and Allergies
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <form [formGroup]="med_allergy">
+
+                <div class="row">
+                  <div class="col-bg">
+
+                    <div class="form-group">
+                      <div class="row">
+                      <div class="col-sm-3">
+                      <label>Current Medication</label>
+                      </div>
+                      <div class="col-sm-8">
+                      <input
+                        type="text"
+                        name="current_medication"
+                        class="form-control"
+                        formControlName="current_medication"
+                      />
+                      </div>
+                      </div>
+
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label>OTC (Over the Counter Medication)</label>
+                      <input
+                        type="text"
+                        name="otc_medication"
+                        class="form-control"
+                        formControlName="otc_medication"
+                      />
+
+                      <div class="form-group">
+                        <label>Herbs/Vitamin/Minerals/Antibodies</label>
+                        <input
+                          type="text"
+                          name="natural_product_hurbs"
+                          class="form-control"
+                          formControlName="natural_product_hurbs"
+                        />
+
+                        <div class="form-group">
+                          <label>Social Drugs</label>
+                          <input
+                            type="text"
+                            name="socila_drugs"
+                            class="form-control"
+                            formControlName="socila_drugs"
+                          />
+
+                          <div class="form-group">
+                            <label>Past Medication Records</label>
+                            <input
+                              type="text"
+                              name="past_medication"
+                              class="form-control"
+                              formControlName="past_medication"
+                            />
+
+                            <div class="form-group">
+                              <label>Drug Allergies</label>
+                              <input
+                                type="text"
+                                name="drug_allergies"
+                                class="form-control"
+                                formControlName="drug_allergies"
+                              />
+
+                              <div class="form-group">
+                                <label>Other Allergies</label>
+                                <input
+                                  type="text"
+                                  name="other_allergies_reaction"
+                                  class="form-control"
+                                  formControlName="other_allergies_reaction"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary" (click)="Test()">Test</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
