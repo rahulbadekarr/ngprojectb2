@@ -4,7 +4,7 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl,
+  AbstractControl
 } from '@angular/forms';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
@@ -19,12 +19,17 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   roles = ['Patient', 'Physician'];
 
-  constructor(private fb: FormBuilder, private _userService: UserService,private _snackBar: CustomSnackBarService) {}
+  constructor(
+    private fb: FormBuilder,
+    private _userService: UserService,
+    private _snackBar: CustomSnackBarService
+  ) {}
 
   ngOnInit(): void {
     console.log(this.registerForm);
     this.registerForm = this.fb.group(
       {
+        username: ['', [Validators.required, this.validateUsername.bind(this)]],
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -64,13 +69,17 @@ export class RegistrationComponent implements OnInit {
         userDemographics.patient_id = data.id;
         this._userService
           .createUserDemographics(userDemographics)
-          .subscribe(data => {
-            if(data){
+          .subscribe((data) => {
+            if (data) {
               this._snackBar.openSnackBar('Registered successfully');
             }
           });
       }
     });
+  }
+
+  get username(): AbstractControl {
+    return this.registerForm.get('username');
   }
 
   get firstname(): AbstractControl {
@@ -122,5 +131,14 @@ export class RegistrationComponent implements OnInit {
         matchingControl.setErrors(null);
       }
     };
+  }
+
+  private validateUsername(control: AbstractControl) {
+    const val = control.value;
+    return this._userService
+      .validateUserName(val)
+      .subscribe((data: boolean) => {
+        return data ? control.setErrors(null) : control.setErrors({"UserExistsError": true});
+      });
   }
 }

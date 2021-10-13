@@ -47,6 +47,18 @@ export class UserService {
     return this.http.post<Users>(this.baseUrl, userData);
   }
 
+  validateUserName(username: string){
+    return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
+      map((res : Array<Users>) => {
+        if(res.length > 0){
+          return false;
+        }else{
+          return true;
+        }
+      })
+    );
+  }
+
   createUserDemographics(demographicData: Demographics){
     return this.http.post(this.userDemographicUrl, demographicData);
   }
