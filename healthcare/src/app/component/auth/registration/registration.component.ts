@@ -4,7 +4,7 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl,
+  AbstractControl
 } from '@angular/forms';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
@@ -19,12 +19,17 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   roles = ['Patient', 'Physician'];
 
-  constructor(private fb: FormBuilder, private _userService: UserService,private _snackBar: CustomSnackBarService) {}
+  constructor(
+    private fb: FormBuilder,
+    private _userService: UserService,
+    private _snackBar: CustomSnackBarService
+  ) {}
 
   ngOnInit(): void {
     console.log(this.registerForm);
     this.registerForm = this.fb.group(
       {
+        username: ['', [Validators.required, this.validateUsername.bind(this)]],
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -40,6 +45,7 @@ export class RegistrationComponent implements OnInit {
         role: new FormControl('', Validators.required),
         password: ['', [Validators.required, Validators.minLength(8)]],
         retypepassword: ['', [Validators.required]],
+        address: ['',Validators.required]
       },
       {
         validator: this.MustMatch('password', 'retypepassword'),
@@ -52,25 +58,31 @@ export class RegistrationComponent implements OnInit {
     userData.email = this.email.value;
     userData.role = this.role.value;
     userData.password = this.password.value;
+    userData.username = this.username.value;
 
     let userDemographics: Demographics = new Demographics();
     userDemographics.first_name = this.firstname.value;
     userDemographics.last_name = this.lastname.value;
     userDemographics.mobile = this.phone.value;
     userDemographics.dob = this.dateofbirth.value;
+    userDemographics.address = this.address.value;
 
     this._userService.registerUser(userData).subscribe((data: Users) => {
       if (data) {
         userDemographics.patient_id = data.id;
         this._userService
           .createUserDemographics(userDemographics)
-          .subscribe(data => {
-            if(data){
+          .subscribe((data) => {
+            if (data) {
               this._snackBar.openSnackBar('Registered successfully');
             }
           });
       }
     });
+  }
+
+  get username(): AbstractControl {
+    return this.registerForm.get('username');
   }
 
   get firstname(): AbstractControl {
@@ -105,6 +117,10 @@ export class RegistrationComponent implements OnInit {
     return this.registerForm.get('role');
   }
 
+  get address(): AbstractControl {
+    return this.registerForm.get('address');
+  }
+
   MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
@@ -122,5 +138,14 @@ export class RegistrationComponent implements OnInit {
         matchingControl.setErrors(null);
       }
     };
+  }
+
+  private validateUsername(control: AbstractControl) {
+    const val = control.value;
+    return this._userService
+      .validateUserName(val)
+      .subscribe((data: boolean) => {
+        return data ? control.setErrors(null) : control.setErrors({"UserExistsError": true});
+      });
   }
 }
