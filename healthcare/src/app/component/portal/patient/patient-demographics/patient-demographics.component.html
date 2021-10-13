@@ -1,0 +1,189 @@
+<!-- <p>demographics works!</p> -->
+<div class="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 col-md-8 col-xs-2 ">
+          <div class="card ">
+            <div class="card-header">
+              <h5 class="text-left">Patient Portal - Demographics</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <form formGroup="demoForm">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="float-input">First Name:</label>
+                          <input type="text" name="firstname" class="form-control" placeholder="First Name"
+                            formControlName="firstname" />
+                             <span *ngIf="!firstname.valid && firstname.touched" class="help-block">Please enter first name
+                            </span> 
+                        </div>
+                        <span *ngIf="!firstname.valid && firstname.touched" class="help-block">Please enter first name
+                        </span> 
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Last Name:</label>
+                          <input type="text" name="lastname" class="form-control" placeholder="Last Name"
+                          formControlName="lastname" />
+                            <span *ngIf="!lastname.valid && lastname.touched" class="help-block">Please enter last name
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+  
+   <div class="row">
+                     
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Date of birth:</label>
+                          <input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth" />
+                         <span *ngIf="!dateofbirth.valid && dateofbirth.touched" class="help-block">Please enter date of birth
+                          </span> 
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Gender:</label>
+                         <select name="gender"  formControlName="gender" class="form-select" placeholder="Select Gender" >
+                          <option *ngFor="let gender of genders" value="{{gender}}">
+                             {{gender}}
+                          </option>
+                        </select>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="float-input">Ethanicity/Race:</label>
+                          <input type="text" name="ethanicity" class="form-control" placeholder="Ethanicity/Race"
+                            formControlName="ethanicity" />
+                            <span *ngIf="!ethanicity.valid && ethanicity.touched" class="help-block">Please enter ethanicity
+                            </span> 
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Education:</label>
+                          <input type="text" name="education" class="form-control" placeholder="Education"
+                          formControlName="education" />
+                             <span *ngIf="!education.valid && education.touched" class="help-block">Please enter education
+                            </span> 
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                     
+                      
+                       <div class="col-sm-12">
+                        <div class="form-group">
+                          <label>Address:</label>
+                          <textarea class="form-control" name="address"  formControlName="address" placeholder="Write here" id="floatingTextarea2"></textarea>
+                          <span *ngIf="!address.valid && address.touched" class="help-block">Please enter address
+                          </span> 
+                        </div>
+                      </div>
+  
+                     
+                    </div>
+  
+                   
+  
+                    <div class="row">
+                       <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Employeement:</label>
+                          <input type="text" name="employeement" class="form-control" placeholder="Employeement"
+                          formControlName="employeement" />
+                          <span *ngIf="!employeement.valid && employeement.touched" class="help-block">Please enter employeement
+                          </span> 
+                        </div>
+                           </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Mobile number:</label>
+                          <input type="text" name="phone" class="form-control" maxlength="10" formControlName="phone" placeholder="+91"/>
+                           <span *ngIf="!phone.valid && phone.touched" class="help-block">Please enter phone number
+                          </span> 
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                       <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Medical history:</label>
+                         <!--  <input type="text" name="medicalhistory" class="form-control" placeholder="Medical history"
+                          formControlName="medicalhistory" /> -->
+                          <textarea class="form-control" name="medicalhistory"  formControlName="medicalhistory"  placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                          <span *ngIf="!medicalhistory.valid && medicalhistory.touched" class="help-block">Please enter medical history
+                          </span> 
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Family Medical History:</label>
+                           <!--  <input type="text" name="fmedicalhistory" class="form-control" placeholder=" familyMedical history"
+                          formControlName="fmedicalhistory" /> -->
+                          <textarea class="form-control" name="fmedicalhistory"  formControlName="fmedicalhistory"  placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                          <span *ngIf="!fmedicalhistory.valid && fmedicalhistory.touched" class="help-block">Please enter family medical history
+                          </span> 
+                        </div>
+                      </div>
+                    </div>
+  
+                     <div class="row">
+                       <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Surgeries:</label>
+                          <input type="text" name="surgeries" class="form-control" placeholder="Surgeries"
+                          formControlName="surgeries" />
+                          <span *ngIf="!surgeries.valid && surgeries.touched" class="help-block">Please enter surgeries
+                          </span> 
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Insurence Provider:</label>
+                            <input type="text" name="insurenceprovider" class="form-control" placeholder="Insurence Provider"
+                          formControlName="insurenceprovider" />
+                          <span *ngIf="!insurenceprovider.valid && insurenceprovider.touched" class="help-block">Please enter insurenceprovider
+                          </span> 
+                        </div>
+                      </div>
+                    </div>
+  
+                      <br>
+  
+  
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <button class="btn btn-success btn-block" [disabled]=""
+                          style="width:100%"  (click)="onSubmit()">Add</button>
+  
+                      </div>
+                      <div class="col-sm-6">
+                        <button class="btn btn-secondary btn-block" style="width:100%">Cancel</button>
+                      </div>
+                    </div>
+  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

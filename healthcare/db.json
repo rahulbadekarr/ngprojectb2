@@ -7,6 +7,22 @@
       "role": "patient",
       "password": "111",
       "createdDate": "10/06/2021"
+    },
+    {
+      "username": "abhay",
+      "password": "$2a$10$NBKfWeD42ZOTR1jcpuMVqugE3MTxkvQJNqctcJEVw3ugMBodDJjxq",
+      "role": "Patient",
+      "email": "test@test.com",
+      "createdDate": "9/6/2021",
+      "id": "U510nSm"
+    },
+    {
+      "username": "rahul",
+      "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
+      "role": "Patient",
+      "email": "rahulb@gmail.com",
+      "createdDate": "9/1/2021",
+      "id": "drdUoGE"
     }
   ],
   "demographics": [
@@ -26,6 +42,23 @@
       "family_medical_history": "",
       "surgery": "",
       "insurance_provider": ""
+    },
+    {
+      "first_name": "test123",
+      "last_name": "test123",
+      "mobile": "1234567890",
+      "dob": "2021-10-09",
+      "patient_id": "U510nSm",
+      "id": "YxgbFeV",
+      "gender": "Male"
+    },
+    {
+      "first_name": "rahul",
+      "last_name": "badekar",
+      "mobile": "9860636760",
+      "dob": "2021-10-06",
+      "patient_id": "drdUoGE",
+      "id": "J7kJeWl"
     }
   ],
   "medication_allergies": [
@@ -51,14 +84,26 @@
   ],
   "schedule_appointment": [
     {
-      "id": "",
-      "patient_id": "1",
-      "meeting_title": "",
-      "description": "",
+      "id": "b629nqh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Monthly Check-up",
+      "description": "Full body checkup",
       "physication": "",
-      "date": "",
+      "date": "9/6/2021",
       "time": "",
-      "reason": ""
+      "reason": "Full body checkup",
+      "status": "Completed"
+    },
+    {
+      "id": "a510fkh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "physication": "",
+      "date": "9/10/2021",
+      "time": "",
+      "reason": "Having high fever",
+      "status": "Scheduled"
     }
   ],
   "order": [
