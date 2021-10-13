@@ -20,7 +20,7 @@ export class DemographicsService {
   
     let date = new Date();
     let demograpgicData: Demographics = new Demographics();
-    demograpgicData.patient_id = 1;
+    demograpgicData.patient_id = "";
     demograpgicData.first_name = "";
     demograpgicData.last_name = "";
     demograpgicData.gender = "";
@@ -35,7 +35,7 @@ export class DemographicsService {
     demograpgicData.mobile = 9;
     
     //demograpgicData.dob = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
-    return this.http.post<Demographics>(this.userDemographicUrl, demograpgicData);
+    return this.http.patch<Demographics>(this.userDemographicUrl, demograpgicData);
   }
 
   createUserDemographics(demographicData: Demographics){
@@ -45,6 +45,11 @@ export class DemographicsService {
   getUserDetails(): Users | null {
     console.log(JSON.parse(localStorage.getItem('user')));
     return JSON.parse(localStorage.getItem('user'));
+  }
+
+  getUserProfiles(userId:string):Observable<Demographics>  |null {
+    console.log(userId)
+    return this.http.get<Demographics>(`${this.userDemographicUrl}?patient_id=${userId}`);
   }
 
 }
