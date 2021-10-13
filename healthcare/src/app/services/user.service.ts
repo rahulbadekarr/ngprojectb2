@@ -39,7 +39,7 @@ export class UserService {
     const pass = bcrypt.hashSync(data.password, 10);
     let date = new Date();
     let userData: Users = new Users();
-    userData.username = "abhay";
+    userData.username = data.username;
     userData.password = pass;
     userData.role = data.role;
     userData.email = data.email;

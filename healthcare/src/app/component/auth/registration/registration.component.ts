@@ -45,6 +45,7 @@ export class RegistrationComponent implements OnInit {
         role: new FormControl('', Validators.required),
         password: ['', [Validators.required, Validators.minLength(8)]],
         retypepassword: ['', [Validators.required]],
+        address: ['',Validators.required]
       },
       {
         validator: this.MustMatch('password', 'retypepassword'),
@@ -57,12 +58,14 @@ export class RegistrationComponent implements OnInit {
     userData.email = this.email.value;
     userData.role = this.role.value;
     userData.password = this.password.value;
+    userData.username = this.username.value;
 
     let userDemographics: Demographics = new Demographics();
     userDemographics.first_name = this.firstname.value;
     userDemographics.last_name = this.lastname.value;
     userDemographics.mobile = this.phone.value;
     userDemographics.dob = this.dateofbirth.value;
+    userDemographics.address = this.address.value;
 
     this._userService.registerUser(userData).subscribe((data: Users) => {
       if (data) {
@@ -112,6 +115,10 @@ export class RegistrationComponent implements OnInit {
 
   get role(): AbstractControl {
     return this.registerForm.get('role');
+  }
+
+  get address(): AbstractControl {
+    return this.registerForm.get('address');
   }
 
   MustMatch(controlName: string, matchingControlName: string) {

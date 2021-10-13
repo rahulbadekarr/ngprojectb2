@@ -143,6 +143,19 @@
           </div>
         </div>
 
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input matInput formControlName="address" placeholder="Address">
+                <mat-error *ngIf="!address.valid && address.touched && address.hasError('required')">
+                  Please enter address
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
         <div class="col-sm-6">
           <button mat-raised-button color="primary" [disabled]="registerForm.invalid"
             (click)="onRegister()">Register</button>
