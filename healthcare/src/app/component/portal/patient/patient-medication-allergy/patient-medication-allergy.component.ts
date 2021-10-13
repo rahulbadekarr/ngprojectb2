@@ -6,7 +6,7 @@ import {
   FormBuilder,
   AbstractControl,
 } from '@angular/forms';
-import { PatientMedicationAllergyService } from 'src/app/patient/patient-medication-allergy.service';
+// import { PatientMedicationAllergyService } from 'src/app/patient/patient-medication-allergy.service';
 import { Med_allergy } from 'src/model/tabletypes';
 
 @Component({
@@ -19,7 +19,7 @@ export class PatientMedicationAllergyComponent implements OnInit {
   MedData : Med_allergy ;
   med_allergy: FormGroup;
   constructor(
-    private medi_allergyService: PatientMedicationAllergyService,
+    // private medi_allergyService: PatientMedicationAllergyService,
     private fb: FormBuilder
   ) {}
 
@@ -36,11 +36,11 @@ export class PatientMedicationAllergyComponent implements OnInit {
 
   }
 
-  Test() {
-    this.medi_allergyService
-      .getUserMedAllergyDetails()
-      .subscribe();
-  }
+  // Test() {
+  //   this.medi_allergyService
+  //     .getUserMedAllergyDetails()
+  //     .subscribe();
+  // }
 
   get current_medication(): AbstractControl {
     return this.med_allergy.get('current_medication');
