@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef,  OnDestroy} from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+// import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +20,7 @@ export class SidebarComponent implements  OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private _userService: UserService) {
     this.mobileQuery = media.matchMedia('(max-width: 500px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -27,8 +29,12 @@ export class SidebarComponent implements  OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  onLogout(){
-    
+  onlogout(){
+    this._userService.logout();
   }
+  // isLoggedIn$: Observable<boolean>; 
+  // ngOnInit() {
+  //   this.isLoggedIn$ = this._userService.isLoggedIn; // {2}
+  // }
 }
 
