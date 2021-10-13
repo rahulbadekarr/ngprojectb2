@@ -12,7 +12,7 @@ export class Users {
 }
 
 export class Demographics {
-  id: number;
+  id: string;
   patient_id: string;
   first_name: string;
   last_name: string;
@@ -48,8 +48,8 @@ export interface Immune {
   general_vaccine: string;
 }
 
-export interface Schd_appt {
-  id: number;
+export class Appointments {
+  id: string;
   patient_id: string;
   meeting_title: string;
   description: string;
@@ -57,6 +57,7 @@ export interface Schd_appt {
   date: Date;
   time: Time;
   reason: string;
+  status: string;
 }
 
 export interface Order {

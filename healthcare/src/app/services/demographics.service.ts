@@ -14,13 +14,13 @@ export class DemographicsService {
     private userDemographicUrl = 'http://localhost:3004/demographics';
 
 
-   
+
 
    add_demographic_data(data: Demographics) : Observable<Demographics> {
-  
+
     let date = new Date();
     let demograpgicData: Demographics = new Demographics();
-    demograpgicData.patient_id = "";
+    //demograpgicData.patient_id = 1;
     demograpgicData.first_name = "";
     demograpgicData.last_name = "";
     demograpgicData.gender = "";
@@ -33,7 +33,7 @@ export class DemographicsService {
     demograpgicData.surgery = "";
     demograpgicData.insurance_provider = "";
     demograpgicData.mobile = 9;
-    
+
     //demograpgicData.dob = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
     return this.http.patch<Demographics>(this.userDemographicUrl, demograpgicData);
   }

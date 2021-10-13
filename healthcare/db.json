@@ -17,7 +17,7 @@
       "id": "U510nSm"
     },
     {
-      "username": "abhay",
+      "username": "rahul",
       "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
       "role": "Patient",
       "email": "rahulb@gmail.com",
@@ -84,14 +84,26 @@
   ],
   "schedule_appointment": [
     {
-      "id": "",
-      "patient_id": "1",
-      "meeting_title": "",
-      "description": "",
+      "id": "b629nqh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Monthly Check-up",
+      "description": "Full body checkup",
       "physication": "",
-      "date": "",
+      "date": "9/6/2021",
       "time": "",
-      "reason": ""
+      "reason": "Full body checkup",
+      "status": "Completed"
+    },
+    {
+      "id": "a510fkh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "physication": "",
+      "date": "9/10/2021",
+      "time": "",
+      "reason": "Having high fever",
+      "status": "Scheduled"
     }
   ],
   "order": [
