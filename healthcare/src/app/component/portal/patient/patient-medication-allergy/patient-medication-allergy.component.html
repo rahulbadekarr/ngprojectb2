@@ -1,107 +1,150 @@
-<div class="background">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8 col-md-8 col-xs-2">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="text-center">
-              Patient Portal - Medication and Allergies
-            </h5>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <form [formGroup]="med_allergy">
+<mat-card>
+  <mat-card-content>
+    <h2>Patient Medication and Allergy</h2>
+    <div class="container">
 
-                <div class="row">
-                  <div class="col-bg">
+      <form [formGroup]="med_allergy_form">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-6">
+            <div class="col-sm-12">
+            <div class="col-sm-6">
+              <div class="form-group">
 
-                    <div class="form-group">
-                      <div class="row">
-                      <div class="col-sm-3">
-                      <label>Current Medication</label>
-                      </div>
-                      <div class="col-sm-8">
-                      <input
-                        type="text"
-                        name="current_medication"
-                        class="form-control"
-                        formControlName="current_medication"
-                      />
-                      </div>
-                      </div>
-
-                    </div>
-                    </div>
-                    <div class="form-group">
-                      <label>OTC (Over the Counter Medication)</label>
-                      <input
-                        type="text"
-                        name="otc_medication"
-                        class="form-control"
-                        formControlName="otc_medication"
-                      />
-
-                      <div class="form-group">
-                        <label>Herbs/Vitamin/Minerals/Antibodies</label>
-                        <input
-                          type="text"
-                          name="natural_product_hurbs"
-                          class="form-control"
-                          formControlName="natural_product_hurbs"
-                        />
-
-                        <div class="form-group">
-                          <label>Social Drugs</label>
-                          <input
-                            type="text"
-                            name="socila_drugs"
-                            class="form-control"
-                            formControlName="socila_drugs"
-                          />
-
-                          <div class="form-group">
-                            <label>Past Medication Records</label>
-                            <input
-                              type="text"
-                              name="past_medication"
-                              class="form-control"
-                              formControlName="past_medication"
-                            />
-
-                            <div class="form-group">
-                              <label>Drug Allergies</label>
-                              <input
-                                type="text"
-                                name="drug_allergies"
-                                class="form-control"
-                                formControlName="drug_allergies"
-                              />
-
-                              <div class="form-group">
-                                <label>Other Allergies</label>
-                                <input
-                                  type="text"
-                                  name="other_allergies_reaction"
-                                  class="form-control"
-                                  formControlName="other_allergies_reaction"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <button class="btn btn-primary" (click)="Test()">Test</button>
-                      </div>
-                    </div>
-                  </div>
-
-
-              </form>
+                <mat-form-field class="full-width-input">
+                  <input
+                    matInput
+                    formControlName="current_medication"
+                    placeholder="Current Medication"
+                  />
+                  <mat-error
+                    *ngIf="
+                      !current_medication.valid &&
+                      current_medication.touched &&
+                      current_medication.hasError('required')
+                    "
+                  >
+                    Please enter current Medication Details
+                  </mat-error>
+                </mat-form-field>
+              </div>
             </div>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="otc_medication"
+                placeholder="OTC Medication"
+              />
+              <mat-error
+                *ngIf="
+                  !otc_medication.valid &&
+                  otc_medication.touched &&
+                  otc_medication.hasError('required')
+                "
+              >
+                Please enter OTC Medication Details
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="natural_product_hurbs"
+                placeholder="Herbs/Vitamins/Minerals/Antibiotics"
+              />
+              <mat-error
+                *ngIf="
+                  !natural_product_hurbs.valid &&
+                  natural_product_hurbs.touched &&
+                  natural_product_hurbs.hasError('required')
+                "
+              >
+                Please enter Natural Products and Herbs
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="social_drugs"
+                placeholder="Social Drug "
+              />
+              <mat-error
+                *ngIf="
+                  !social_drugs.valid &&
+                  social_drugs.touched &&
+                  social_drugs.hasError('required')
+                "
+              >
+                Please enter social drug details
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="past_medication"
+                placeholder="Past Medication Details "
+              />
+              <mat-error
+                *ngIf="
+                  !past_medication.valid &&
+                  past_medication.touched &&
+                  past_medication.hasError('required')
+                "
+              >
+                Please enter past medication details
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="drug_allergies"
+                placeholder="drug_allergies"
+              />
+              <mat-error
+                *ngIf="
+                  !drug_allergies.valid &&
+                  drug_allergies.touched &&
+                  drug_allergies.hasError('required')
+                "
+              >
+                Please enter Drug Allergies
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <input
+                matInput
+                formControlName="other_allergies_reaction"
+                placeholder="Other Allergic Details"
+              />
+              <mat-error
+                *ngIf="
+                  !other_allergies_reaction.valid &&
+                  other_allergies_reaction.touched &&
+                  other_allergies_reaction.hasError('required')
+                "
+              >
+                Please enter Other allergic details
+              </mat-error>
+            </mat-form-field>
+
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="med_allergy_form.invalid"
+              (click)="createPatientAllergyDetails()"
+            >
+              ADD Medication Details
+            </button>
+
+            <button type="button" mat-raised-button>Cancel</button>
           </div>
         </div>
-      </div>
+        </div>
+      </form>
     </div>
-  </div>
-</div>
-
+  </mat-card-content>
+</mat-card>
