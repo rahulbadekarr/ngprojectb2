@@ -23,7 +23,7 @@ import { MatSort } from '@angular/material/sort';
 
     ngAfterViewInit() {
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+
     }
 
     columns = [
@@ -72,8 +72,11 @@ import { MatSort } from '@angular/material/sort';
         let obj = new MatTableDataSource();
         obj.data = res
         this.dataSource = obj
+        this.dataSource.sort = this.sort;
       });
 
     }
+
+
 
   }
