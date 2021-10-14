@@ -46,6 +46,8 @@ export interface Immune {
   patient_id: string;
   covid_19_vaccine: string;
   general_vaccine: string;
+  vaccinedate:Date,
+  vaccinedosenumber: number,
 }
 
 export class Appointments {

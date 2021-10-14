@@ -18,7 +18,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MatRadioModule} from '@angular/material/radio'
 
 @NgModule({
   imports: [
@@ -61,7 +61,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatNativeDateModule,
     MatSnackBarModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRadioModule
 
   ]
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Demographics,  Users } from 'src/model/tabletypes';
+import { Demographics,  Immune,  Users } from 'src/model/tabletypes';
 import { map } from 'rxjs/operators';
 import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ export class UserService {
   constructor(private http: HttpClient, private _router: Router) {}
   private baseUrl = 'http://localhost:3004/users';
   private userDemographicUrl = 'http://localhost:3004/demographics';
+  private immuneUrl = 'http://localhost:3000/immunization';
 
   login(username: string, password: string) {
     return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
@@ -76,5 +77,10 @@ export class UserService {
   logout() {
     localStorage.removeItem('user');
     this._router.navigate(['login']);
+  }
+
+  saveImmunization(data):Observable<Immune>{
+    console.log("ser",data)
+    return this.http.post<Immune>(this.immuneUrl,data)
   }
 }

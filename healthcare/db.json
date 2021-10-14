@@ -79,6 +79,8 @@
       "id": "",
       "patient_id": "1",
       "covid_19_vaccine": "",
+      "vaccinedate": "",
+      "vaccinedosenumber": "",
       "general_vaccine": ""
     }
   ],
