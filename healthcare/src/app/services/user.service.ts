@@ -39,12 +39,24 @@ export class UserService {
     const pass = bcrypt.hashSync(data.password, 10);
     let date = new Date();
     let userData: Users = new Users();
-    userData.username = "abhay";
+    userData.username = data.username;
     userData.password = pass;
     userData.role = data.role;
     userData.email = data.email;
     userData.createdDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
     return this.http.post<Users>(this.baseUrl, userData);
+  }
+
+  validateUserName(username: string){
+    return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
+      map((res : Array<Users>) => {
+        if(res.length > 0){
+          return false;
+        }else{
+          return true;
+        }
+      })
+    );
   }
 
   createUserDemographics(demographicData: Demographics){
@@ -57,7 +69,6 @@ export class UserService {
   }
 
   getUserProfiles(userId:string):Observable<Demographics>  |null {
-    console.log(userId)
     return this.http.get<Demographics>(`${this.userDemographicUrl}?patient_id=${userId}`);
   }
 

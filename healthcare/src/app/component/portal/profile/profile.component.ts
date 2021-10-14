@@ -16,11 +16,10 @@ user:Users=new Users();
   ngOnInit(): void {
      this.user = this._userService.getUserDetails();
      this._userService.getUserProfiles(this.user.id).subscribe((data:any) => {
-      console.log(data[0].dob)
       for(let d of data){
         this.profile.dob = d.dob;
         this.profile.gender = d.gender;
-        this.profile.mobile = d.mobile;
+        this.profile.phone = d.phone;
 
       }
 

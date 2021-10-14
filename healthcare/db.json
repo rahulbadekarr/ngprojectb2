@@ -17,7 +17,7 @@
       "id": "U510nSm"
     },
     {
-      "username": "abhay",
+      "username": "rahul",
       "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
       "role": "Patient",
       "email": "rahulb@gmail.com",
@@ -28,34 +28,42 @@
   "demographics": [
     {
       "id": "",
-      "patient_id": "1",
-      "first_name": "",
-      "last_name": "",
+      "patient_id": "u124mus",
+      "firstname": "",
+      "lastname": "",
       "dob": "",
       "gender": "",
-      "ethicity": "",
+      "ethanicity": "",
       "education": "",
       "occupation": "",
       "address": "",
-      "mobile": "",
-      "medical_history": "",
+      "phone": "",
+      "medicalhistory": "",
       "family_medical_history": "",
       "surgery": "",
       "insurance_provider": ""
     },
     {
-      "first_name": "test123",
-      "last_name": "test123",
-      "mobile": "1234567890",
-      "dob": "2021-10-09",
+      "firstname": "test123",
+      "lastname": "test123",
+      "phone": "1234567890",
+      "dob": "9/4/2021",
       "patient_id": "U510nSm",
       "id": "YxgbFeV",
-      "gender": "Male"
+      "gender": "Male",
+      "education": "Lawyer",
+      "address": "Test Address",
+      "ethanicity": "American",
+      "occupation": "",
+      "medicalhistory": "",
+      "family_medical_history": "",
+      "surgery": "",
+      "insurance_provider": "test Insurance Provider"
     },
     {
-      "first_name": "rahul",
-      "last_name": "badekar",
-      "mobile": "9860636760",
+      "firstname": "rahul",
+      "lastname": "badekar",
+      "phone": "9860636760",
       "dob": "2021-10-06",
       "patient_id": "drdUoGE",
       "id": "J7kJeWl"
@@ -84,14 +92,26 @@
   ],
   "schedule_appointment": [
     {
-      "id": "",
-      "patient_id": "1",
-      "meeting_title": "",
-      "description": "",
+      "id": "b629nqh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Monthly Check-up",
+      "description": "Full body checkup",
       "physication": "",
-      "date": "",
+      "date": "9/6/2021",
       "time": "",
-      "reason": ""
+      "reason": "Full body checkup",
+      "status": "Completed"
+    },
+    {
+      "id": "a510fkh",
+      "patient_id": "U510nSm",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "physication": "",
+      "date": "9/10/2021",
+      "time": "",
+      "reason": "Having high fever",
+      "status": "Scheduled"
     }
   ],
   "order": [

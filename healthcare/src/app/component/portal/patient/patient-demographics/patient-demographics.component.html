@@ -1,1 +1,187 @@
-<p style="text-align: center;">patient-demographics works!</p>
+<div class="background">
+  <mat-card>
+    <mat-card-content>
+      <div class="container">
+        <div class="row">
+            <div class="card ">
+              <div class="card-header">
+                <h3 class="text-center">Patient - Demographics</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <form [formGroup]="demoForm">
+                      <input type="hidden" formControlName="id" [value]="demoForm.controls['id'].value" />
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="firstname" placeholder="First Name">
+                              <mat-error
+                                *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
+                                Please enter firstname
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="lastname" placeholder="Last Name">
+                              <mat-error *ngIf="!lastname.valid && lastname.touched && lastname.hasError('required')">
+                                Please enter lastname
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Date of birth</mat-label>
+                              <input matInput formControlName="dob" [matDatepicker]="dobpicker">
+                              <mat-datepicker-toggle matSuffix [for]="dobpicker">
+                              </mat-datepicker-toggle>
+                              <mat-datepicker #dobpicker></mat-datepicker>
+                              <mat-error *ngIf="!dob.valid && dob.touched && dob.hasError('required')">
+                                Please enter date of birth
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Gender</mat-label>
+                              <mat-select formControlName="gender" name="gender">
+                                <mat-option *ngFor="let gen of genders" [value]="gen">
+                                  {{gen}}
+                                </mat-option>
+                              </mat-select>
+                              <mat-error *ngIf="!gender.valid && gender.touched && gender.hasError('required')">
+                                Please select gender
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="ethanicity" placeholder="Ethanicity/Race">
+                              <mat-error
+                                *ngIf="!ethanicity.valid && ethanicity.touched && ethanicity.hasError('required')">
+                                Please enter ethanicity
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="education" placeholder="Education">
+                              <mat-error
+                                *ngIf="!education.valid && education.touched && education.hasError('required')">
+                                Please enter education
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="phone" placeholder="Phone">
+                              <mat-error *ngIf="!phone.valid && phone.touched && phone.hasError('required')">
+                                Please enter phone number
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="medicalhistory" placeholder="Medical history">
+                              <mat-error
+                                *ngIf="!medicalhistory.valid && medicalhistory.touched && medicalhistory.hasError('required')">
+                                Please enter medical history
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="family_medical_history"
+                                placeholder="Family Medical history">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Employeement:</label>
+                          <input type="text" name="employeement" class="form-control" placeholder="Employeement"
+                          formControlName="employeement" />
+                          <span *ngIf="!employeement.valid && employeement.touched && employeement.hasError('required')" class="help-block">Please enter employeement
+                          </span>
+                            <mat-form-field class="full-width-input">
+                            <input matInput formControlName="employeement" placeholder="Employeement">
+                            <mat-error *ngIf="!employeement.valid && employeement.touched && employeement.hasError('required')">
+                              Please enter employeement
+                            </mat-error>
+                          </mat-form-field>
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="surgery" placeholder="Surgeries">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <input matInput formControlName="insurance_provider" placeholder="Insurance Provider">
+                              <mat-error
+                                *ngIf="!insurance_provider.valid && insurance_provider.touched && insurance_provider.hasError('required')">
+                                Please enter Insurance provider
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <mat-form-field class="full-width-input">
+                              <textarea matInput matInput formControlName="address" placeholder="Address"></textarea>
+                              <mat-error *ngIf="!address.valid && address.touched && address.hasError('required')">
+                                Please enter address
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-2 offset-md-10">
+                          <button mat-raised-button color="primary"
+                            (click)="onSubmit()" style="margin-right: 10px;">Add</button>
+                            <button mat-raised-button>Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

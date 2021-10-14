@@ -1,1 +1,49 @@
 <p style="text-align: center;">patient-immunization works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+<div>
+    <h3>Immunization details</h3>
+    <form>
+      <div class="form-group">
+        <label for="vaccine">Vaccine Name:</label>
+        <select class="form-control" id="vaccine">
+          <option>Covishield</option>
+          <option>Covaxin</option>
+          <option>Sputnik</option>
+          <option>TT</option>
+          <option>Measles</option>
+          <option>Pentavelant</option>
+          <option>Vitamin A</option>
+          <option>BCG</option>
+          <option>Fluzone Quadrivalent</option>
+        </select>
+        
+        <div class="form-check">
+          <input class="fom-check=input" type="radio" name="dose" id="dose" value="Dose 1" >
+          <label class="form-check-label" for="dose">
+            Dose#1
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="fom-check=input" type="radio" name="dose" id="dose" value="Dose 2" >
+          <label class="form-check-label" for="dose">
+            Dose#2
+          </label>
+        </div>
+         </div>
+         <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Date of Vaccination</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+             <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field><br>
+          </div>
+         <button type="button" class="btn btn-primary">Submit</button> 
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  

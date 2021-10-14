@@ -8,9 +8,12 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field class="full-width-input">
-                  <input matInput formControlName="firstname" placeholder="firstname">
-                  <mat-error *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
-                    Please enter firstname
+                  <input matInput formControlName="username" placeholder="User Name">
+                  <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
+                    Please enter username
+                  </mat-error>
+                  <mat-error *ngIf="!username.valid && username.touched && username.hasError('UserExistsError')">
+                    Username already taken! please enter different username.
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -18,9 +21,35 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field class="full-width-input">
-                  <input matInput formControlName="lastname" placeholder="lastname">
+                  <input matInput formControlName="firstname" placeholder="First Name">
+                  <mat-error *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
+                    Please enter firstname
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field class="full-width-input">
+                  <input matInput formControlName="lastname" placeholder="Last Name">
                   <mat-error *ngIf="!lastname.valid && lastname.touched && lastname.hasError('required')">
                     Please enter lastname
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput formControlName="email" placeholder="Email">
+                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
+                    Please enter email
+                  </mat-error>
+                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
+                    Please enter valid email
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -32,21 +61,7 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <mat-form-field>
-                  <input matInput formControlName="email" placeholder="email">
-                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
-                    Please enter email
-                  </mat-error>
-                  <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
-                    Please enter valid email
-                  </mat-error>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
                 <mat-form-field class="full-width-input">
-
                   <input matInput type="password" formControlName="password" placeholder="Password">
                   <mat-error *ngIf="!password.valid && password.touched  && password.hasError('required')">
                     Please enter password
@@ -57,11 +72,6 @@
                 </mat-form-field>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12">
-          <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field class="full-width-input">
@@ -81,6 +91,11 @@
                 </mat-form-field>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field appearance="fill">
@@ -95,11 +110,6 @@
                 </mat-form-field>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12">
-          <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field appearance="fill">
@@ -115,15 +125,33 @@
                 </mat-form-field>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <mat-form-field class="full-width-input">
-                  <input matInput formControlName="phone" placeholder="phone">
+                  <input matInput formControlName="phone" placeholder="Phone">
                   <mat-error *ngIf="!phone.valid && phone.touched && phone.hasError('required')">
                     Please enter phone number
                   </mat-error>
                 </mat-form-field>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input matInput formControlName="address" placeholder="Address">
+                <mat-error *ngIf="!address.valid && address.touched && address.hasError('required')">
+                  Please enter address
+                </mat-error>
+              </mat-form-field>
             </div>
           </div>
         </div>
