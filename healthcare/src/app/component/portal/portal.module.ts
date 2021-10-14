@@ -23,7 +23,7 @@ import { FooterComponent } from './footer/footer.component';
         children: [
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
-          {path:'profile', component:ProfileComponent},
+          { path: 'profile', component:ProfileComponent},
           {
             path: 'patient',
             loadChildren: () =>

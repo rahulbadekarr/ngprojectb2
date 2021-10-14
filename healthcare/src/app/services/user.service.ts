@@ -70,7 +70,6 @@ export class UserService {
   }
 
   getUserProfiles(userId:string):Observable<Demographics>  |null {
-    console.log(userId)
     return this.http.get<Demographics>(`${this.userDemographicUrl}?patient_id=${userId}`);
   }
 

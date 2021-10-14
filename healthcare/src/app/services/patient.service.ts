@@ -11,6 +11,7 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   getPatientAppoinmentList(userId : string){
+    console.log(userId);
     return this.http.get<Appointments[]>(`${this.baseUrl}?patient_id=${userId}`);
   }
 }
