@@ -29,13 +29,13 @@ export class Demographics {
   insurance_provider: string;
 }
 
-export interface Med_allergy {
+export class Med_allergy {
   id: number;
   patient_id: string;
   current_medication: string;
   otc_medication: string;
   natural_product_hurbs: string;
-  socila_drugs: string;
+  social_drugs: string;
   past_medication: string;
   drug_allergies: string;
   other_allergies_reaction: string;
