@@ -1,109 +1,122 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemographicsService } from 'src/app/services/demographics.service';
-import { Demographics } from 'src/model/tabletypes';
-
+import { Demographics,Users } from 'src/model/tabletypes';
+import { UserService } from 'src/app/services/user.service';
+import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 @Component({
   selector: 'app-patient-demographics',
   templateUrl: './patient-demographics.component.html',
-  styleUrls: ['./patient-demographics.component.css']
+  styleUrls: ['./patient-demographics.component.css'],
 })
 export class PatientDemographicsComponent implements OnInit {
+  demoForm: FormGroup;
+  genders = ['Male', 'Female'];
+  patient: Demographics = new Demographics();
+  demodata: Demographics = new Demographics();
+  user: Users = new Users();
 
-  
-  demoForm : FormGroup;
-  genders = ["Male","Female"]
-  //dob: any;
-  //firstname: any;
-  //lastname: any;
-  constructor(private fb : FormBuilder, private _DemographicsService : DemographicsService ) {}
+  constructor(
+    private fb: FormBuilder,
+    private _DemographicsService: DemographicsService,
+    private _userService: UserService,
+    private _snackBar: CustomSnackBarService
+  ) {}
 
   ngOnInit(): void {
-
-    this.demoForm = this.fb.group({
-      firstname : ['',Validators.required],
-      lastname : ['',Validators.required],
-      phone : ['',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$'),Validators.minLength(10)]],
-      dateofbirth : ['',Validators.required],
-      gender : new FormControl('', Validators.required),
-      ethicity: ['',Validators.required],
-      education: ['',Validators.required],
-      occupation: ['',Validators.required],
-      address: ['',Validators.required],
-     // mobile: ['',Validators.required],
-      medical_history: ['',Validators.required],
-      family_medical_history: ['',Validators.required],
-      surgery: ['',Validators.required],
-      insurance_provider: ['',Validators.required],
-    })
+    this.createForm();
+    this.user = this._userService.getUserDetails();
+    this._DemographicsService
+      .getUserDemographics(this.user.id)
+      .subscribe((data : Demographics) => {
+        this.demoForm.patchValue({
+          ...data
+        });
+      })
   }
 
-
-  onSubmit(){
-    console.log(this.demoForm);
-
-
-    let userDemographics : Demographics = new Demographics();
-    userDemographics.first_name = this.firstname.value
-    userDemographics.last_name = this.lastname.value
-    //userDemographics.dob = this.dob.value
-    
-
-   
-
-    this._DemographicsService.add_demographic_data(userDemographics)
-    .subscribe((data : Demographics) => {
-      if (data) {
-        userDemographics.patient_id = data.id;
-        this._DemographicsService.createUserDemographics(userDemographics)
-            .subscribe(data => console.log(data))
-      }
+  createForm() {
+    this.demoForm = this.fb.group({
+      id : [''],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^(0|[1-9][0-9]*)$'),
+          Validators.minLength(10),
+        ],
+      ],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required],
+      ethanicity: ['', Validators.required],
+      education: ['', Validators.required],
+      occupation: ['', Validators.required],
+      address: ['', Validators.required],
+      medicalhistory: [''],
+      family_medical_history: [''],
+      surgery: [''],
+      insurance_provider: ['', Validators.required],
+      //employeement: ['', Validators.required],
     });
   }
 
-  get firstname () : AbstractControl {
-    return this.demoForm.get('firstname')
+  onSubmit() {
+    let userDemographics: Demographics = new Demographics();
+    let date = new Date();
+    userDemographics = this.demoForm.value;
+    userDemographics.patient_id = this.user.id;
+    userDemographics.dob = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
+    this._DemographicsService.createUserDemographics(userDemographics)
+        .subscribe((response) => {
+          if(response){
+            this._snackBar.openSnackBar('Data added successfully!');
+          }
+        })
   }
 
-  get lastname () : AbstractControl {
-    return this.demoForm.get('lastname')
+  get firstname(): AbstractControl {
+    return this.demoForm.get('firstname');
   }
 
-  get gender () : AbstractControl {
-    return this.demoForm.get('gender')
+  get lastname(): AbstractControl {
+    return this.demoForm.get('lastname');
   }
 
-  get dateofbirth () : AbstractControl {
-    return this.demoForm.get('dateofbirth')
-  }
-  get ethanicity () : AbstractControl {
-    return this.demoForm.get('ethanicity')
+  get gender(): AbstractControl {
+    return this.demoForm.get('gender');
   }
 
-  get education () : AbstractControl {
-    return this.demoForm.get('education')
+  get dob(): AbstractControl {
+    return this.demoForm.get('dob');
   }
-  get address () : AbstractControl {
-    return this.demoForm.get('address')
+  get ethanicity(): AbstractControl {
+    return this.demoForm.get('ethanicity');
   }
-  get employeement () : AbstractControl {
-    return this.demoForm.get('employeement')
+
+  get education(): AbstractControl {
+    return this.demoForm.get('education');
   }
-  get phone () : AbstractControl {
-    return this.demoForm.get('phone')
+  get address(): AbstractControl {
+    return this.demoForm.get('address');
   }
-  get medicalhistory () : AbstractControl {
-    return this.demoForm.get('medicalhistory')
+  // get employeement(): AbstractControl {
+  //   return this.demoForm.get('employeement');
+  // }
+  get phone(): AbstractControl {
+    return this.demoForm.get('phone');
   }
-  get fmedicalhistory () : AbstractControl {
-    return this.demoForm.get('fmedicalhistory')
+  get medicalhistory(): AbstractControl {
+    return this.demoForm.get('medicalhistory');
   }
-  get surgeries () : AbstractControl {
-    return this.demoForm.get('surgeries')
+  get family_medical_history(): AbstractControl {
+    return this.demoForm.get('family_medical_history');
   }
-  get insurenceprovider () : AbstractControl {
-    return this.demoForm.get('insurenceprovider')
+  get surgery(): AbstractControl {
+    return this.demoForm.get('surgery');
   }
- 
- 
+  get insurance_provider(): AbstractControl {
+    return this.demoForm.get('insurance_provider');
+  }
 }

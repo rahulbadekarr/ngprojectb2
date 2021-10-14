@@ -61,9 +61,9 @@ export class RegistrationComponent implements OnInit {
     userData.username = this.username.value;
 
     let userDemographics: Demographics = new Demographics();
-    userDemographics.first_name = this.firstname.value;
-    userDemographics.last_name = this.lastname.value;
-    userDemographics.mobile = this.phone.value;
+    userDemographics.firstname = this.firstname.value;
+    userDemographics.lastname = this.lastname.value;
+    userDemographics.phone = this.phone.value;
     userDemographics.dob = this.dateofbirth.value;
     userDemographics.address = this.address.value;
 

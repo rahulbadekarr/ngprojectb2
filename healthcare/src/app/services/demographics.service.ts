@@ -1,50 +1,54 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Demographics,Users } from 'src/model/tabletypes';
+import { Demographics } from 'src/model/tabletypes';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DemographicsService {
+  constructor(private http: HttpClient) {}
+  private userDemographicUrl = 'http://localhost:3004/demographics';
 
-  constructor(private http: HttpClient, private _router: Router) {}
-   // private SECRET_KEY = 'SECRET';
-    private userDemographicUrl = 'http://localhost:3004/demographics';
-
-
-
-
-   add_demographic_data(data: Demographics) : Observable<Demographics> {
-
-    let date = new Date();
-    let demograpgicData: Demographics = new Demographics();
-    //demograpgicData.patient_id = 1;
-    demograpgicData.first_name = "";
-    demograpgicData.last_name = "";
-    demograpgicData.gender = "";
-    demograpgicData.ethicity = "";
-    demograpgicData.education = "";
-    demograpgicData.occupation = "";
-    demograpgicData.address = "";
-    demograpgicData.medical_history = "";
-    demograpgicData.family_medical_history = "";
-    demograpgicData.surgery = "";
-    demograpgicData.insurance_provider = "";
-    demograpgicData.mobile = 9;
-
-    //demograpgicData.dob = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
-    return this.http.post<Demographics>(this.userDemographicUrl, demograpgicData);
+  createUserDemographics(demographicData: Demographics) {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.patch(
+      `${this.userDemographicUrl}/${demographicData.id}`,
+      demographicData,
+      {
+        headers: headers,
+      }
+    );
   }
 
-  createUserDemographics(demographicData: Demographics){
-    return this.http.patch(this.userDemographicUrl, demographicData);
+  getUserDemographics(userId: string): Observable<Demographics> {
+    return this.http
+      .get(`${this.userDemographicUrl}?patient_id=${userId}`)
+      .pipe(
+        map((data: Demographics[]) => {
+          let demographicsData: Demographics = new Demographics();
+          if (data.length > 0) {
+            demographicsData.id = data[0].id;
+            demographicsData.patient_id = data[0].patient_id;
+            demographicsData.firstname = data[0].firstname;
+            demographicsData.lastname = data[0].lastname;
+            demographicsData.dob = data[0].dob;
+            demographicsData.gender = data[0].gender;
+            demographicsData.ethanicity = data[0].ethanicity ?? '';
+            demographicsData.education = data[0].education ?? '';
+            demographicsData.occupation = data[0].occupation ?? '';
+            demographicsData.address = data[0].address;
+            demographicsData.phone = data[0].phone;
+            demographicsData.medicalhistory = data[0].medicalhistory ?? '';
+            demographicsData.family_medical_history =
+              data[0].family_medical_history ?? '';
+            demographicsData.surgery = data[0].surgery ?? '';
+            demographicsData.insurance_provider =
+              data[0].insurance_provider ?? '';
+          }
+          return demographicsData;
+        })
+      );
   }
-
-  getUserDetails(): Users | null {
-    console.log(JSON.parse(localStorage.getItem('user')));
-    return JSON.parse(localStorage.getItem('user'));
-  }
-
 }

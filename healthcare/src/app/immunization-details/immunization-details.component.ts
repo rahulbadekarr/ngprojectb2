@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-patient-immunization',
-  templateUrl: './patient-immunization.component.html',
-  styleUrls: ['./patient-immunization.component.css']
+  selector: 'app-immunization-details',
+  templateUrl: './immunization-details.component.html',
+  styleUrls: ['./immunization-details.component.css']
 })
-export class PatientImmunizationComponent implements OnInit {
+export class ImmunizationDetailsComponent implements OnInit {
   vaccineList: string[] = ['Covishield','Covaxin','Sputnik','TT','Measles','Pentavelant','Vitamin A','BCG','Fluzone Quadrivalent']
+
 
   constructor() { }
 

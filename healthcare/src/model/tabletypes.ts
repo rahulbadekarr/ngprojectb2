@@ -14,16 +14,16 @@ export class Users {
 export class Demographics {
   id: string;
   patient_id: string;
-  first_name: string;
-  last_name: string;
-  dob: Date;
+  firstname: string;
+  lastname: string;
+  dob: string;
   gender: string;
-  ethicity: string;
+  ethanicity: string;
   education: string;
   occupation: string;
   address: string;
-  mobile: number;
-  medical_history: string;
+  phone: number;
+  medicalhistory: string;
   family_medical_history: string;
   surgery: string;
   insurance_provider: string;
