@@ -17,8 +17,8 @@ import { SharedModule } from '../../shared/shared.module';
     RouterModule.forChild([
       { path: 'patient-demographics', component: PatientDemographicsComponent },
       { path: 'patient-immunization', component: PatientImmunizationComponent },
-      {path:'patient-medication-allergy',component:PatientMedicationAllergyComponent},
-      {path:'patient-history',component:PatientHistoryComponent}
+      { path: 'patient-medication-allergy', component:PatientMedicationAllergyComponent},
+      { path: 'patient-appointment-history', component:PatientHistoryComponent}
 
     ]),
   ],
