@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PatientMedicationAllergyService implements Med_allergy {
-  private med_allergy_URL = 'http://localhost:3000/medication_allergies';
+  private med_allergy_URL = 'http://localhost:3004/medication_allergies';
 
   constructor(private http: HttpClient) {}
   id: number;

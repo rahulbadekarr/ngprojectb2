@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient, private _router: Router) {}
   private baseUrl = 'http://localhost:3004/users';
   private userDemographicUrl = 'http://localhost:3004/demographics';
-  private immuneUrl = 'http://localhost:3000/immunization';
+  private immuneUrl = 'http://localhost:3004/immunization';
 
   login(username: string, password: string) {
     return this.http.get(`${this.baseUrl}?username=${username}`).pipe(
