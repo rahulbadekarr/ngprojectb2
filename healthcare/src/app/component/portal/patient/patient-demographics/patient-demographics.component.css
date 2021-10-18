@@ -1,3 +1,7 @@
-.help-block{
+.help-block {
     color: #cc0000;
-    }
+}
+
+.mat-form-field-appearance-legacy {
+    padding: .89em 0 !important;
+}

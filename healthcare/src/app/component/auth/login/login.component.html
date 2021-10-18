@@ -1,26 +1,40 @@
-<mat-card>
-  <mat-card-content>
-    <form [formGroup]="loginForm">
-      <h2>Log In</h2>
-      <mat-form-field class="full-width-input">
-        <input matInput formControlName="username" placeholder="username">
-      </mat-form-field>
-      <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
-        Please enter valid username
-      </mat-error>
-      <mat-form-field class="full-width-input">
-        <input matInput type="password" formControlName="password" placeholder="Password">
-      </mat-form-field>
-      <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
-        Please enter valid password
-      </mat-error>
-      <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('minlength')">
-        Password must be upto 8 characters
-      </mat-error>
-      <button mat-raised-button color="primary" (click)="onlogin()">Login</button>
-      <br />
-      <br />
-      <button mat-raised-button color="primary" routerLink="registration">Register</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <!-- login form start here -->
+            <form [formGroup]="loginForm">
+                <h2>Log In</h2>
+                <!-- username field -->
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="username" placeholder="Username">
+                </mat-form-field>
+                <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
+                    Please enter valid username
+                </mat-error>
+                <!-- password field -->
+                <mat-form-field class="full-width-input">
+                    <input matInput type="password" formControlName="password" placeholder="Password">
+                </mat-form-field>
+                <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
+                    Please enter valid password
+                </mat-error>
+                <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('minlength')">
+                    Password must be upto 8 characters
+                </mat-error>
+                <!-- login and register button -->
+                <div class="row margin_top">
+                    <div class="col-sm-6">
+                        <button mat-raised-button class="btn_login" color="primary" (click)="onlogin()">Login</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button mat-raised-button class="btn_register" color="primary" routerLink="registration">Register</button>
+                    </div>
+                </div>
+
+
+
+            </form>
+            <!-- login form end here -->
+        </mat-card-content>
+    </mat-card>
+</div>
