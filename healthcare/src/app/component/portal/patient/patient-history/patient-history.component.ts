@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { PatientService } from 'src/app/services/patient.service';
 import { MatSort } from '@angular/material/sort';
+import { Users } from 'src/model/tabletypes';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-patient-history',
@@ -13,12 +15,13 @@ import { MatSort } from '@angular/material/sort';
 
   export class PatientHistoryComponent implements OnInit, AfterViewInit {
 
+    user: Users = new Users();
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
     dataSource = new MatTableDataSource();
 
-    constructor(private _patientService: PatientService) {
+    constructor(private _patientService: PatientService,private _userService: UserService,) {
     }
 
     ngAfterViewInit() {
@@ -66,8 +69,8 @@ import { MatSort } from '@angular/material/sort';
     }
 
     ngOnInit(): void {
-
-      this._patientService.getPatientAppoinmentList("U510nSm")
+      this.user = this._userService.getUserDetails();
+      this._patientService.getPatientAppoinmentList(this.user.id)
       .subscribe(res => {
         let obj = new MatTableDataSource();
         obj.data = res
