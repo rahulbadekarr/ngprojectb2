@@ -4,6 +4,7 @@ import { DemographicsService } from 'src/app/services/demographics.service';
 import { Demographics,Users } from 'src/model/tabletypes';
 import { UserService } from 'src/app/services/user.service';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-patient-demographics',
   templateUrl: './patient-demographics.component.html',
@@ -30,7 +31,8 @@ export class PatientDemographicsComponent implements OnInit {
       .getUserDemographics(this.user.id)
       .subscribe((data : Demographics) => {
         this.demoForm.patchValue({
-          ...data
+          ...data,
+          dob: new Date(data.dob)
         });
       })
   }
@@ -64,10 +66,9 @@ export class PatientDemographicsComponent implements OnInit {
 
   onSubmit() {
     let userDemographics: Demographics = new Demographics();
-    let date = new Date();
     userDemographics = this.demoForm.value;
     userDemographics.patient_id = this.user.id;
-    userDemographics.dob = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
+    userDemographics.dob = new DatePipe('en-US').transform(this.dob.value, 'MM/dd/yyyy');
     this._DemographicsService.createUserDemographics(userDemographics)
         .subscribe((response) => {
           if(response){
