@@ -1,9 +1,25 @@
 mat-card {
-  max-width: 400px;
-  margin: 2em auto;
-  text-align: center;
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
 }
 
 mat-form-field {
-  display: block;
+    display: block;
+}
+
+mat-error {
+    text-align: justify;
+}
+
+.btn_login {
+    width: 100%;
+}
+
+.btn_register {
+    width: 100%;
+}
+
+.margin_top {
+    margin-top: 1rem;
 }

@@ -1,80 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-
-.card{
-  background: var(--surface-e);
+.card {
+    background: var(--surface-e);
     padding: 2rem;
     box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
     border-radius: 4px;
     margin-bottom: 2rem;
-} */
-.p-fluid .p-inputtext{
-  height: 3rem;
-  width: 100%;
 }
 
-.background {
-
-  background: linear-gradient(120deg, #a0c5ec, #3d6f91, #8de9da);
-
-  background-size: 400% 400%;
-
-  animation: Gradient 15s ease infinite;
-
-  position: relative;
-
-  height: auto;
-
-  width: 100%;
-
-  overflow: auto;
-
-  padding:0;
-
-  margin:0px;
-
+*/ .p-fluid .p-inputtext {
+    height: 3rem;
+    width: 100%;
 }
-@keyframes Gradient {
 
-  0% {
 
-    background-position: 0% 50%;
-
-  }
-
-  50% {
-
-    background-position: 100% 50%;
-
-  }
-
-  100% {
-
-    background-position: 0% 50%;
-
-  }
-
-}
 /* form{
   background-color: transparent;
   opacity: 0.7;
 } */
 
+
 /* input.ng-invalid.ng-touched{
   border: 2px #cc0000 solid;
 } */
 
-.help-block{
-color: #cc0000;
+.help-block {
+    color: #cc0000;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 table {
-  width: 100%;
+    width: 100%;
 }
+
 mat-form-field {
-  width: 100%;
+    width: 100%;
+}
+
+.heading_color {
+    color: #673ab7;
+    padding: 10px 0px 0px 0px;
+}
+
+* {
+    font-family: Raleway/* Replace with your custom font */
+    , sans-serif;
+    /* Add !important to overwrite all elements */
 }

@@ -16,6 +16,7 @@ export class PatientDemographicsComponent implements OnInit {
   patient: Demographics = new Demographics();
   demodata: Demographics = new Demographics();
   user: Users = new Users();
+  showloader: Boolean=false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +26,9 @@ export class PatientDemographicsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.showloader=true;
     this.createForm();
+    this.showloader= false;
     this.user = this._userService.getUserDetails();
     this._DemographicsService
       .getUserDemographics(this.user.id)
@@ -35,6 +38,7 @@ export class PatientDemographicsComponent implements OnInit {
           dob: new Date(data.dob)
         });
       })
+
   }
 
   createForm() {
