@@ -7,9 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientMedicationAllergyComponent } from './patient-medication-allergy/patient-medication-allergy.component';
 import { PatientHistoryComponent } from './patient-history/patient-history.component';
 import { SharedModule } from '../../shared/shared.module';
+import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
 
 @NgModule({
-  declarations: [PatientDemographicsComponent, PatientImmunizationComponent, PatientMedicationAllergyComponent, PatientHistoryComponent],
+  declarations: [PatientDemographicsComponent, PatientImmunizationComponent, PatientMedicationAllergyComponent, PatientHistoryComponent, PatientAppointmentComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -18,7 +19,8 @@ import { SharedModule } from '../../shared/shared.module';
       { path: 'patient-demographics', component: PatientDemographicsComponent },
       { path: 'patient-immunization', component: PatientImmunizationComponent },
       { path: 'patient-medication-allergy', component:PatientMedicationAllergyComponent},
-      { path: 'patient-appointment-history', component:PatientHistoryComponent}
+      { path: 'patient-appointment-history', component:PatientHistoryComponent},
+      { path: 'patient-appointment', component: PatientAppointmentComponent}
 
     ]),
   ],
