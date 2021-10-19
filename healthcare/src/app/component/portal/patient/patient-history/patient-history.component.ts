@@ -13,73 +13,36 @@ import { UserService } from 'src/app/services/user.service';
 
 })
 
-  export class PatientHistoryComponent implements OnInit, AfterViewInit {
+  export class PatientHistoryComponent implements OnInit {
 
     user: Users = new Users();
     @ViewChild(MatPaginator) paginator: MatPaginator;
-    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatSort, {static: false}) sort: MatSort;
 
-    dataSource = new MatTableDataSource();
+    dataList : MatTableDataSource<any>;
+    columnList: string[]
 
     constructor(private _patientService: PatientService,private _userService: UserService,) {
-    }
-
-    ngAfterViewInit() {
-      this.dataSource.paginator = this.paginator;
-
-    }
-
-    columns = [
-      {
-        columnDef: 'meeting_title',
-        header: 'Title',
-        cell: (element: any) => `${element.meeting_title}`
-      },
-      {
-        columnDef: 'description',
-        header: 'Description',
-        cell: (element: any) => `${element.description}`
-      },
-      {
-        columnDef: 'date',
-        header: 'Appointment date',
-        cell: (element: any) => `${element.date}`
-      },
-      {
-        columnDef: 'time',
-        header: 'Time',
-        cell: (element: any) => `${element.time}`
-      },
-      {
-        columnDef: 'reason',
-        header: 'Reason',
-        cell: (element: any) => `${element.reason}`
-      },
-      {
-        columnDef: 'status',
-        header: 'Status',
-        cell: (element: any) => `${element.status}`
-      }
-    ];
-    displayedColumns = this.columns.map(c => c.columnDef);
-
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
+      this.columnList = ["appointmentDate","patientName","physicianName","title","description","status","actions"]
     }
 
     ngOnInit(): void {
       this.user = this._userService.getUserDetails();
+      if(this.user.role === "Patient"){
+        this.columnList.splice(this.columnList.indexOf("patientName"),1)
+      }else if(this.user.role === "Physician"){
+        this.columnList.splice(this.columnList.indexOf("physicianName"),1)
+      }
       this._patientService.getPatientAppoinmentList(this.user.id)
       .subscribe(res => {
-        let obj = new MatTableDataSource();
-        obj.data = res
-        this.dataSource = obj
-        this.dataSource.sort = this.sort;
+        this.dataList = new MatTableDataSource(res);
+        this.dataList.paginator = this.paginator;
+        this.dataList.sort = this.sort;
       });
-
     }
 
-
-
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataList.filter = filterValue.trim().toLowerCase();
+    }
   }

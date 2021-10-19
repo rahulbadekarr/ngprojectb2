@@ -19,7 +19,7 @@
     {
       "username": "rahul",
       "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
-      "role": "Patient",
+      "role": "Physician",
       "email": "rahulb@gmail.com",
       "createdDate": "9/1/2021",
       "id": "drdUoGE"
@@ -96,36 +96,79 @@
     {
       "id": "b629nqh",
       "patient_id": "U510nSm",
+      "patient_firstname": "abhay",
+      "patient_lastname": "waldia",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
       "meeting_title": "Monthly Check-up",
       "description": "Full body checkup",
-      "physication": "",
       "date": "9/6/2021",
       "time": "",
-      "reason": "Full body checkup",
       "status": "Completed"
     },
     {
       "id": "a510fkh",
       "patient_id": "U510nSm",
+      "patient_firstname": "U510nSm",
+      "patient_lastname": "U510nSm",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
       "meeting_title": "Fever Check-up",
       "description": "Having high fever",
-      "physication": "",
       "date": "9/10/2021",
       "time": "",
-      "reason": "Having high fever",
       "status": "Scheduled"
     }
   ],
   "order": [
     {
       "id": "",
-      "patient_id": "1",
-      "patient_vitals": "",
-      "procedure_code": "",
-      "diagnosis_code": "",
-      "lab_report": "",
-      "radiology_report": "",
-      "medication": ""
+      "appointment_id":"",
+      "patient_vitals": {
+        "blood_pressure":"",
+        "pulse_rate":"",
+        "temprature":"",
+        "height":"",
+        "weight":"",
+        "oxygen_levels":""
+      },
+      "procedure_code": [
+        {
+          "procedure_code_id":"",
+          "procedure_code_name":""
+        },
+        {
+          "procedure_code_id":"",
+          "procedure_code_name":""
+        }
+      ],
+      "diagnosis_code": [
+        {
+          "diagnosis_code_id":"",
+          "diagnosis_code_name":""
+        },
+        {
+          "diagnosis_code_id":"",
+          "diagnosis_code_name":""
+        }
+      ],
+      "lab_report": [
+        {
+          "file_name":"",
+          "file_path":""
+        }
+      ],
+      "radiology_report": [
+        {
+          "file_name":"",
+          "file_path":""
+        }
+      ],
+      "medication": "",
+      "created_by":"",
+      "created_date":""
     }
   ],
   "payment_details": [

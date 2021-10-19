@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Appointments, Med_allergy } from 'src/model/tabletypes';
+import { AppointmentTable, Med_allergy } from 'src/model/tabletypes';
 import { Observable } from 'rxjs';
+import { Appointments } from 'src/model/Appointment.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +14,24 @@ export class PatientService {
 
   constructor(private http: HttpClient) {}
 
-  getPatientAppoinmentList(userId : string){
-    console.log(userId);
-    return this.http.get<Appointments[]>(`${this.baseUrl}?patient_id=${userId}`);
+  getPatientAppoinmentList(userId : string) : Observable<Appointments[]>{
+    let appointmentList : Appointments[] = [];
+    return this.http.get(`${this.baseUrl}?patient_id=${userId}`)
+        .pipe(
+          map((result : AppointmentTable[]) => {
+            if(result.length > 0){
+              result.forEach(data => {
+                let appointmentObject : Appointments = {
+                  ...data,
+                  patient_name : `${data.patient_firstname} ${data.patient_lastname}`,
+                  physician_name : `${data.physician_firstname} ${data.physician_lastname}`
+                }
+                appointmentList.push(appointmentObject);
+              });
+            }
+            return appointmentList;
+          })
+        );
   }
 
   getData(id) {
