@@ -24,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
 
 
+
 @NgModule({
   imports: [
     MatButtonModule,
@@ -73,6 +74,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatTabsModule,
     MatChipsModule
+    
 
   ]
 })

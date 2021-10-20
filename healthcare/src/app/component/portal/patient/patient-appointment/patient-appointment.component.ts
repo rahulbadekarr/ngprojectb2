@@ -1,22 +1,48 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FullCalendarComponent,CalendarOptions } from '@fullcalendar/angular';
+import { FullCalendarComponent,CalendarOptions} from '@fullcalendar/angular';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
+interface FoodNode {
+  name: string;
+  children?: FoodNode[];
+}
+const TREE_DATA: FoodNode[] = [
+  {
+    name: 'Physician',
+    children: [
+      {name: 'Obstetrician/Gynecologist'},
+      {name: 'Cardiologist'},
+      {name: 'Oncologist'},
+      {name: 'Infectious Disease Physician'},
+      {name: 'Gastroenterologist'},
+    ]
+  }
+];
 @Component({
   selector: 'app-patient-appointment',
   templateUrl: './patient-appointment.component.html',
   styleUrls: ['./patient-appointment.component.css']
 })
 export class PatientAppointmentComponent implements OnInit {
-  // events: string[] = [];
+  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
+  dataSource = new MatTreeNestedDataSource<FoodNode>();
+
+  constructor() {
+    this.dataSource.data = TREE_DATA;
+  }
+
+  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+  ngOnInit(): void {
+  }
+  
+
+   // events: string[] = [];
 
   // addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
   //   this.events.push(`${type}: ${event.value}`);
   // }
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -36,3 +62,4 @@ export class PatientAppointmentComponent implements OnInit {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
   }
 }
+
