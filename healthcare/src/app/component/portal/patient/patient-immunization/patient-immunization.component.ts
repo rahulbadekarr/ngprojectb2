@@ -40,13 +40,7 @@ export class PatientImmunizationComponent implements OnInit {
     vaccinedate: new FormControl(''),
   });
 
-  // Choose vaccine using select dropdown
-  // changeVaccine(e) {
-  //   console.log(e.value)
-  //   this.covid_19_vaccine.setValue(e.target.value, {
-  //     onlySelf: true
-  //   })
-  // }
+ 
 
   // Getter method to access formcontrols
   get covid_19_vaccine() {
