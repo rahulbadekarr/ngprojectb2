@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <mat-form-field appearance="fill">
                         <mat-label>Speciality</mat-label>
-                        <mat-select formControlName="Speciality" name="Speciality">
+                        <mat-select formControlName="speciality" name="speciality">
                             <mat-option *ngFor="let speciality of specialities" [value]="speciality">
                                 {{speciality}}
                             </mat-option>
@@ -32,7 +32,7 @@
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="!physician.valid && physician.touched && physician.hasError('required')">
-                            Please select Speciality
+                            Please select Physician
                         </mat-error>
                     </mat-form-field>
                 </div>

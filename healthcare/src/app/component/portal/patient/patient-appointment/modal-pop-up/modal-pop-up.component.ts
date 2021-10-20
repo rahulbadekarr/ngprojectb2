@@ -35,7 +35,7 @@ export class ModalPopUpComponent implements OnInit {
     );
   }
   get speciality(): AbstractControl {
-    return this.eventForm.get('Speciality');
+    return this.eventForm.get('speciality');
   }
   get physician(): AbstractControl {
     return this.eventForm.get('physician');
