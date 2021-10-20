@@ -4,6 +4,7 @@ import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {MatDialog} from '@angular/material/dialog';
+import { ModalPopUpComponent } from './modal-pop-up/modal-pop-up.component';
 
 
 interface FoodNode {
@@ -64,7 +65,7 @@ export class PatientAppointmentComponent implements OnInit {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
   }
   openEvent(){
-    const dialogRef = this.dialog.open(PatientAppointmentComponent);
+    const dialogRef = this.dialog.open(ModalPopUpComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
