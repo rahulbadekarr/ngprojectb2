@@ -53,14 +53,30 @@ export class PatientAppointmentComponent implements OnInit {
     weekends: true,
     dateClick: this.handleDateClick.bind(this), // bind is important!
     events: [
-      { title: 'event 1', date: '2021-04-01' },
-      { title: 'event 2', date: '2021-04-02' }
+      { title: 'event 1', date: '2021-10-20' },
+      { title: 'event 2', date: '2021-10-21' }
     ]
   };
+  // calendarOptions: CalendarOptions = {
+  //   initialView: 'dayGridMonth',
+  //   eventClick:function(arg){
+  //   alert(arg.event.title)
+  //   alert(arg.event.start)
+  //   },
+  //   events: [
+  //   { title: 'event 1', date: '2021-10-20'},
+  //   { title: 'event 1', date: '2021-10-21'},
+
+  //   ]
+  //   };
 
   handleDateClick(arg) {
-    alert('date click! ' + arg.dateStr)
-  }
+    const dialogRef = this.dialog.open(ModalPopUpComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    }
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
   }

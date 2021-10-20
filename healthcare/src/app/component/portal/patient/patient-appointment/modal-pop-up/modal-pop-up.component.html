@@ -1,93 +1,102 @@
 <h2 mat-dialog-title>Add Event</h2>
 <mat-dialog-content class="mat-typography">
-    <mat-card>
-        <mat-card-content>
-            <form [formGroup]="eventForm">
-                <div class="row">
-                    <!-- physician name field -->
-                    <div class="col-sm-6">
+    <!-- <mat-card>
+    <mat-card-content> -->
+    <form [formGroup]="eventForm">
+        <div class="row">
+            <!-- physician name field -->
+            <div class="col-sm-6">
 
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="physicianName" placeholder="Physician Name">
-                                <mat-error *ngIf="!physicianName.valid && physicianName.touched && physicianName.hasError('required')">
-                                    Please enter Physician Name
-                                </mat-error>
-
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- meeting title  field -->
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="meetingTitle" placeholder="Metting Title">
-                                <mat-error *ngIf="!meetingTitle.valid && meetingTitle.touched && meetingTitle.hasError('required')">
-                                    Please enter firstname
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Speciality</mat-label>
+                        <mat-select formControlName="Speciality" name="Speciality">
+                            <mat-option *ngFor="let speciality of specialities" [value]="speciality">
+                                {{speciality}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!speciality.valid && speciality.touched && speciality.hasError('required')">
+                            Please select Speciality
+                        </mat-error>
+                    </mat-form-field>
                 </div>
-                <div class="row">
-                    <!-- description field -->
-                    <div class="col-sm-6">
-
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="description" placeholder="Add description...">
-                                <mat-error *ngIf="!description.valid && description.touched && description.hasError('required')">
-                                    Please add description
-                                </mat-error>
-
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- Date field -->
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <mat-form-field appearance="fill">
-                                <mat-label>Date</mat-label>
-                                <input matInput formControlName="date" [matDatepicker]="dobpicker">
-                                <mat-datepicker-toggle matSuffix [for]="dobpicker">
-                                </mat-datepicker-toggle>
-                                <mat-datepicker #dobpicker></mat-datepicker>
-                                <mat-error *ngIf="!date.valid && date.touched && date.hasError('required')">
-                                    Please enter date
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+            </div>
+            <!-- meeting title  field -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Physician</mat-label>
+                        <mat-select formControlName="physician" name="physician">
+                            <mat-option *ngFor="let physician of physicians" [value]="physician">
+                                {{physician}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!physician.valid && physician.touched && physician.hasError('required')">
+                            Please select Speciality
+                        </mat-error>
+                    </mat-form-field>
                 </div>
-                <div class="row">
-                    <!-- Time field -->
-                    <div class="col-sm-6">
+            </div>
+        </div>
+        <div class="row">
+            <!-- description field -->
+            <div class="col-sm-6">
 
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="time" placeholder="time">
-                                <mat-error *ngIf="!time.valid && time.touched && time.hasError('required')">
-                                    Please enter time
-                                </mat-error>
+                <div class="form-group">
+                    <mat-form-field class="full-width-input">
+                        <input matInput formControlName="description" placeholder="Add description...">
+                        <mat-error *ngIf="!description.valid && description.touched && description.hasError('required')">
+                            Please add description
+                        </mat-error>
 
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- Status field -->
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="status" placeholder="status">
-                                <mat-error *ngIf="!status.valid && status.touched && status.hasError('required')">
-                                    Please enter status
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+                    </mat-form-field>
                 </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
+            </div>
+            <!-- Date field -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <input matInput formControlName="date" [matDatepicker]="dobpicker">
+                        <mat-datepicker-toggle matSuffix [for]="dobpicker">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #dobpicker></mat-datepicker>
+                        <mat-error *ngIf="!date.valid && date.touched && date.hasError('required')">
+                            Please enter date
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Time field -->
+            <div class="col-sm-6">
+
+                <div class="form-group">
+                    <mat-form-field class="full-width-input">
+                        <input matInput formControlName="time" placeholder="time">
+                        <mat-error *ngIf="!time.valid && time.touched && time.hasError('required')">
+                            Please enter time
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- Status field -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <mat-form-field class="full-width-input">
+                        <input matInput formControlName="status" placeholder="status">
+                        <mat-error *ngIf="!status.valid && status.touched && status.hasError('required')">
+                            Please enter status
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- </mat-card-content>
+     </mat-card>  -->
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">

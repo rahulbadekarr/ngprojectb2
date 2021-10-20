@@ -14,6 +14,8 @@ import {
 })
 export class ModalPopUpComponent implements OnInit {
   eventForm: FormGroup;
+  specialities = ['Patient', 'Physician'];
+  physicians= ['Doctor1','Doctor2','Doctor3','Doctor4','Doctor5'];
 
   constructor(  private fb: FormBuilder) { }
 
@@ -21,20 +23,22 @@ export class ModalPopUpComponent implements OnInit {
     console.log(this.eventForm);
     this.eventForm = this.fb.group(
       {
-        physicianName: ['', Validators.required],
+        speciality: new FormControl('', Validators.required),
+        physician: new FormControl('', Validators.required),
         meetingTitle: ['', Validators.required],
         description: ['', Validators.required],
         date: ['', Validators.required],
-
-
         time: ['', [Validators.required]],
         status: ['',Validators.required]
       }
 
     );
   }
-  get physicianName(): AbstractControl {
-    return this.eventForm.get('physicianName');
+  get speciality(): AbstractControl {
+    return this.eventForm.get('Speciality');
+  }
+  get physician(): AbstractControl {
+    return this.eventForm.get('physician');
   }
   get meetingTitle(): AbstractControl {
     return this.eventForm.get('meetingTitle');
