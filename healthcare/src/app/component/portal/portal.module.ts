@@ -29,6 +29,11 @@ import { FooterComponent } from './footer/footer.component';
             loadChildren: () =>
               import('./patient/patient.module').then((m) => m.PatientModule),
           },
+          {
+            path: 'visit',
+            loadChildren: () =>
+              import('../portal/patientvisit/patient-visit.module').then((m) => m.PatientVisitModule),
+          },
         ],
       },
     ]),

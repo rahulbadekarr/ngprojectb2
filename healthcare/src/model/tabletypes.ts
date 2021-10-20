@@ -50,19 +50,22 @@ export interface Immune {
   vaccinedosenumber: number,
 }
 
-export class Appointments {
+export class AppointmentTable {
   id: string;
   patient_id: string;
+  patient_firstname: string;
+  patient_lastname: string;
+  physician_id: string;
+  physician_firstname: string;
+  physician_lastname: string;
   meeting_title: string;
   description: string;
-  physication: string;
   date: Date;
   time: Time;
-  reason: string;
   status: string;
 }
 
-export interface Order {
+export class Order {
   id: number;
   patient_id: string;
   patient_vitals: string;

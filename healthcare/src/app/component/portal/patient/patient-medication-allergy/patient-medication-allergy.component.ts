@@ -8,8 +8,8 @@ import {
   AbstractControl,
   Validators,
 } from '@angular/forms';
-import { PatientMedicationAllergyService } from 'src/app/patient/patient-medication-allergy.service';
 import { Med_allergy} from 'src/model/tabletypes';
+import { PatientService } from 'src/app/services/patient.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class PatientMedicationAllergyComponent implements OnInit {
 
 
   constructor(
-    private _medi_allergyService: PatientMedicationAllergyService,
+    private _medi_allergyService: PatientService,
     private fb: FormBuilder,
     private _snack:CustomSnackBarService
   ) {}

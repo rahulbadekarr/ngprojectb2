@@ -1,0 +1,51 @@
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="heading_color">Schedule Appointment</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <!-- .... -->
+                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle  color="primary">
+                            {{node.name}}
+                        </mat-tree-node>
+                        <!-- This is the tree node template for expandable nodes -->
+                        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild" color="primary">
+                            <div class="mat-tree-node" color="primary">
+                              <button mat-icon-button matTreeNodeToggle
+                                      [attr.aria-label]="'Toggle ' + node.name"  color="primary">
+                                <mat-icon class="mat-icon-rtl-mirror" color="primary">
+                                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                              </button>
+                              {{node.name}}
+                            </div>
+                            <!-- There is inline padding applied to this div using styles.
+                                This padding value depends on the mat-icon-button width.  -->
+                            <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+                                role="group"  color="primary">
+                              <ng-container matTreeNodeOutlet  color="primary"></ng-container>
+                          </div>
+                        </mat-nested-tree-node>
+                      </mat-tree>
+                    <!-- ....  -->
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-6 col-sm-12 col-md-12 col-lg-12">
+    <button mat-raised-button color="primary" (click)="toggleWeekends()" class="m-1">Week</button>
+    <full-calendar deepChangeDetection="true" [options]="calendarOptions" color="primary">
+    </full-calendar>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="primary" class="mt-1">Book Appointment</button>
+    </div>
+    </div>
+    </mat-card-content>
+    </mat-card>
+</div>
