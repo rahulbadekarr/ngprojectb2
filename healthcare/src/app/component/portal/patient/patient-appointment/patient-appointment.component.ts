@@ -3,6 +3,8 @@ import { FullCalendarComponent,CalendarOptions} from '@fullcalendar/angular';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {MatDialog} from '@angular/material/dialog';
+
 
 interface FoodNode {
   name: string;
@@ -29,14 +31,14 @@ export class PatientAppointmentComponent implements OnInit {
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.dataSource.data = TREE_DATA;
   }
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
   }
-  
+
 
    // events: string[] = [];
 
@@ -60,6 +62,13 @@ export class PatientAppointmentComponent implements OnInit {
   }
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+  }
+  openEvent(){
+    const dialogRef = this.dialog.open(PatientAppointmentComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
 
