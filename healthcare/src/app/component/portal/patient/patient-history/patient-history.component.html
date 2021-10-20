@@ -1,3 +1,14 @@
+<div class="container" style="margin-top:5px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <mat-card>
+<mat-card-content>
+
+</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -37,10 +48,6 @@
           <ng-container matColumnDef="title">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.meeting_title}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="description">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
           </ng-container>
           <ng-container matColumnDef="status">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
