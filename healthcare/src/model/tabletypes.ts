@@ -65,7 +65,7 @@ export class AppointmentTable {
   status: string;
 }
 
-export interface Order {
+export class Order {
   id: number;
   patient_id: string;
   patient_vitals: string;

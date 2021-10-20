@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PatientVisitDetailComponent } from './patient-visit-detail/patient-visit-detail.component';
 import { PatientInformationComponent } from './patient-information/patient-information.component';
 import { PatientOrderComponent } from './patient-order/patient-order.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { PatientOrderComponent } from './patient-order/patient-order.component';
   declarations: [PatientVisitDetailComponent, PatientInformationComponent, PatientOrderComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild([
       {
