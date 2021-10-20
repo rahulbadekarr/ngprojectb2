@@ -22,6 +22,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -48,7 +51,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatExpansionModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -73,8 +78,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatChipsModule
-    
+    MatChipsModule,
+    MatExpansionModule,
+    MatDialogModule
+
 
   ]
 })

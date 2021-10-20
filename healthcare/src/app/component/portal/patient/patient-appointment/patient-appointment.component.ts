@@ -1,50 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FullCalendarComponent,CalendarOptions} from '@fullcalendar/angular';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
-import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import { AppointmentTable, Users } from 'src/model/tabletypes';
-import { PatientAppointmentService } from 'src/app/services/patient-appointment.service';
-import { CustomSnackBarService } from 'src/app/services/snackbar.service';
-import { Appointments } from 'src/model/Appointment.model';
-import { UserService } from 'src/app/services/user.service';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalPopUpComponent } from './modal-pop-up/modal-pop-up.component';
 
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Physician',
-    children: [
-      {name: 'Obstetrician/Gynecologist'},
-      {name: 'Cardiologist'},
-      {name: 'Oncologist'},
-      {name: 'Infectious Disease Physician'},
-      {name: 'Gastroenterologist'},
-    ]
-  }
-];
 @Component({
   selector: 'app-patient-appointment',
   templateUrl: './patient-appointment.component.html',
   styleUrls: ['./patient-appointment.component.css']
 })
 export class PatientAppointmentComponent implements OnInit {
-  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
-  schedule_appoinment= new Appointments();
-  user: Users = new Users();
- 
+  user: any;
+  _userService: any;
+  PatientAppointmentService: any;
 
-  constructor(private PatientAppointmentService:PatientAppointmentService,
-    private _snackBar: CustomSnackBarService,
-    private _userService: UserService) {
-    this.dataSource.data = TREE_DATA;
+  constructor(public dialog: MatDialog) {
 
   }
-
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
 
     console.log("asacha");
@@ -59,22 +31,6 @@ export class PatientAppointmentComponent implements OnInit {
       alert('button click');
   }
 
-
-  onBookAppointment() {
-    alert('button click');
-    // let schedule_patientappoinment: AppointmentTable = new AppointmentTable();
-  
-    // //schedule_appoinment = this.demoForm.value;
-    // this.PatientAppointmentService.createAppointment(schedule_patientappoinment)
-    //     .subscribe((response) => {
-    //       if(response){
-    //         this._snackBar.openSnackBar('Data added successfully!');
-    //       }
-    //     })
-  }
-
-   // events: string[] = [];
-
   // addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
   //   this.events.push(`${type}: ${event.value}`);
   // }
@@ -85,16 +41,39 @@ export class PatientAppointmentComponent implements OnInit {
     weekends: true,
     dateClick: this.handleDateClick.bind(this), // bind is important!
     events: [
-      { title: 'event 1', date: '2021-04-01' },
-      { title: 'event 2', date: '2021-04-02' }
+      { title: 'event 1', date: '2021-10-20' },
+      { title: 'event 2', date: '2021-10-21' }
     ]
   };
+  // calendarOptions: CalendarOptions = {
+  //   initialView: 'dayGridMonth',
+  //   eventClick:function(arg){
+  //   alert(arg.event.title)
+  //   alert(arg.event.start)
+  //   },
+  //   events: [
+  //   { title: 'event 1', date: '2021-10-20'},
+  //   { title: 'event 1', date: '2021-10-21'},
+
+  //   ]
+  //   };
 
   handleDateClick(arg) {
-    alert('date click! ' + arg.dateStr)
-  }
+    const dialogRef = this.dialog.open(ModalPopUpComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    }
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+  }
+  openEvent(){
+    const dialogRef = this.dialog.open(ModalPopUpComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
 
