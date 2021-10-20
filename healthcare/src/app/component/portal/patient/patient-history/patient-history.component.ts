@@ -23,7 +23,7 @@ import { UserService } from 'src/app/services/user.service';
     columnList: string[]
 
     constructor(private _patientService: PatientService,private _userService: UserService,) {
-      this.columnList = ["appointmentDate","patientName","physicianName","title","description","status","actions"]
+      this.columnList = ["appointmentDate","patientName","physicianName","title","status","actions"]
     }
 
     ngOnInit(): void {
