@@ -15,7 +15,7 @@ import {
 export class ModalPopUpComponent implements OnInit {
   eventForm: FormGroup;
   specialities = ['Patient', 'Physician'];
-  physicians= ['Doctor1','Doctor2','Doctor3','Doctor4','Doctor5'];
+  physicians= ['Obstetrician/Gynecologist','Cardiologist','Oncologist','Infectious Disease Physician','Gastroenterologist'];
 
   constructor(  private fb: FormBuilder) { }
 
