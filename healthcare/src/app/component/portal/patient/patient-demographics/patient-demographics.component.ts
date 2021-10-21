@@ -64,6 +64,13 @@ export class PatientDemographicsComponent implements OnInit {
       family_medical_history: [''],
       surgery: [''],
       insurance_provider: ['', Validators.required],
+      emergency_contact_name: ['', Validators.required],
+      emergency_contact_email: ['', [Validators.required, Validators.email]],
+      emergency_contact_mobile: ['', [
+          Validators.required,
+          Validators.pattern('^(0|[1-9][0-9]*)$'),
+          Validators.minLength(10),
+        ]]
       //employeement: ['', Validators.required],
     });
   }
@@ -123,5 +130,14 @@ export class PatientDemographicsComponent implements OnInit {
   }
   get insurance_provider(): AbstractControl {
     return this.demoForm.get('insurance_provider');
+  }
+  get emergency_contact_name(): AbstractControl {
+    return this.demoForm.get('emergency_contact_name');
+  }
+  get emergency_contact_email(): AbstractControl {
+    return this.demoForm.get('emergency_contact_email');
+  }
+  get emergency_contact_mobile(): AbstractControl {
+    return this.demoForm.get('emergency_contact_mobile');
   }
 }
