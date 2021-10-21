@@ -7,6 +7,7 @@ import { Users } from 'src/model/tabletypes';
 import { UserService } from 'src/app/services/user.service';
 import { DatePipe } from '@angular/common';
 import { Appointments } from 'src/model/Appointment.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-patient-history',
@@ -27,7 +28,8 @@ export class PatientHistoryComponent implements OnInit {
 
   constructor(
     private _patientService: PatientService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _route: ActivatedRoute
   ) {
     this.columnList = [
       'appointmentDate',
@@ -37,6 +39,8 @@ export class PatientHistoryComponent implements OnInit {
       'status',
       'actions',
     ];
+    let dataList = this._route.snapshot.data['appointmentListResolver']
+    this.bindGrid(dataList)
   }
 
   ngOnInit(): void {
@@ -46,11 +50,12 @@ export class PatientHistoryComponent implements OnInit {
     } else if (this.user.role === 'Physician') {
       this.columnList.splice(this.columnList.indexOf('physicianName'), 1);
     }
-    this._patientService
-      .getPatientAppoinmentList(this.user.id, '', '')
-      .subscribe((res) => {
-        this.bindGrid(res);
-      });
+
+    // this._patientService
+    //   .getPatientAppoinmentList(this.user.id, '', '')
+    //   .subscribe((res) => {
+    //     this.bindGrid(res);
+    //   });
   }
 
   applyFilter(event: Event) {
