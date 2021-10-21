@@ -1,0 +1,20 @@
+<h1>Vaccines</h1>
+
+
+ <table class=" table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Vaccine</th>
+      <th scope="col">General vaccine</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of immuneList ">
+      <td>{{i.covid_19_vaccine}}</td>
+      <td>{{i.general_vaccine}}</td>
+      <td>{{i.vaccinedate}}</td>
+    </tr>
+
+  </tbody>
+</table>

@@ -1,5 +1,4 @@
 import { Time } from "@angular/common";
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 //not sure about time
 
 export class Users {
@@ -27,6 +26,9 @@ export class Demographics {
   family_medical_history: string;
   surgery: string;
   insurance_provider: string;
+  emergency_contact_name: string;
+  emergency_contact_email: string;
+  emergency_contact_mobile: string;
 }
 
 export class Med_allergy {

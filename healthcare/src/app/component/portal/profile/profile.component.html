@@ -1,21 +1,21 @@
 <!-- Font Awesome -->
-<link
+<!-- <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
   rel="stylesheet"
-/>
+/> -->
 <!-- Google Fonts -->
-<link
+<!-- <link
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
   rel="stylesheet"
-/>
+/> -->
 <!-- MDB -->
-<link
+<!-- <link
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
   rel="stylesheet"
-/>
+/> -->
 
-<body class="bg-light">
-  <div class="container">
+<!-- <body class="bg-light">
+   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 mt-5 pt-5">
         <div class="row z-depth-3 border fa-1x" >
@@ -62,4 +62,79 @@
     </div>
   </div>
 
-</body>
+</body> -->
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-sm-4">
+                    <mat-card-header>
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <mat-card-title>Information</mat-card-title>
+
+
+
+                                <img mat-card-avatar src="">
+
+                            </div>
+                        </div>
+                    </mat-card-header>
+                </div>
+                <div class="col-sm-8">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-label>Patient Name:</mat-label>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-label>Role:</mat-label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-label>Email:</mat-label>
+                            <p>{{user.email}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-label>Phone Number:</mat-label>
+                            <p>{{profile.phone}}</p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-label>Gender:</mat-label>
+                            <p>{{profile.gender}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-label>Date of Birth:</mat-label>
+                            <p>{{profile.dob}}</p>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

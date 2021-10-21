@@ -85,4 +85,9 @@ export class UserService {
     console.log("ser",data)
     return this.http.post<Immune>(this.immuneUrl,data)
   }
+
+  getImmunizationList(){
+    console.log("inside get list")
+    return this.http.get(this.immuneUrl)
+  }
 }

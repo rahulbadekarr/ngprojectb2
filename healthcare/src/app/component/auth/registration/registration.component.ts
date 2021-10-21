@@ -45,7 +45,14 @@ export class RegistrationComponent implements OnInit {
         role: new FormControl('', Validators.required),
         password: ['', [Validators.required, Validators.minLength(8)]],
         retypepassword: ['', [Validators.required]],
-        address: ['',Validators.required]
+        address: ['',Validators.required],
+        emergencycontactname: ['', Validators.required],
+        emergencycontactemail: ['', [Validators.required, Validators.email]],
+        emergencycontactmobile: ['', [
+          Validators.required,
+          Validators.pattern('^(0|[1-9][0-9]*)$'),
+          Validators.minLength(10),
+        ]]
       },
       {
         validator: this.MustMatch('password', 'retypepassword'),
@@ -66,6 +73,9 @@ export class RegistrationComponent implements OnInit {
     userDemographics.phone = this.phone.value;
     userDemographics.dob = this.dateofbirth.value;
     userDemographics.address = this.address.value;
+    userDemographics.emergency_contact_name = this.emergencycontactname.value;
+    userDemographics.emergency_contact_email = this.emergencycontactemail.value;
+    userDemographics.emergency_contact_mobile = this.emergencycontactmobile.value
 
     this._userService.registerUser(userData).subscribe((data: Users) => {
       if (data) {
@@ -115,6 +125,18 @@ export class RegistrationComponent implements OnInit {
 
   get role(): AbstractControl {
     return this.registerForm.get('role');
+  }
+
+  get emergencycontactname(): AbstractControl {
+    return this.registerForm.get('emergencycontactname');
+  }
+
+  get emergencycontactemail(): AbstractControl {
+    return this.registerForm.get('emergencycontactemail');
+  }
+
+  get emergencycontactmobile(): AbstractControl {
+    return this.registerForm.get('emergencycontactmobile');
   }
 
   get address(): AbstractControl {

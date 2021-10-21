@@ -9,7 +9,7 @@ import { Demographics, Users } from 'src/model/tabletypes';
 })
 export class ProfileComponent implements OnInit {
   profile: Demographics = new Demographics();
-user:Users=new Users();
+  user:Users=new Users();
 
   constructor(private _userService: UserService) {}
 

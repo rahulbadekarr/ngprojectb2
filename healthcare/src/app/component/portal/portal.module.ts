@@ -11,7 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent],
+  declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
