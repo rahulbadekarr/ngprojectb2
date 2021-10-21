@@ -1,3 +1,4 @@
+
 <div class="container">
   <mat-card>
     <mat-card-content>
@@ -19,7 +20,7 @@
             <div class="form-group">
               <mat-form-field class="full-width-input">
                 <mat-label>Blood pressure level</mat-label>
-                <input matInput formControlName="blood_pressure" />
+                <input  matInput formControlName="blood_pressure"  >
               </mat-form-field>
             </div>
           </div>
@@ -59,7 +60,7 @@
             <div class="form-group">
               <mat-form-field class="full-width-input">
                 <mat-label>Oxyzen level</mat-label>
-                <input matInput formControlName="oxygen_levels" />
+                <input  matInput formControlName="oxygen_levels" />
               </mat-form-field>
             </div>
           </div>
@@ -76,32 +77,42 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <mat-form-field appearance="fill">
-                <mat-label>Procedure code</mat-label>
-                <mat-select formControlName="procedure_code_id">
-                  <mat-option>None</mat-option>
-                  <mat-option
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Procedure code</mat-label> -->
+                <!-- <mat-select formControlName="procedure_code_id">
+                  <mat-option>None</mat-option> -->
+                  <!-- <mat-option
                     *ngFor="let procode of procedureCodes"
                     [value]="procode"
                     >{{ procode }}</mat-option
-                  >
-                </mat-select>
+                  >-->
+                <!-- </mat-select> -->
+
+              <!-- </mat-form-field> -->
+              <mat-form-field class="full-width-input">
+                <mat-label>Procedure code</mat-label>
+                <input  matInput formControlName="procedure_code_id" />
               </mat-form-field>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
-              <mat-form-field appearance="fill">
-                <mat-label>Diognosis Code</mat-label>
-                <mat-select formControlName="diagnosis_code_id">
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Diognosis Code</mat-label> -->
+                <!-- <mat-select formControlName="diagnosis_code_id">
                   <mat-option>None</mat-option>
                   <mat-option
                     *ngFor="let diogCode of diognosisCode"
                     [value]="diogCode"
                     >{{ diogCode }}</mat-option
                   >
-                </mat-select>
+                </mat-select> -->
+                <!-- <input matInput formControlName="diagnosis_code_id" />
+              </mat-form-field> -->
+              <mat-form-field class="full-width-input">
+                <mat-label>Diagnosis code</mat-label>
+                <input  matInput formControlName="diagnosis_code_id" />
               </mat-form-field>
             </div>
           </div>
