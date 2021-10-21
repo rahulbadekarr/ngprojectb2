@@ -23,6 +23,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
+
 @NgModule({
   imports: [
     MatButtonModule,
@@ -45,7 +46,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     MatButtonModule,
@@ -69,7 +70,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatPaginatorModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatTabsModule
+    MatTabsModule,
 
   ]
 })
