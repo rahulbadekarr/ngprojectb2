@@ -161,6 +161,42 @@
                                 </div>
                             </div>
                             <div class="row">
+                              <div class="col-sm-4">
+                                  <div class="form-group">
+                                    <mat-form-field class="full-width-input">
+                                      <input matInput formControlName="emergency_contact_name" placeholder="Emergency Contact Name">
+                                      <mat-error *ngIf="!emergency_contact_name.valid && emergency_contact_name.touched && emergency_contact_name.hasError('required')">
+                                          Please enter emergency contact name
+                                      </mat-error>
+                                  </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="col-sm-4">
+                                  <div class="form-group">
+                                    <mat-form-field class="full-width-input">
+                                      <input matInput formControlName="emergency_contact_email" placeholder="Emergency Contact Email">
+                                      <mat-error *ngIf="!emergency_contact_email.valid && emergency_contact_email.touched && emergency_contact_email.hasError('required')">
+                                        Please enter emergency contact email
+                                    </mat-error>
+                                    <mat-error *ngIf="!emergency_contact_email.valid && emergency_contact_email.touched && emergency_contact_email.hasError('email')">
+                                        Please enter valid email
+                                    </mat-error>
+                                  </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <mat-form-field class="full-width-input">
+                                    <input matInput formControlName="emergency_contact_mobile" placeholder="Emergency Contact Phone">
+                                    <mat-error *ngIf="!emergency_contact_mobile.valid && emergency_contact_mobile.touched && emergency_contact_mobile.hasError('required')">
+                                        Please enter emergency contact phone number
+                                    </mat-error>
+                                </mat-form-field>
+                                </div>
+                            </div>
+                          </div>
+
+                            <div class="row">
                                 <!-- address field -->
                                 <div class="col-sm-12">
                                     <div class="form-group">

@@ -9,10 +9,14 @@ import { Demographics, Users } from 'src/model/tabletypes';
 })
 export class ProfileComponent implements OnInit {
   profile: Demographics = new Demographics();
+<<<<<<< HEAD
 user:Users=new Users();
 onFileChanged(event) {
   const file = event.target.files[0]
 }
+=======
+  user:Users=new Users();
+>>>>>>> 8d6e848ca41772423662d10513783b02216bb0f6
 
   constructor(private _userService: UserService) {}
 
