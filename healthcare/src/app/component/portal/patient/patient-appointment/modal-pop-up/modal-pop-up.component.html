@@ -4,10 +4,23 @@
     <mat-card-content> -->
     <form [formGroup]="eventForm">
         <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <mat-form-field class="full-width-input">
+                        <input matInput formControlName="meeting_title" placeholder="Meeting Title">
+                        <mat-error *ngIf="!meeting_title.valid && meeting_title.touched && meeting_title.hasError('required')">
+                            Please enter title
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                </div>
+            </div>
+
+        <div class="row">
             <!-- physician name field -->
             <div class="col-sm-6">
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <mat-form-field appearance="fill">
                         <mat-label>Speciality</mat-label>
                         <mat-select formControlName="speciality" name="speciality">
@@ -19,10 +32,7 @@
                             Please select Speciality
                         </mat-error>
                     </mat-form-field>
-                </div>
-            </div>
-            <!-- meeting title  field -->
-            <div class="col-sm-6">
+                </div> -->
                 <div class="form-group">
                     <mat-form-field appearance="fill">
                         <mat-label>Physician</mat-label>
@@ -37,11 +47,9 @@
                     </mat-form-field>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <!-- description field -->
+            <!-- meeting title  field -->
             <div class="col-sm-6">
-
+              
                 <div class="form-group">
                     <mat-form-field class="full-width-input">
                         <input matInput formControlName="description" placeholder="Add description...">
@@ -52,7 +60,9 @@
                     </mat-form-field>
                 </div>
             </div>
-            <!-- Date field -->
+        </div>
+        <div class="row">
+            <!-- description field -->
             <div class="col-sm-6">
                 <div class="form-group">
                     <mat-form-field appearance="fill">
@@ -67,39 +77,34 @@
                     </mat-form-field>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <!-- Time field -->
+              
+           
+            <!-- Date field -->
             <div class="col-sm-6">
-
-                <div class="form-group">
+            <div class="form-group">
                     <mat-form-field class="full-width-input">
-                        <input matInput formControlName="time" placeholder="time">
+                        <input matInput formControlName="time" placeholder="Time"> 
+                        
+                        <!-- <input matTimepicker 
+                         mode="24h"
+                        placeholder="time" formControlName="time" 
+                      > -->
                         <mat-error *ngIf="!time.valid && time.touched && time.hasError('required')">
                             Please enter time
                         </mat-error>
 
                     </mat-form-field>
                 </div>
-            </div>
-            <!-- Status field -->
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <mat-form-field class="full-width-input">
-                        <input matInput formControlName="status" placeholder="status">
-                        <mat-error *ngIf="!status.valid && status.touched && status.hasError('required')">
-                            Please enter status
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
         </div>
+    </div>
+     
     </form>
     <!-- </mat-card-content>
      </mat-card>  -->
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button>
+    <button mat-button mat-dialog-close  (click)="updateappointment()">Cancel</button>
+    <button mat-button  (click)="onSubmit()" [mat-dialog-close]="true" cdkFocusInitial >Add</button>
 </mat-dialog-actions>
+{{data1}}

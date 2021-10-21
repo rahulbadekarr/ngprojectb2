@@ -3,6 +3,9 @@ import { FullCalendarComponent,CalendarOptions} from '@fullcalendar/angular';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {MatDialog} from '@angular/material/dialog';
 import { ModalPopUpComponent } from './modal-pop-up/modal-pop-up.component';
+import { UserService } from 'src/app/services/user.service';
+import { PatientAppointmentService } from 'src/app/services/patient-appointment.service';
+import { Users } from 'src/model/tabletypes';
 
 @Component({
   selector: 'app-patient-appointment',
@@ -10,61 +13,54 @@ import { ModalPopUpComponent } from './modal-pop-up/modal-pop-up.component';
   styleUrls: ['./patient-appointment.component.css']
 })
 export class PatientAppointmentComponent implements OnInit {
-  user: any;
-  _userService: any;
-  PatientAppointmentService: any;
+  
+  user: Users = new Users();
+ 
 
   constructor(public dialog: MatDialog) {
 
   }
   ngOnInit(): void {
 
-    console.log("asacha");
-    this.user = this._userService.getUserDetails();
-    this.PatientAppointmentService
-      .getPatientAppoinmentList(this.user.id)
-      .subscribe((response) => {
-        console.log(response);
-      
-      })
-    
-      alert('button click');
+ 
   }
 
-  // addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-  //   this.events.push(`${type}: ${event.value}`);
-  // }
+ 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
+ 
+  
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    // plugins: "calendarPlugins",
     weekends: true,
-    dateClick: this.handleDateClick.bind(this), // bind is important!
+   selectable:true,
+   dateClick: this.handleDateClick.bind(this), // bind is important!
     events: [
-      { title: 'event 1', date: '2021-10-20' },
-      { title: 'event 2', date: '2021-10-21' }
-    ]
+      { title: 'event 1', date: '2021-10-10',description: 'Hello World'},
+      { title: 'event 2', date: '2021-10-12',description: 'Welcome World'}
+    ],
+
+    eventClick: (args) => {
+      console.log("ash",args.event.start);
+      console.log("title",args.event.title);
+      let event = { title: args.event.title, date: args.event.start, description: args.event._def.extendedProps.description }
+      this.handleDateClick(event)
+
+    }
+    
+    
   };
-  // calendarOptions: CalendarOptions = {
-  //   initialView: 'dayGridMonth',
-  //   eventClick:function(arg){
-  //   alert(arg.event.title)
-  //   alert(arg.event.start)
-  //   },
-  //   events: [
-  //   { title: 'event 1', date: '2021-10-20'},
-  //   { title: 'event 1', date: '2021-10-21'},
+ 
 
-  //   ]
-  //   };
-
-  handleDateClick(arg) {
-    const dialogRef = this.dialog.open(ModalPopUpComponent);
+  handleDateClick(event) {
+    const dialogRef = this.dialog.open(ModalPopUpComponent,{
+      data : {event}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
     }
+
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
   }
