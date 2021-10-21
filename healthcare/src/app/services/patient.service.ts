@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Appointments, Med_allergy } from 'src/model/tabletypes';
+import { AppointmentTable, Med_allergy } from 'src/model/tabletypes';
 import { Observable } from 'rxjs';
+import { Appointments } from 'src/model/Appointment.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -12,19 +14,45 @@ export class PatientService {
 
   constructor(private http: HttpClient) {}
 
-  getPatientAppoinmentList(userId : string){
-    console.log(userId);
-    return this.http.get<Appointments[]>(`${this.baseUrl}?patient_id=${userId}`);
+  getPatientAppoinmentList(
+    userId: string,
+    startDate: string,
+    endDate: string
+  ): Observable<Appointments[]> {
+    let appointmentList: Appointments[] = [];
+    let url = `${this.baseUrl}?patient_id=${userId}&_sort=date&_order=desc`;
+    if (startDate && endDate) {
+      url = url + `&date_gte=${startDate}&date_lte=${endDate}`;
+    }
+    return this.http.get(url).pipe(
+      map((result: AppointmentTable[]) => {
+        appointmentList = this.getAppointmentList(result);
+        return appointmentList;
+      })
+    );
+  }
+
+  private getAppointmentList(data: AppointmentTable[]): Appointments[] {
+    let appointmentList: Appointments[] = [];
+    if (data.length > 0) {
+      data.forEach((data) => {
+        let appointmentObject: Appointments = {
+          ...data,
+          patient_name: `${data.patient_firstname} ${data.patient_lastname}`,
+          physician_name: `${data.physician_firstname} ${data.physician_lastname}`,
+        };
+        appointmentList.push(appointmentObject);
+      });
+    }
+    return appointmentList;
   }
 
   getData(id) {
-
     return this.http.get(`${this.med_allergy_URL}/${id}`);
   }
 
   createmedicationallergy(Med_allergy): Observable<Med_allergy> {
-
-      console.log(Med_allergy)
+    console.log(Med_allergy);
     return this.http.post<Med_allergy>(this.med_allergy_URL, Med_allergy);
   }
 }

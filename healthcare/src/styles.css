@@ -56,3 +56,8 @@ mat-form-field {
     , sans-serif;
     /* Add !important to overwrite all elements */
 }
+
+.mat-chip.mat-success {
+  background-color: green;
+  color: #fff;
+}

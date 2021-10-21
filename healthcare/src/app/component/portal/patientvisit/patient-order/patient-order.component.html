@@ -1,1 +1,149 @@
-<p>patient-order works!</p>
+
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <div class="row">
+        <form [formGroup]="patient_orders_form">
+        <div class="col-sm-12">
+          <h2 class="heading_color">Patient Orders</h2>
+        </div>
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header
+              ><h3 class="heading_color">Patient Vitals</h3></mat-card-header
+            >
+          </div>
+        </div>
+        <div class="row">
+          <!-- Patient Vital Section -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Blood pressure level</mat-label>
+                <input  matInput formControlName="blood_pressure"  >
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Pulse rate</mat-label>
+                <input matInput formControlName="pulse_rate" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Temprature</mat-label>
+                <input matInput formControlName="temprature" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Height</mat-label>
+                <input matInput formControlName="height" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Weight</mat-label>
+                <input matInput formControlName="weight" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Oxyzen level</mat-label>
+                <input  matInput formControlName="oxygen_levels" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!--patient Code section-->
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header
+              ><h3 class="heading_color">Patient code</h3></mat-card-header
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Procedure code</mat-label> -->
+                <!-- <mat-select formControlName="procedure_code_id">
+                  <mat-option>None</mat-option> -->
+                  <!-- <mat-option
+                    *ngFor="let procode of procedureCodes"
+                    [value]="procode"
+                    >{{ procode }}</mat-option
+                  >-->
+                <!-- </mat-select> -->
+
+              <!-- </mat-form-field> -->
+              <mat-form-field class="full-width-input">
+                <mat-label>Procedure code</mat-label>
+                <input  matInput formControlName="procedure_code_id" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Diognosis Code</mat-label> -->
+                <!-- <mat-select formControlName="diagnosis_code_id">
+                  <mat-option>None</mat-option>
+                  <mat-option
+                    *ngFor="let diogCode of diognosisCode"
+                    [value]="diogCode"
+                    >{{ diogCode }}</mat-option
+                  >
+                </mat-select> -->
+                <!-- <input matInput formControlName="diagnosis_code_id" />
+              </mat-form-field> -->
+              <mat-form-field class="full-width-input">
+                <mat-label>Diagnosis code</mat-label>
+                <input  matInput formControlName="diagnosis_code_id" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
+
+        <!--Patient Medication-->
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header
+              ><h3 class="heading_color">
+                Patient Medication Details
+              </h3></mat-card-header
+            >
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Medication Details</mat-label>
+            <textarea
+              rows="5"
+              matInput
+              placeholder="medication Details"
+              formControlName="medication"
+            >
+            </textarea>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="OnSubmit()" style="margin-right: 10px;">Add</button>
+
+      </form></div>
+    </mat-card-content>
+  </mat-card>
+</div>

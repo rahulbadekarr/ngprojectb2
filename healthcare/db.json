@@ -19,10 +19,18 @@
     {
       "username": "rahul",
       "password": "$2a$10$bf8dPU8B8jeI8q1rUQOkROUIm5BLzG9U6mdYwH6ueQBdA0rjgxM3e",
-      "role": "Patient",
+      "role": "Physician",
       "email": "rahulb@gmail.com",
       "createdDate": "9/1/2021",
       "id": "drdUoGE"
+    },
+    {
+      "username": "sumit",
+      "password": "$2a$10$x.BrKVR1iodYf47Oy6Uel./Lw0A4Ylc4zpczuT7s9/8FsOBWEJq4.",
+      "role": "Patient",
+      "email": "sumit@gmail.com",
+      "createdDate": "9/3/2021",
+      "id": "R95Ymz1"
     }
   ],
   "demographics": [
@@ -67,6 +75,15 @@
       "dob": "2021-10-06",
       "patient_id": "drdUoGE",
       "id": "J7kJeWl"
+    },
+    {
+      "firstname": "sumit",
+      "lastname": "mahajan",
+      "phone": "9860666760",
+      "dob": "2021-10-06T18:30:00.000Z",
+      "address": "Pune",
+      "patient_id": "R95Ymz1",
+      "id": "bfGyat8"
     }
   ],
   "medication_allergies": [
@@ -85,47 +102,132 @@
   "immunization": [
     {
       "id": "",
-      "patient_id": "1",
+      "patient_id": "",
       "covid_19_vaccine": "",
       "vaccinedate": "",
-      "vaccinedosenumber": "",
       "general_vaccine": ""
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "covishield",
+      "vaccinedate": "2021-10-04T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "hKI_hR4"
+    },
+    {
+      "covid_19_vaccine": "TT",
+      "general_vaccine": "Mea",
+      "vaccinedate": "2021-10-12T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "rg3e5rZ"
+    },
+    {
+      "covid_19_vaccine": "Sputnik",
+      "general_vaccine": "Mea",
+      "vaccinedate": "2021-10-12T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "7l23tsR"
+    },
+    {
+      "covid_19_vaccine": "BCG",
+      "general_vaccine": "rahul",
+      "vaccinedate": "2021-10-11T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "Kl5jYUH"
     }
   ],
   "schedule_appointment": [
     {
       "id": "b629nqh",
       "patient_id": "U510nSm",
+      "patient_firstname": "abhay",
+      "patient_lastname": "waldia",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
       "meeting_title": "Monthly Check-up",
       "description": "Full body checkup",
-      "physication": "",
-      "date": "9/6/2021",
+      "date": "09/13/2021",
       "time": "",
-      "reason": "Full body checkup",
       "status": "Completed"
     },
     {
       "id": "a510fkh",
       "patient_id": "U510nSm",
+      "patient_firstname": "U510nSm",
+      "patient_lastname": "U510nSm",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
       "meeting_title": "Fever Check-up",
       "description": "Having high fever",
-      "physication": "",
-      "date": "9/10/2021",
+      "date": "09/15/2021",
       "time": "",
-      "reason": "Having high fever",
       "status": "Scheduled"
     }
   ],
   "order": [
     {
       "id": "",
-      "patient_id": "1",
-      "patient_vitals": "",
-      "procedure_code": "",
-      "diagnosis_code": "",
-      "lab_report": "",
-      "radiology_report": "",
-      "medication": ""
+      "appointment_id": "",
+      "patient_vitals": {
+        "blood_pressure": "",
+        "pulse_rate": "",
+        "temprature": "",
+        "height": "",
+        "weight": "",
+        "oxygen_levels": ""
+      },
+      "procedure_code": {
+        "procedure_code_id": "",
+        "procedure_code_name": ""
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "",
+        "diagnosis_code_name": ""
+      },
+      "lab_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "radiology_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "medication": "",
+      "created_by": "",
+      "created_date": ""
+    },
+    {
+      "id": "2",
+      "appointment_id": "",
+      "patient_vitals": {
+        "blood_pressure": "Medium",
+        "pulse_rate": "78",
+        "temprature": "96",
+        "height": "5",
+        "weight": "55",
+        "oxygen_levels": "Normal"
+      },
+      "procedure_code": {
+        "procedure_code_id": "002F68",
+        "procedure_code_name": ""
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "0032f8",
+        "diagnosis_code_name": ""
+      },
+      "lab_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "radiology_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "medication": "rahul",
+      "created_by": "",
+      "created_date": ""
     }
   ],
   "payment_details": [
@@ -156,6 +258,16 @@
       "AllergenSource": "Bos taurus",
       "Isoforms_or_partial_sequences_of_allergen": "Bos Bos d 3",
       "Allerginicity": "IgE but no biological test"
+    }
+  ],
+  "procedure_cod": [
+    {
+      "procedure_cod_id": "00160J8",
+      "procedure_cod_name": "Bypass Cerebral Ventricle"
+    },
+    {
+      "procedure_cod_id": "00160JA",
+      "procedure_cod_name": "Subgaleal Space"
     }
   ]
 }

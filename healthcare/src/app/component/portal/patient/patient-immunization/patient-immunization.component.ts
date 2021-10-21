@@ -36,17 +36,11 @@ export class PatientImmunizationComponent implements OnInit {
   /*########### Form ###########*/
   registrationForm = this.fb.group({
     covid_19_vaccine: ['', [Validators.required]],
-    vaccinedosenumber: new FormControl(''),
+    general_vaccine: new FormControl(''),
     vaccinedate: new FormControl(''),
   });
 
-  // Choose vaccine using select dropdown
-  // changeVaccine(e) {
-  //   console.log(e.value)
-  //   this.covid_19_vaccine.setValue(e.target.value, {
-  //     onlySelf: true
-  //   })
-  // }
+
 
   // Getter method to access formcontrols
   get covid_19_vaccine() {
