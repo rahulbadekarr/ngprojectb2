@@ -147,7 +147,7 @@
       "physician_lastname": "badekar",
       "meeting_title": "Monthly Check-up",
       "description": "Full body checkup",
-      "date": "9/6/2021",
+      "date": "09/13/2021",
       "time": "",
       "status": "Completed"
     },
@@ -161,7 +161,7 @@
       "physician_lastname": "badekar",
       "meeting_title": "Fever Check-up",
       "description": "Having high fever",
-      "date": "9/10/2021",
+      "date": "09/15/2021",
       "time": "",
       "status": "Scheduled"
     }
