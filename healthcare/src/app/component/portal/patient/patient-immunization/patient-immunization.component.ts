@@ -36,11 +36,11 @@ export class PatientImmunizationComponent implements OnInit {
   /*########### Form ###########*/
   registrationForm = this.fb.group({
     covid_19_vaccine: ['', [Validators.required]],
-    vaccinedosenumber: new FormControl(''),
+    general_vaccine: new FormControl(''),
     vaccinedate: new FormControl(''),
   });
 
- 
+
 
   // Getter method to access formcontrols
   get covid_19_vaccine() {

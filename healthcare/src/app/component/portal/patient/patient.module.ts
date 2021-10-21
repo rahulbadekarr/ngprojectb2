@@ -10,14 +10,15 @@ import { SharedModule } from '../../shared/shared.module';
 import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
+import { PatientImmuneListComponent } from './patient-immune-list/patient-immune-list.component'; // a plugin!
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin, interactionPlugin
 ]);
 
 @NgModule({
-  declarations: [PatientDemographicsComponent, PatientImmunizationComponent, PatientMedicationAllergyComponent, PatientHistoryComponent, PatientAppointmentComponent],
+  declarations: [PatientDemographicsComponent, PatientImmunizationComponent, PatientMedicationAllergyComponent, PatientHistoryComponent, PatientAppointmentComponent, PatientImmuneListComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -28,7 +29,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       { path: 'patient-immunization', component: PatientImmunizationComponent },
       { path: 'patient-medication-allergy', component:PatientMedicationAllergyComponent},
       { path: 'patient-appointment-history', component:PatientHistoryComponent},
-      { path: 'patient-appointment', component: PatientAppointmentComponent}
+      { path: 'patient-appointment', component: PatientAppointmentComponent},
+      {path:'patient-immune-list',component:PatientImmuneListComponent}
 
     ]),
   ],
