@@ -6,6 +6,9 @@
                 <h2>Log In</h2>
                 <!-- username field -->
                 <mat-form-field class="full-width-input">
+                    <!-- <mat-placeholder>
+                        <mat-icon> person_pin</mat-icon>
+                    </mat-placeholder> -->
                     <input matInput formControlName="username" placeholder="Username">
                 </mat-form-field>
                 <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
@@ -13,6 +16,9 @@
                 </mat-error>
                 <!-- password field -->
                 <mat-form-field class="full-width-input">
+                    <!-- <mat-placeholder>
+                        <mat-icon> vpn_key</mat-icon>
+                    </mat-placeholder> -->
                     <input matInput type="password" formControlName="password" placeholder="Password">
                 </mat-form-field>
                 <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
@@ -30,6 +36,7 @@
                         <button mat-raised-button class="btn_register" color="primary" routerLink="registration">Register</button>
                     </div>
                 </div>
+
 
 
 
