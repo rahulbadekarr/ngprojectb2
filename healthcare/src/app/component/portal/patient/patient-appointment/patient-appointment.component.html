@@ -3,7 +3,7 @@
         <mat-card-content>
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="heading_color">Schedule Appointment</h2>
+                    <h2 class="heading_color">Schedule Appointment </h2>
                 </div>
             </div>
             <br>
@@ -11,17 +11,21 @@
                 <div class="col-sm-6 col-sm-12 col-md-12 col-lg-12">
                     <button mat-raised-button color="primary" (click)="toggleWeekends()" class="m-1">Week</button>
                     <!-- pop pup code start here -->
+
+
                     <button mat-raised-button color="primary" (click)="openEvent()">Book Appointment</button>
                     <!-- pop pup code end  here -->
-                    <full-calendar deepChangeDetection="true" [options]="calendarOptions" color="primary">
+                    <full-calendar  deepChangeDetection="true" [options]="calendarOptions" color="primary">
                     </full-calendar>
-                </div>
+                    <!-- <app-modal-pop-up (childData)="onSendinfo($event)"></app-modal-pop-up> -->
+               </div>
             </div>
 
-           
+
+
+
         </mat-card-content>
     </mat-card>
 </div>
-
 
 
