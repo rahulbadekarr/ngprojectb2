@@ -22,7 +22,7 @@ import { EventappointService } from 'src/app/services/eventappoint.service';
   styleUrls: ['./modal-pop-up.component.css']
 })
 export class ModalPopUpComponent implements OnInit {
-
+  minDate = new Date();
   // @Output() childData=new EventEmitter<any>()
 
   eventForm: FormGroup;
