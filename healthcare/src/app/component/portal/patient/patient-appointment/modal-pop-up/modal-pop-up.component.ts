@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject, Output,EventEmitter } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -12,6 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 import { Appointments } from 'src/model/Appointment.model';
 import { AppointmentTable, Users } from 'src/model/tabletypes';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { EventappointService } from 'src/app/services/eventappoint.service';
+
 
 
 @Component({
@@ -20,6 +22,9 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./modal-pop-up.component.css']
 })
 export class ModalPopUpComponent implements OnInit {
+
+  // @Output() childData=new EventEmitter<any>()
+
   eventForm: FormGroup;
   //specialities = ['Patient', 'Physician'];
  // physicians= ['Obstetrician/Gynecologist','Cardiologist','Oncologist','Infectious Disease Physician','Gastroenterologist'];
@@ -27,10 +32,11 @@ export class ModalPopUpComponent implements OnInit {
   user: Users = new Users();
   response:string;
   data1:any;
-  constructor(private fb: FormBuilder,private _PatientAppointmentService: PatientAppointmentService,@Inject(MAT_DIALOG_DATA) public data: any) { }
-
+  constructor(private evtapp:EventappointService ,private fb: FormBuilder,private _PatientAppointmentService: PatientAppointmentService,@Inject(MAT_DIALOG_DATA) public data: any) { }
+  message:any={}
   ngOnInit(): void {
   //this.updateappoinment(10);
+  // this.evtapp.getMessage()
     console.log(this.eventForm);
     this.eventForm = this.fb.group(
       {
@@ -40,42 +46,56 @@ export class ModalPopUpComponent implements OnInit {
         description: ['', Validators.required],
         date: ['', Validators.required],
         time: ['', [Validators.required]],
-        status: ['',Validators.required]
+        status: ['',Validators.required],
+        // dummy:['']
       }
-     
+
     );
     console.log(this.data);
     if(this.data){
-      this.eventForm.controls['meeting_title'].setValue(this.data.event.meeting_title)
+      this.eventForm.controls['meeting_title'].setValue(this.data.event.title)
       this.eventForm.controls['date'].setValue(this.data.event.date)
+      // this.eventForm.controls['time'].setValue(this.data.event.time)
+      // this.eventForm.controls['dummy'].setValue(this.data.event.dummy)
       this.eventForm.controls['description'].setValue(this.data.event.description)
+
     }
-   
+
+
+
   }
+
+
 
   onSubmit() {
+
     let userappointment: AppointmentTable = new AppointmentTable();
     userappointment = this.eventForm.value;
     userappointment.patient_id = this.user.id;
-    userappointment.date = new DatePipe('en-US').transform(this.date.value, 'MM/dd/yyyy');
+    userappointment.date = new DatePipe('en-US').transform(this.date.value, 'yyyy-MM-dd');
+    // userappointment.date = new DatePipe('en-US').transform(this.date.value, 'MM/dd/yyyy');
     this._PatientAppointmentService.createAppointment(userappointment)
         .subscribe((response) => {
-          console.log('response', response);
-         
+          console.log('response consoling', response);
+          this.message=response;
+
+
         })
+        // this.childData.emit(this.collection)
+
   }
 
-  updateappointment() {
-    let userappointment: AppointmentTable = new AppointmentTable();
-    userappointment = this.eventForm.value;
-    userappointment.patient_id = this.user.id;
-    userappointment.date = new DatePipe('en-US').transform(this.date.value, 'MM/dd/yyyy');
-    this._PatientAppointmentService.getData(userappointment)
-        .subscribe((response) => {
-          console.log('responseupdate', response);
-         
-        })
-  }
+  // updateappointment() {
+  //   let userappointment: AppointmentTable = new AppointmentTable();
+  //   userappointment = this.eventForm.value;
+  //   userappointment.patient_id = this.user.id;
+  //   userappointment.date = new DatePipe('en-US').transform(this.date.value, 'yyyy-MM-dd');
+  //   this._PatientAppointmentService.getData(userappointment)
+  //       .subscribe((response) => {
+  //         console.log('response update', response);
+
+  //       })
+  // }
 
 
 
