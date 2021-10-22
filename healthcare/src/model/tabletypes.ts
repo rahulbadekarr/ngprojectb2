@@ -53,7 +53,7 @@ export interface Immune {
 }
 
 export class AppointmentTable {
-  id: string;
+  id: number;
   patient_id: string;
   patient_firstname: string;
   patient_lastname: string;
@@ -62,8 +62,24 @@ export class AppointmentTable {
   physician_lastname: string;
   meeting_title: string;
   description: string;
-  date: Date;
+  date: string;
   time: Time;
+  status: string;
+}
+
+export class Appoint {
+  id: number;
+  patient_id: string;
+  patient_firstname: string;
+  patient_lastname: string;
+  physician_id: string;
+  physician_firstname: string;
+  physician_lastname: string;
+  meeting_title: string;
+  description: string;
+  date: string;
+  time: string;
+  // dummy:string
   status: string;
 }
 
