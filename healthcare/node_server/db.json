@@ -123,39 +123,11 @@
   ],
   "immunization": [
     {
-      "id": "",
-      "patient_id": "",
-      "covid_19_vaccine": "",
-      "vaccinedate": "",
-      "general_vaccine": ""
-    },
-    {
       "covid_19_vaccine": "Covishield",
-      "general_vaccine": "covishield",
-      "vaccinedate": "2021-10-04T18:30:00.000Z",
-      "patient_id": "R95Ymz1",
-      "id": "hKI_hR4"
-    },
-    {
-      "covid_19_vaccine": "TT",
-      "general_vaccine": "Mea",
-      "vaccinedate": "2021-10-12T18:30:00.000Z",
-      "patient_id": "R95Ymz1",
-      "id": "rg3e5rZ"
-    },
-    {
-      "covid_19_vaccine": "Sputnik",
-      "general_vaccine": "Mea",
-      "vaccinedate": "2021-10-12T18:30:00.000Z",
-      "patient_id": "R95Ymz1",
-      "id": "7l23tsR"
-    },
-    {
-      "covid_19_vaccine": "BCG",
-      "general_vaccine": "rahul",
-      "vaccinedate": "2021-10-11T18:30:00.000Z",
-      "patient_id": "R95Ymz1",
-      "id": "Kl5jYUH"
+      "general_vaccine": "Tesla",
+      "vaccinedate": "2021-10-09T18:30:00.000Z",
+      "patient_id": "pPqqRUQ",
+      "id": 1
     }
   ],
   "schedule_appointment": [
@@ -228,6 +200,19 @@
       "date": "10/25/2021",
       "time": "4-5",
       "status": "Scheduled"
+    },
+    {
+      "physician": {
+        "physician_id": "su56c",
+        "physician_firstname": "",
+        "physician_lastname": ""
+      },
+      "meeting_title": "rahul",
+      "description": "rahul",
+      "date": "2021-10-05",
+      "time": "22",
+      "status": "",
+      "id": "9gixBxK"
     }
   ],
   "order": [
@@ -275,11 +260,11 @@
       },
       "procedure_code": {
         "procedure_code_id": "002F68",
-        "procedure_code_name": ""
+        "procedure_code_name": "Structural Measures"
       },
       "diagnosis_code": {
         "diagnosis_code_id": "0032f8",
-        "diagnosis_code_name": ""
+        "diagnosis_code_name": "Structural Measures"
       },
       "lab_report": {
         "file_name": "",

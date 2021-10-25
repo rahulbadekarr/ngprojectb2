@@ -77,43 +77,43 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <!-- <mat-form-field appearance="fill">
-                <mat-label>Procedure code</mat-label> -->
-                <!-- <mat-select formControlName="procedure_code_id">
-                  <mat-option>None</mat-option> -->
-                  <!-- <mat-option
+              <mat-form-field appearance="fill">
+                <mat-label>Procedure code</mat-label>
+             <mat-select formControlName="procedure_code_id">
+                  <mat-option>None</mat-option>
+                <mat-option
                     *ngFor="let procode of procedureCodes"
                     [value]="procode"
                     >{{ procode }}</mat-option
-                  >-->
-                <!-- </mat-select> -->
+                  >
+                </mat-select>
 
-              <!-- </mat-form-field> -->
-              <mat-form-field class="full-width-input">
+             </mat-form-field>
+            <!--  <mat-form-field class="full-width-input">
                 <mat-label>Procedure code</mat-label>
                 <input  matInput formControlName="procedure_code_id" />
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="form-group">
-              <!-- <mat-form-field appearance="fill">
-                <mat-label>Diognosis Code</mat-label> -->
-                <!-- <mat-select formControlName="diagnosis_code_id">
+              <mat-form-field appearance="fill">
+                <mat-label>Diognosis Name</mat-label>
+                <mat-select formControlName="diagnosis_code_id">
                   <mat-option>None</mat-option>
                   <mat-option
                     *ngFor="let diogCode of diognosisCode"
                     [value]="diogCode"
                     >{{ diogCode }}</mat-option
                   >
-                </mat-select> -->
-                <!-- <input matInput formControlName="diagnosis_code_id" />
-              </mat-form-field> -->
-              <mat-form-field class="full-width-input">
+                </mat-select>
+                <!-- <input matInput formControlName="diagnosis_code_id" /> -->
+              </mat-form-field>
+              <!-- <mat-form-field class="full-width-input">
                 <mat-label>Diagnosis code</mat-label>
                 <input  matInput formControlName="diagnosis_code_id" />
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
           </div>
           <div class="col-sm-4"></div>
