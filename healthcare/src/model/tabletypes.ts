@@ -24,6 +24,7 @@ export class Users {
   family_medical_history: string | null;
   surgery: string | null;
   insurance_provider: string | null;
+  profilepicture: string | null;
 }
 
 // export class Demographics {

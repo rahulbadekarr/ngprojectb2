@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { Demographics,  Immune,  Users } from 'src/model/tabletypes';
 import { Immune,  Users } from 'src/model/tabletypes';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 // import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
@@ -111,5 +111,22 @@ export class UserService {
   getImmunizationList(){
     console.log("inside get list")
     return this.http.get(this.immuneUrl)
+  }
+
+  uploadUserPicture(user : Users){
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.patch(
+      `${this.baseUrl}/${user.id}`,
+      user,
+      {
+        headers: headers,
+      }
+    ).pipe(
+      tap((resData : Users) => {
+        let userStorage = JSON.parse(localStorage.getItem("user"));
+        userStorage.profilepicture = resData.profilepicture;
+        localStorage.setItem('user', JSON.stringify(userStorage));
+      })
+    );
   }
 }
