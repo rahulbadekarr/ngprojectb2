@@ -13,9 +13,9 @@ export class PatientAppointmentListResolver implements Resolve<Appointments[]>{
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Appointments[] | Observable<Appointments[]> | Promise<Appointments[]> {
-    let id = this._userService.getUserDetails().id;
+    let user = this._userService.getUserDetails();
     return this._patientService
-      .getPatientAppoinmentList(id, '', '');
+      .getPatientAppoinmentList(user.id, '', '', user.role);
   }
 
 }

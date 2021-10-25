@@ -1,24 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { PatientService } from 'src/app/services/patient.service';
 import { MatSort } from '@angular/material/sort';
 import { Users } from 'src/model/tabletypes';
 import { UserService } from 'src/app/services/user.service';
 import { DatePipe } from '@angular/common';
 import { Appointments } from 'src/model/Appointment.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { PhysicianService } from '../services/physician.service';
 
 @Component({
-  selector: 'app-patient-history',
-  templateUrl: './patient-history.component.html',
-  styleUrls: ['./patient-history.component.css'],
+  selector: 'app-appointment-list',
+  templateUrl: './appointment-list.component.html',
+  styleUrls: ['./appointment-list.component.css']
 })
-export class PatientHistoryComponent implements OnInit {
+export class AppointmentListComponent implements OnInit {
+
   user: Users = new Users();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-
   dataList: MatTableDataSource<any> = new MatTableDataSource();
   columnList: string[];
   statuses = ['In-Progress', 'Scheduled', 'Completed'];
@@ -27,10 +27,9 @@ export class PatientHistoryComponent implements OnInit {
   selectedStatus = '';
 
   constructor(
-    private _patientService: PatientService,
+    private _physicianService: PhysicianService,
     private _userService: UserService,
-    private _route: ActivatedRoute,
-    private _router: Router
+    private _route: ActivatedRoute
   ) {
     this.columnList = [
       'appointmentDate',
@@ -39,9 +38,8 @@ export class PatientHistoryComponent implements OnInit {
       'title',
       'status',
       'actions',
+      'view'
     ];
-    let dataList = this._route.snapshot.data['appointmentListResolver']
-    this.bindGrid(dataList)
   }
 
   ngOnInit(): void {
@@ -52,11 +50,11 @@ export class PatientHistoryComponent implements OnInit {
       this.columnList.splice(this.columnList.indexOf('physicianName'), 1);
     }
 
-    // this._patientService
-    //   .getPatientAppoinmentList(this.user.id, '', '')
-    //   .subscribe((res) => {
-    //     this.bindGrid(res);
-    //   });
+    this._physicianService
+      .getPatientAppoinmentList(this.user.id, '', '', this.user.role)
+      .subscribe((res) => {
+        this.bindGrid(res);
+      });
   }
 
   applyFilter(event: Event) {
@@ -66,7 +64,23 @@ export class PatientHistoryComponent implements OnInit {
 
   filterOnStatus(eventData: string) {
     if (eventData) {
-      this.dataList.filter = eventData.trim().toLowerCase();
+      this._physicianService
+      .getPatientAppoinmentList(
+        this.user.id,
+        '',
+        '',
+        this.user.role,
+        eventData
+      )
+      .subscribe((res) => {
+        this.bindGrid(res);
+      });
+      if(eventData === 'In-Progress' && !this.columnList.includes('actions')){
+        this.columnList.push('actions')
+      }
+      if((eventData === 'Completed' || eventData === 'Scheduled') && this.columnList.includes('actions')){
+        this.columnList.splice(this.columnList.indexOf('actions'),1)
+      }
     } else {
       this.dataList.filter = '';
     }
@@ -74,7 +88,7 @@ export class PatientHistoryComponent implements OnInit {
 
   filterOnDateRange() {
     let datepipe: DatePipe = new DatePipe('en-US');
-    this._patientService
+    this._physicianService
       .getPatientAppoinmentList(
         this.user.id,
         datepipe.transform(this.dateRangeStart, 'MM/dd/yyyy'),
@@ -96,10 +110,11 @@ export class PatientHistoryComponent implements OnInit {
     this.dateRangeStart = '';
     this.dateRangeEnd = '';
     this.selectedStatus = '';
-    this._patientService
-      .getPatientAppoinmentList(this.user.id, '', '', this.user.role)
+    this._physicianService
+      .getPatientAppoinmentList(this.user.id, '', '', this.user.role, 'Scheduled')
       .subscribe((res) => {
         this.bindGrid(res);
       });
   }
+
 }

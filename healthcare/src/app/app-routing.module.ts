@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './component/auth/auth-guard.service';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'portal', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'portal',
+    canActivate : [AuthGuard],
     loadChildren: () =>
       import('./component/portal/portal.module').then((m) => m.PortalModule),
   },

@@ -32,7 +32,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       { path: 'patient-demographics', component: PatientDemographicsComponent },
       { path: 'patient-immunization', component: PatientImmunizationComponent },
       { path: 'patient-medication-allergy', component:PatientMedicationAllergyComponent},
-      { path: 'patient-appointment-history', component:PatientHistoryComponent , resolve: {appointmentListResolver : PatientAppointmentListResolver} },
+      { path: 'patient-appointment-history/', component:PatientHistoryComponent , resolve: {appointmentListResolver : PatientAppointmentListResolver} },
+      { path: 'patient-appointment-history/:physicianid', component:PatientHistoryComponent , resolve: {appointmentListResolver : PatientAppointmentListResolver} },
       { path: 'patient-appointment', component: PatientAppointmentComponent},
       {path:'patient-immune-list',component:PatientImmuneListComponent}
 

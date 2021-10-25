@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { Demographics, Users } from 'src/model/tabletypes';
+// import { Demographics, Users } from 'src/model/tabletypes';
+import { Users } from 'src/model/tabletypes';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +9,7 @@ import { Demographics, Users } from 'src/model/tabletypes';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  profile: Demographics = new Demographics();
+  profile: Users = new Users();
   user:Users=new Users();
 
   constructor(private _userService: UserService) {}

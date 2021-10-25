@@ -6,11 +6,14 @@
                 <h2>Log In</h2>
                 <!-- username field -->
                 <mat-form-field class="full-width-input">
-                    <input matInput formControlName="username" placeholder="Username">
+                    <input matInput formControlName="email" placeholder="Email">
                 </mat-form-field>
-                <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
-                    Please enter valid username
+                <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
+                    Please enter email
                 </mat-error>
+                <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
+                  Please enter valid email
+              </mat-error>
                 <!-- password field -->
                 <mat-form-field class="full-width-input">
                     <input matInput type="password" formControlName="password" placeholder="Password">
