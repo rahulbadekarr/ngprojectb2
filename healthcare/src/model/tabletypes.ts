@@ -8,28 +8,28 @@ export class Users {
   role: string;
   password: string;
   createdDate: string;
-}
-
-export class Demographics {
-  id: string;
-  patient_id: string;
   firstname: string;
   lastname: string;
   dob: string;
   gender: string;
-  ethanicity: string;
-  education: string;
-  occupation: string;
   address: string;
   phone: number;
-  medicalhistory: string;
-  family_medical_history: string;
-  surgery: string;
-  insurance_provider: string;
   emergency_contact_name: string;
   emergency_contact_email: string;
   emergency_contact_mobile: string;
+  ethanicity: string | null;
+  education: string | null;
+  occupation: string | null;
+  medicalhistory: string | null;
+  family_medical_history: string | null;
+  surgery: string | null;
+  insurance_provider: string | null;
 }
+
+// export class Demographics {
+//   id: string;
+//   patient_id: string;
+// }
 
 export class Med_allergy {
   id: number;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { DemographicsService} from 'src/app/services/demographics.service';
 import { UserService } from 'src/app/services/user.service';
-import { Demographics,Users } from 'src/model/tabletypes';
+import { Users } from 'src/model/tabletypes';
 
 @Component({
   selector: 'app-patient-information',
@@ -11,8 +11,6 @@ import { Demographics,Users } from 'src/model/tabletypes';
 })
 export class PatientInformationComponent implements OnInit {
   patient_info_form:FormGroup
-  patient: Demographics = new Demographics();
-  demodata: Demographics = new Demographics();
   user: Users = new Users();
 
 

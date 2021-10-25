@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
@@ -13,6 +13,7 @@ import { SharedModule } from './component/shared/shared.module';
 // import { LoginComponent } from './component/auth/login/login.component';
 // import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 
@@ -36,7 +37,11 @@ import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot
     SharedModule
   ],
 
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

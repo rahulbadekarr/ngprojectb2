@@ -25,26 +25,28 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   onlogin() {
     this._userService
-      .login(this.username.value, this.userpassword.value)
+      .login(this.email.value, this.userpassword.value)
       .subscribe((data) => {
-        if (data === true) {
+        if (data) {
           this._snackBar.openSnackBar('Logged in successfully');
           this._router.navigate(['portal']);
-        } else {
-          this._snackBar.openSnackBar('Invalid credentials');
         }
-      });
+      },
+      error =>{
+        this._snackBar.openSnackBar(error);
+      }
+      );
   }
 
-  get username(): AbstractControl {
-    return this.loginForm.get('username');
+  get email(): AbstractControl {
+    return this.loginForm.get('email');
   }
 
   get userpassword(): AbstractControl {

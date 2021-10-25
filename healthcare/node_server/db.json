@@ -1,0 +1,337 @@
+{
+  "users": [
+    {
+      "username": "rahul",
+      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "role": "Physician",
+      "email": "rahulb@gmail.com",
+      "createdDate": "9/1/2021",
+      "id": "drdUoGE"
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "role": "Patient",
+      "firstname": "amit",
+      "lastname": "deshmukh",
+      "phone": "1234567890",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "address": "test",
+      "emergency_contact_name": "Karan Deshmukh",
+      "emergency_contact_email": "test2@test2.com",
+      "emergency_contact_mobile": "1212333111",
+      "createdDate": "9/5/2021",
+      "id": "pPqqRUQ"
+    },
+    {
+      "email": "test1@test1.com",
+      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "role": "Patient",
+      "firstname": "shreyas",
+      "lastname": "iyer",
+      "phone": "1234567890",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "address": "test",
+      "emergency_contact_name": "Karan Deshmukh",
+      "emergency_contact_email": "test2@test2.com",
+      "emergency_contact_mobile": "1212333111",
+      "createdDate": "9/5/2021",
+      "id": "tGaaQUR"
+    },
+    {
+      "email": "test2@test2.com",
+      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "role": "Patient",
+      "firstname": "Robert",
+      "lastname": "Carlos",
+      "phone": "1234567890",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "address": "test",
+      "emergency_contact_name": "Robert Michel",
+      "emergency_contact_email": "test2@test2.com",
+      "emergency_contact_mobile": "1212333111",
+      "createdDate": "9/1/2021",
+      "id": "gBtaOZR"
+    },
+    {
+      "email": "test3@test3.com",
+      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "role": "Patient",
+      "firstname": "Jason",
+      "lastname": "Patrick",
+      "phone": "1234567890",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "address": "test",
+      "emergency_contact_name": "Sctoch Kendrick",
+      "emergency_contact_email": "test3@test3.com",
+      "emergency_contact_mobile": "1212333111",
+      "createdDate": "9/7/2021",
+      "id": "zKvaYUE"
+    }
+  ],
+  "demographics": [
+    {
+      "firstname": "test123",
+      "lastname": "test123",
+      "phone": "1234567890",
+      "dob": "9/4/2021",
+      "patient_id": "U510nSm",
+      "id": "YxgbFeV",
+      "gender": "Male",
+      "education": "Lawyer",
+      "address": "Test Address",
+      "ethanicity": "American",
+      "occupation": "",
+      "medicalhistory": "",
+      "family_medical_history": "",
+      "surgery": "",
+      "insurance_provider": "test Insurance Provider",
+      "emergency_contact_name": "",
+      "emergency_contact_email": "",
+      "emergency_contact_mobile": ""
+    },
+    {
+      "firstname": "rahul",
+      "lastname": "badekar",
+      "phone": "9860636760",
+      "dob": "2021-10-06",
+      "patient_id": "drdUoGE",
+      "id": "J7kJeWl"
+    },
+    {
+      "firstname": "sumit",
+      "lastname": "mahajan",
+      "phone": "9860666760",
+      "dob": "2021-10-06T18:30:00.000Z",
+      "address": "Pune",
+      "patient_id": "R95Ymz1",
+      "id": "bfGyat8"
+    }
+  ],
+  "medication_allergies": [
+    {
+      "id": "",
+      "patient_id": "1",
+      "current_medication": "",
+      "otc_medication": "",
+      "natural_product_hurbs": "",
+      "socila_drugs": "",
+      "past_medication": "",
+      "drug_allergies": "",
+      "other_allergies_reaction": ""
+    }
+  ],
+  "immunization": [
+    {
+      "id": "",
+      "patient_id": "",
+      "covid_19_vaccine": "",
+      "vaccinedate": "",
+      "general_vaccine": ""
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "covishield",
+      "vaccinedate": "2021-10-04T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "hKI_hR4"
+    },
+    {
+      "covid_19_vaccine": "TT",
+      "general_vaccine": "Mea",
+      "vaccinedate": "2021-10-12T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "rg3e5rZ"
+    },
+    {
+      "covid_19_vaccine": "Sputnik",
+      "general_vaccine": "Mea",
+      "vaccinedate": "2021-10-12T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "7l23tsR"
+    },
+    {
+      "covid_19_vaccine": "BCG",
+      "general_vaccine": "rahul",
+      "vaccinedate": "2021-10-11T18:30:00.000Z",
+      "patient_id": "R95Ymz1",
+      "id": "Kl5jYUH"
+    }
+  ],
+  "schedule_appointment": [
+    {
+      "id": "b629nqh",
+      "patient_id": "pPqqRUQ",
+      "patient_firstname": "abhay",
+      "patient_lastname": "waldia",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
+      "meeting_title": "Monthly Check-up",
+      "description": "Full body checkup",
+      "date": "09/13/2021",
+      "time": "1-2",
+      "status": "Completed"
+    },
+    {
+      "id": "a510fkh",
+      "patient_id": "tGaaQUR",
+      "patient_firstname": "shreyas",
+      "patient_lastname": "iyer",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "date": "10/28/2021",
+      "time": "1-2",
+      "status": "In-Progress"
+    },
+    {
+      "id": "a524fkh",
+      "patient_id": "pPqqRUQ",
+      "patient_firstname": "abhay",
+      "patient_lastname": "waldia",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "date": "10/30/2021",
+      "time": "4-5",
+      "status": "In-Progress"
+    },
+    {
+      "id": "a524fkh",
+      "patient_id": "gBtaOZR",
+      "patient_firstname": "Robert",
+      "patient_lastname": "Carlos",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "date": "10/26/2021",
+      "time": "2-3",
+      "status": "Scheduled"
+    },
+    {
+      "id": "a524fkh",
+      "patient_id": "zKvaYUE",
+      "patient_firstname": "Jason",
+      "patient_lastname": "Patrick",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "rahul",
+      "physician_lastname": "badekar",
+      "meeting_title": "Fever Check-up",
+      "description": "Having high fever",
+      "date": "10/25/2021",
+      "time": "4-5",
+      "status": "Scheduled"
+    }
+  ],
+  "order": [
+    {
+      "id": "",
+      "appointment_id": "",
+      "patient_vitals": {
+        "blood_pressure": "",
+        "pulse_rate": "",
+        "temprature": "",
+        "height": "",
+        "weight": "",
+        "oxygen_levels": ""
+      },
+      "procedure_code": {
+        "procedure_code_id": "",
+        "procedure_code_name": ""
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "",
+        "diagnosis_code_name": ""
+      },
+      "lab_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "radiology_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "medication": "",
+      "created_by": "",
+      "created_date": ""
+    },
+    {
+      "id": "2",
+      "appointment_id": "",
+      "patient_vitals": {
+        "blood_pressure": "Medium",
+        "pulse_rate": "78",
+        "temprature": "96",
+        "height": "5",
+        "weight": "55",
+        "oxygen_levels": "Normal"
+      },
+      "procedure_code": {
+        "procedure_code_id": "002F68",
+        "procedure_code_name": ""
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "0032f8",
+        "diagnosis_code_name": ""
+      },
+      "lab_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "radiology_report": {
+        "file_name": "",
+        "file_path": ""
+      },
+      "medication": "rahul",
+      "created_by": "",
+      "created_date": ""
+    }
+  ],
+  "payment_details": [
+    {
+      "id": "",
+      "patient_id": "1",
+      "patient_bill": "",
+      "payment_method": "",
+      "payment_history": "",
+      "lab_report": "",
+      "radiology_report": "",
+      "medication": ""
+    }
+  ],
+  "allergies": [
+    {
+      "id": "Bos d 2.0101",
+      "AllergyType": "Animal",
+      "AllergyName": "Bovine",
+      "AllergenSource": "Bos taurus",
+      "Isoforms_or_partial_sequences_of_allergen": "Bos Bos d 2",
+      "Allerginicity": "IgE but no biological test"
+    },
+    {
+      "id": "Bos d 3.0101",
+      "AllergyType": "Animal",
+      "AllergyName": "Bovine",
+      "AllergenSource": "Bos taurus",
+      "Isoforms_or_partial_sequences_of_allergen": "Bos Bos d 3",
+      "Allerginicity": "IgE but no biological test"
+    }
+  ],
+  "procedure_cod": [
+    {
+      "procedure_cod_id": "00160J8",
+      "procedure_cod_name": "Bypass Cerebral Ventricle"
+    },
+    {
+      "procedure_cod_id": "00160JA",
+      "procedure_cod_name": "Subgaleal Space"
+    }
+  ]
+}

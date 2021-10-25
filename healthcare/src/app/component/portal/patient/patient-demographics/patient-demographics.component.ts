@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemographicsService } from 'src/app/services/demographics.service';
-import { Demographics,Users } from 'src/model/tabletypes';
+// import { Demographics,Users } from 'src/model/tabletypes';
+import { Users } from 'src/model/tabletypes';
 import { UserService } from 'src/app/services/user.service';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { DatePipe } from '@angular/common';
@@ -13,8 +14,8 @@ import { DatePipe } from '@angular/common';
 export class PatientDemographicsComponent implements OnInit {
   demoForm: FormGroup;
   genders = ['Male', 'Female'];
-  patient: Demographics = new Demographics();
-  demodata: Demographics = new Demographics();
+  // patient: Demographics = new Demographics();
+  // demodata: Demographics = new Demographics();
   user: Users = new Users();
   showloader: Boolean=false;
 
@@ -32,7 +33,7 @@ export class PatientDemographicsComponent implements OnInit {
     this.user = this._userService.getUserDetails();
     this._DemographicsService
       .getUserDemographics(this.user.id)
-      .subscribe((data : Demographics) => {
+      .subscribe((data : Users) => {
         this.demoForm.patchValue({
           ...data,
           dob: new Date(data.dob)
@@ -76,9 +77,9 @@ export class PatientDemographicsComponent implements OnInit {
   }
 
   onSubmit() {
-    let userDemographics: Demographics = new Demographics();
+    let userDemographics: Users = new Users();
     userDemographics = this.demoForm.value;
-    userDemographics.patient_id = this.user.id;
+    // userDemographics.patient_id = this.user.id;
     userDemographics.dob = new DatePipe('en-US').transform(this.dob.value, 'MM/dd/yyyy');
     this._DemographicsService.createUserDemographics(userDemographics)
         .subscribe((response) => {

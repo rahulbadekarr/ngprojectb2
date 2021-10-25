@@ -17,10 +17,18 @@ export class PatientService {
   getPatientAppoinmentList(
     userId: string,
     startDate: string,
-    endDate: string
+    endDate: string,
+    patientId: string,
+    role: string
   ): Observable<Appointments[]> {
     let appointmentList: Appointments[] = [];
-    let url = `${this.baseUrl}?patient_id=${userId}&_sort=date&_order=desc`;
+    let url = `${this.baseUrl}?_sort=date&_order=desc&`;
+    if(role === 'Patient'){
+      url = url + `patient_id=${userId}`;
+    }else if(role === 'Physician'){
+      url = url + `physician_id=${userId}&patient_id=${patientId}`;
+    }
+
     if (startDate && endDate) {
       url = url + `&date_gte=${startDate}&date_lte=${endDate}`;
     }

@@ -7,8 +7,13 @@
                 <div class="row">
                     <!-- username field -->
                     <div class="col-sm-6">
-
-                        <div class="form-group">
+                      <mat-form-field class="full-width-input">
+                        <input matInput formControlName="firstname" placeholder="First Name">
+                        <mat-error *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
+                            Please enter firstname
+                        </mat-error>
+                    </mat-form-field>
+                        <!-- <div class="form-group">
                             <mat-form-field class="full-width-input">
                                 <input matInput formControlName="username" placeholder="User Name">
                                 <mat-error *ngIf="!username.valid && username.touched && username.hasError('required')">
@@ -18,17 +23,17 @@
                                     Username already taken! please enter different username.
                                 </mat-error>
                             </mat-form-field>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- firstname field -->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="firstname" placeholder="First Name">
-                                <mat-error *ngIf="!firstname.valid && firstname.touched && firstname.hasError('required')">
-                                    Please enter firstname
-                                </mat-error>
-                            </mat-form-field>
+                          <mat-form-field class="full-width-input">
+                            <input matInput formControlName="lastname" placeholder="Last Name">
+                            <mat-error *ngIf="!lastname.valid && lastname.touched && lastname.hasError('required')">
+                                Please enter lastname
+                            </mat-error>
+                        </mat-form-field>
                         </div>
                     </div>
                 </div>
@@ -37,26 +42,30 @@
                     <!-- lastname field -->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="lastname" placeholder="Last Name">
-                                <mat-error *ngIf="!lastname.valid && lastname.touched && lastname.hasError('required')">
-                                    Please enter lastname
-                                </mat-error>
-                            </mat-form-field>
+                          <mat-form-field>
+                            <input matInput formControlName="email" placeholder="Email">
+                            <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
+                                Please enter email
+                            </mat-error>
+                            <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
+                                Please enter valid email
+                            </mat-error>
+                        </mat-form-field>
                         </div>
                     </div>
                     <!-- email field -->
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <mat-form-field>
-                                <input matInput formControlName="email" placeholder="Email">
-                                <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
-                                    Please enter email
-                                </mat-error>
-                                <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
-                                    Please enter valid email
-                                </mat-error>
-                            </mat-form-field>
+                          <mat-form-field appearance="fill">
+                            <mat-label>Date of birth</mat-label>
+                            <input matInput formControlName="dateofbirth" [matDatepicker]="dobpicker">
+                            <mat-datepicker-toggle matSuffix [for]="dobpicker">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #dobpicker></mat-datepicker>
+                            <mat-error *ngIf="!dateofbirth.valid && dateofbirth.touched && dateofbirth.hasError('required')">
+                                Please enter date of birth
+                            </mat-error>
+                        </mat-form-field>
                         </div>
                     </div>
                 </div>
@@ -97,23 +106,12 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <!-- DOB field -->
+                <!-- <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <mat-form-field appearance="fill">
-                                <mat-label>Date of birth</mat-label>
-                                <input matInput formControlName="dateofbirth" [matDatepicker]="dobpicker">
-                                <mat-datepicker-toggle matSuffix [for]="dobpicker">
-                                </mat-datepicker-toggle>
-                                <mat-datepicker #dobpicker></mat-datepicker>
-                                <mat-error *ngIf="!dateofbirth.valid && dateofbirth.touched && dateofbirth.hasError('required')">
-                                    Please enter date of birth
-                                </mat-error>
-                            </mat-form-field>
+
                         </div>
                     </div>
-                    <!-- role field -->
                     <div class="col-sm-6">
                         <div class="form-group">
                             <mat-form-field appearance="fill">
@@ -129,7 +127,7 @@
                             </mat-form-field>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="row">
                   <div class="col-sm-6">

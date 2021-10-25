@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef,  OnDestroy} from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Users } from 'src/model/tabletypes';
 // import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
@@ -9,14 +10,9 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements  OnDestroy {
+export class SidebarComponent implements  OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
-
-  // fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
-
-  // fillerContent = Array.from({length: 10}, () =>
-  //     `we are consistently delivers best-in-class solutions and an unmatched 
-  //     cost advantage to healthcare organizations worldwide.`);
+  user : Users;
 
   private _mobileQueryListener: () => void;
 
@@ -25,6 +21,9 @@ export class SidebarComponent implements  OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+  ngOnInit(): void {
+    this.user = this._userService.getUserDetails();
+  }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -32,9 +31,5 @@ export class SidebarComponent implements  OnDestroy {
   onlogout(){
     this._userService.logout();
   }
-  // isLoggedIn$: Observable<boolean>; 
-  // ngOnInit() {
-  //   this.isLoggedIn$ = this._userService.isLoggedIn; // {2}
-  // }
 }
 
