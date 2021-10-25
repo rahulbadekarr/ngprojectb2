@@ -24,7 +24,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     // RegistrationComponent,
     ForgotUsernameComponent,
     ForgotPasswordComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
