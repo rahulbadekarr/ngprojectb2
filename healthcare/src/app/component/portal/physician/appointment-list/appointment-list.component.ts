@@ -49,7 +49,7 @@ export class AppointmentListComponent implements OnInit {
     } else if (this.user.role === 'Physician') {
       this.columnList.splice(this.columnList.indexOf('physicianName'), 1);
     }
-
+    this.columnList.splice(this.columnList.indexOf('actions'),1)
     this._physicianService
       .getPatientAppoinmentList(this.user.id, '', '', this.user.role)
       .subscribe((res) => {

@@ -88,7 +88,7 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
             <mat-cell *matCellDef="let element">
               <mat-chip-list aria-label="Status">
-                <mat-chip [color]="element.status === 'Completed' ? 'success' : 'accent'" selected>{{element.status}}
+                <mat-chip [color]="element.status === 'Completed' ? 'success' : element.status === 'In-Progress' ? 'accent' : 'primary'" selected>{{element.status}}
                 </mat-chip>
               </mat-chip-list>
             </mat-cell>
