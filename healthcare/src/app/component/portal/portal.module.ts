@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { PhytoviewpatientComponent } from '../physician/phytoviewpatient/phytoviewpatient.component';
 
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
+          {path:'physciancal',component:PhytoviewpatientComponent},
           {
             path: 'patient',
             loadChildren: () =>
