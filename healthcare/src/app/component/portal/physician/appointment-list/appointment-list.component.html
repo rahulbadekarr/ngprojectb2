@@ -74,7 +74,7 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
             <mat-cell *matCellDef="let element">
               <mat-chip-list aria-label="Status">
-                <mat-chip [color]="element.status === 'Completed' ? 'success' : element.status === 'In-Progress' ? 'accent' : 'primary'" selected>{{element.status}}
+                <mat-chip [color]="element.status === 'Completed' ? 'success' : element.status === 'In-Progress' ? 'accent' : element.status === 'Canceled' ? 'warn' : 'primary'" selected>{{element.status}}
                 </mat-chip>
               </mat-chip-list>
             </mat-cell>
@@ -88,12 +88,12 @@
             </mat-cell>
           </ng-container>
           <ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef>Accept/Reject</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Accept/Cancel</mat-header-cell>
             <mat-cell *matCellDef="let element" [ngStyle]="{'visibility':element.status === 'Completed' ? 'hidden' : 'visible'}">
-              <button mat-icon-button >
+              <button mat-icon-button (click)="onAcceptOrReject(element.id, 'Scheduled')">
                 <mat-icon color="primary">done_outline</mat-icon>
               </button>
-              <button mat-icon-button >
+              <button mat-icon-button (click)="onAcceptOrReject(element.id, 'Canceled')">
                 <mat-icon color="warn">cancel</mat-icon>
               </button>
             </mat-cell>
