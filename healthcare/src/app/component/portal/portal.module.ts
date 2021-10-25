@@ -36,6 +36,11 @@ import { PhytoviewpatientComponent } from '../physician/phytoviewpatient/phytovi
             loadChildren: () =>
               import('../portal/patientvisit/patient-visit.module').then((m) => m.PatientVisitModule),
           },
+          {
+            path: 'physician',
+            loadChildren: () =>
+              import('./physician/physician.module').then((m) => m.PhysicianModule),
+          },
         ],
       },
     ]),
