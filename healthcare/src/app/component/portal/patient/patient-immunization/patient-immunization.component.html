@@ -10,29 +10,7 @@
       </div>
 
       <form [formGroup]="registrationForm" (ngSubmit)="collImmune()">
-        <!-- <div class="group-gap">
-            <div class="d-block my-3">
-              <div class="mb-3">
-                <select
-                  class="form-control"
-                  name="covid_19_vaccine"
-                  formControlName="covid_19_vaccine"
-                >
-                  <option value="">Choose your Vaccine</option>
-                  <option *ngFor="let city of Vaccines" [ngValue]="city">
-                    {{ city }}
-                  </option>
-                </select>
 
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isSubmitted && covid_19_vaccine.errors?.required"
-                >
-                  <sup>*</sup>Please enter your vaccine name
-                </div>
-              </div>
-            </div>
-          </div> -->
 
         <div class="row">
           <!-- vaccine field -->
@@ -49,6 +27,36 @@
               </mat-form-field>
             </div>
           </div>
+
+        </div>
+
+
+        <div class="row">
+
+          <!-- date of vaccination field -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Date of Vaccination</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  name="picker"
+                  formControlName="vaccinedate"
+
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
           <!-- dose field -->
           <div class="col-sm-4">
             <div class="form-group">
@@ -61,40 +69,24 @@
                 <input
                   matInput
                   formControlName="general_vaccine"
-                  placeholder="general vaccine"
+                  placeholder="Other vaccine"
                 />
-              </mat-form-field>
-            </div>
-          </div>
-          <!-- date of vaccination field -->
-          <div class="col-sm-4">
-            <div class="form-group">
-              <mat-form-field appearance="fill">
-                <mat-label>Date of Vaccination</mat-label>
-                <input
-                  matInput
-                  [matDatepicker]="picker"
-                  name="picker"
-                  formControlName="vaccinedate"
-                />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker"
-                ></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </div>
           </div>
         </div>
+
         <!-- Submit Button -->
         <div class="row">
           <div class="col-sm-12">
-            <button type="submit" mat-raised-button color="primary">
+            <button [disabled]="registrationForm.invalid" type="submit" mat-raised-button color="primary">
               Submit
             </button>
           </div>
         </div>
       </form>
+      <br><br>
+      <app-patient-immune-list></app-patient-immune-list>
       <!-- Form ends -->
     </mat-card-content>
   </mat-card>

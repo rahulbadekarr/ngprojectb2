@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 
-
 @NgModule({
   declarations: [
     ManageUsersComponent
@@ -20,7 +19,7 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
       {
         path: 'manage-users',
         component: ManageUsersComponent
-      }
+      },
     ])
   ],
   providers : [

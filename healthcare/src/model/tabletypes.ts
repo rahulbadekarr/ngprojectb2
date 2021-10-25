@@ -115,4 +115,10 @@ export interface Allergies {
   Allerginicity: string;
 }
 
+export interface Phytoviewpatientcal {
+  name: string;
+  date: string;
+  status: string;
+
+}
 

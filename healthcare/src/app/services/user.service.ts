@@ -108,7 +108,7 @@ export class UserService {
     return this.http.post<Immune>(this.immuneUrl,data)
   }
 
-  getImmunizationList(){
+  getImmunizationList():Observable<any>{
     console.log("inside get list")
     return this.http.get(this.immuneUrl)
   }
