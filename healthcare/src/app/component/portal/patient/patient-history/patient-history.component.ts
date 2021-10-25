@@ -25,6 +25,7 @@ export class PatientHistoryComponent implements OnInit {
   dateRangeStart = '';
   dateRangeEnd = '';
   selectedStatus = '';
+  patientId : string;
 
   constructor(
     private _patientService: PatientService,
@@ -51,12 +52,11 @@ export class PatientHistoryComponent implements OnInit {
     } else if (this.user.role === 'Physician') {
       this.columnList.splice(this.columnList.indexOf('physicianName'), 1);
     }
-
-    // this._patientService
-    //   .getPatientAppoinmentList(this.user.id, '', '')
-    //   .subscribe((res) => {
-    //     this.bindGrid(res);
-    //   });
+    this._route.queryParams.subscribe(params => {
+      if(params['patientid']){
+        this.patientId = params['patientid'];
+      }
+  });
   }
 
   applyFilter(event: Event) {
@@ -79,6 +79,7 @@ export class PatientHistoryComponent implements OnInit {
         this.user.id,
         datepipe.transform(this.dateRangeStart, 'MM/dd/yyyy'),
         datepipe.transform(this.dateRangeEnd, 'MM/dd/yyyy'),
+        this.patientId,
         this.user.role
       )
       .subscribe((res) => {
@@ -97,7 +98,7 @@ export class PatientHistoryComponent implements OnInit {
     this.dateRangeEnd = '';
     this.selectedStatus = '';
     this._patientService
-      .getPatientAppoinmentList(this.user.id, '', '', this.user.role)
+      .getPatientAppoinmentList(this.user.id, '', '', this.patientId, this.user.role)
       .subscribe((res) => {
         this.bindGrid(res);
       });
