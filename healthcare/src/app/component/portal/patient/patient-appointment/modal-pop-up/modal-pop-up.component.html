@@ -96,7 +96,7 @@
             <input
               matInput
               formControlName="date"
-              [matDatepicker]="dobpicker"
+              [matDatepicker]="dobpicker" [min]="minDate"
             />
             <mat-datepicker-toggle matSuffix [for]="dobpicker">
             </mat-datepicker-toggle>

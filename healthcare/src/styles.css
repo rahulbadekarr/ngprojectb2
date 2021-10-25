@@ -30,7 +30,7 @@
 
 html,
 body {
-    height: 100%;
+    height: auto;
 }
 
 body {
@@ -58,6 +58,6 @@ mat-form-field {
 }
 
 .mat-chip.mat-success {
-  background-color: green;
-  color: #fff;
+    background-color: green;
+    color: #fff;
 }

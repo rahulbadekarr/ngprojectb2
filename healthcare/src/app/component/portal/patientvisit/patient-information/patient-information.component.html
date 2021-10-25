@@ -1,1 +1,168 @@
-<p>patient-information works!</p>
+
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <div class="row">
+        <form [formGroup]="patient_info_form">
+        <div class="col-sm-12">
+          <h2 class="heading_color">Patient Information</h2>
+        </div>
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header
+              ><h3 class="heading_color">Patient personal Information</h3></mat-card-header
+            >
+          </div>
+        </div>
+        <div class="row">
+          <!-- Patient personal info Section -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>First Name</mat-label>
+                <input  matInput formControlName="firstname"  >
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastname" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput formControlName="dateofbirth" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Phone No</mat-label>
+                <input matInput formControlName="phoneno" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <mat-label>Emergency Contact</mat-label>
+                <input  matInput formControlName="emergencycontact" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!--patient demographic info section-->
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header>
+              <h3 class="heading_color">Demographic Information</h3></mat-card-header>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Gender</mat-label>
+                <input  matInput formControlName="gender" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Ethinity/Race</mat-label>
+                <input  matInput formControlName="ethinity" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Address</mat-label>
+                <input  matInput formControlName="address" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-12">
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Insurance</mat-label>
+                <input  matInput formControlName="insurance" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Blood Group</mat-label>
+                <input  matInput formControlName="bloodgroup" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <mat-form-field class="full-width-input">
+                <mat-label>Allergic to</mat-label>
+                <input  matInput formControlName="allergy" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!--Patient Medication-->
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card-header
+              ><h3 class="heading_color">
+                Patient Medication Details
+              </h3></mat-card-header
+            >
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Allergy Details</mat-label>
+            <textarea
+              rows="5"
+              matInput
+              placeholder="medication Details"
+              formControlName="allergy"
+            >
+            </textarea>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="OnSubmit()" style="margin-right: 10px;">Add</button>
+</div>
+      </form>
+    </div>
+    </mat-card-content>
+  </mat-card>
+</div>
