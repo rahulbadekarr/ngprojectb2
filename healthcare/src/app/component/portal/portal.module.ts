@@ -39,11 +39,6 @@ import { FooterComponent } from './footer/footer.component';
             loadChildren: () =>
               import('../portal/physician/physician.module').then((m) => m.PhysicianModule),
           },
-          {
-            path: 'adminvisit',
-            loadChildren: () =>
-              import('../portal/admin/adminvisit/adminvisit.module').then((m) => m.AdminvisitModule),
-          },
         ],
       },
     ]),
