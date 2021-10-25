@@ -31,11 +31,10 @@ export class PatientMedicationAllergyComponent implements OnInit {
     this.updateData(1);
     console.log(this._medi_allergyService.getData);
     this.med_allergy_form = this.fb.group({
-      current_medication: ['', Validators.required],
-      otc_medication: ['', Validators.required],
-      natural_product_hurbs: ['', Validators.required],
+
+
       social_drugs: ['', Validators.required],
-      past_medication: ['', Validators.required],
+     
       other_allergies_reaction: ['', Validators.required],
       drug_allergies: ['', Validators.required],
     });

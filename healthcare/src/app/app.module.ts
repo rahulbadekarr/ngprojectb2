@@ -13,7 +13,6 @@ import { SharedModule } from './component/shared/shared.module';
 // import { LoginComponent } from './component/auth/login/login.component';
 // import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
-import { PhytoviewpatientComponent } from './component/portal/physician/physician/phytoviewpatient/phytoviewpatient.component';
 
 
 
@@ -25,7 +24,7 @@ import { PhytoviewpatientComponent } from './component/portal/physician/physicia
     ForgotUsernameComponent,
     ForgotPasswordComponent,
     ForgotPasswordComponent,
-    PhytoviewpatientComponent
+
   ],
   imports: [
     BrowserModule,

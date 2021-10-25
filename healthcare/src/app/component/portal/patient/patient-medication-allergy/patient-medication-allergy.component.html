@@ -3,57 +3,28 @@
         <mat-card-content>
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="heading_color">Patient Medication and Allergy</h2>
+                    <h2 class="heading_color">Patient Allergy</h2>
                 </div>
             </div>
             <!-- allergy form start here -->
             <form [formGroup]="med_allergy_form">
                 <div class="row">
-                    <!-- medication field -->
+
+
                     <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="current_medication" placeholder="Current Medication" />
-                                <mat-error *ngIf="
-                      !current_medication.valid &&
-                      current_medication.touched &&
-                      current_medication.hasError('required')
-                    ">
-                                    Please enter current Medication Details
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- otc medication field -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="otc_medication" placeholder="OTC Medication" />
-                                <mat-error *ngIf="
-                  !otc_medication.valid &&
-                  otc_medication.touched &&
-                  otc_medication.hasError('required')
-                ">
-                                    Please enter OTC Medication Details
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- natural product hurb field -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="natural_product_hurbs" placeholder="Herbs/Vitamins/Minerals/Antibiotics" />
-                                <mat-error *ngIf="
-                  !natural_product_hurbs.valid &&
-                  natural_product_hurbs.touched &&
-                  natural_product_hurbs.hasError('required')
-                ">
-                                    Please enter Natural Products and Herbs
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+                      <div class="form-group">
+                          <mat-form-field class="full-width-input">
+                              <input matInput formControlName="drug_allergies" placeholder="Allergy" />
+                              <mat-error *ngIf="
+                !drug_allergies.valid &&
+                drug_allergies.touched &&
+                drug_allergies.hasError('required')
+              ">
+                                  Please enter Allergies
+                              </mat-error>
+                          </mat-form-field>
+                      </div>
+                  </div>
                 </div>
 
                 <div class="row">
@@ -72,36 +43,7 @@
                             </mat-form-field>
                         </div>
                     </div>
-                    <!-- past medication field -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="past_medication" placeholder="Past Medication Details " />
-                                <mat-error *ngIf="
-                  !past_medication.valid &&
-                  past_medication.touched &&
-                  past_medication.hasError('required')
-                ">
-                                    Please enter past medication details
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- drug allergic field -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="drug_allergies" placeholder="drug_allergies" />
-                                <mat-error *ngIf="
-                  !drug_allergies.valid &&
-                  drug_allergies.touched &&
-                  drug_allergies.hasError('required')
-                ">
-                                    Please enter Drug Allergies
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row">
                     <!-- other allergic reaction field -->
