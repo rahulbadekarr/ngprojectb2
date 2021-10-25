@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
+          { path: 'manage-users', component:ManageUsersComponent},
           {
             path: 'patient',
             loadChildren: () =>
@@ -39,6 +41,11 @@ import { FooterComponent } from './footer/footer.component';
             loadChildren: () =>
               import('../portal/physician/physician.module').then((m) => m.PhysicianModule),
           },
+          // {
+          //   path: 'admin',
+          //   loadChildren: () =>
+          //     import('../portal/admin/admin.module').then((m) => m.AdminModule),
+          // },
         ],
       },
     ]),
