@@ -42,11 +42,6 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
             loadChildren: () =>
               import('../portal/physician/physician.module').then((m) => m.PhysicianModule),
           },
-          {
-            path: 'adminvisit',
-            loadChildren: () =>
-              import('../portal/admin/adminvisit/adminvisit.module').then((m) => m.AdminvisitModule),
-          },
         ],
       },
     ]),
