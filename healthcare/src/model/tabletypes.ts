@@ -67,6 +67,22 @@ export class AppointmentTable {
   status: string;
 }
 
+export class Appoint {
+  id: number;
+  patient_id: string;
+  patient_firstname: string;
+  patient_lastname: string;
+  physician_id: string;
+  physician_firstname: string;
+  physician_lastname: string;
+  meeting_title: string;
+  description: string;
+  date: string;
+  time: string;
+  // dummy:string
+  status: string;
+}
+
 export class Order {
   id: number;
   patient_id: string;

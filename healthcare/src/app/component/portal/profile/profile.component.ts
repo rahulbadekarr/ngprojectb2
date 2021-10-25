@@ -11,6 +11,18 @@ import { Users } from 'src/model/tabletypes';
 export class ProfileComponent implements OnInit {
   profile: Users = new Users();
   user:Users=new Users();
+urllink:string = "assets/images/1.jpg";
+selectFiles(event){
+  if(event.target.files){
+    var reader = new FileReader()
+    reader.readAsDataURL(event.target.files[0])
+    reader.onload = (event : any)=>{
+      this.urllink = event.target.result
+    }
+
+  }
+
+}
 
   constructor(private _userService: UserService) {}
 
@@ -18,6 +30,7 @@ export class ProfileComponent implements OnInit {
      this.user = this._userService.getUserDetails();
      this._userService.getUserProfiles(this.user.id).subscribe((data:any) => {
       for(let d of data){
+        // this.user.email = d.email;
         this.profile.dob = d.dob;
         this.profile.gender = d.gender;
         this.profile.phone = d.phone;

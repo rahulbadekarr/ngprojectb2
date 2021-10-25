@@ -1,12 +1,12 @@
 <!-- sidenav  -->
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="example-toolbar d-flex flex-row">
-      <button mat-icon-button class="m-2" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <mat-icon class="m-2 mr-3" routerLink="dashboard" style="cursor: pointer;">home</mat-icon>
-      <mat-icon class="m-2 mr-3" routerLink="profile" style="cursor: pointer;">person</mat-icon>
-      <mat-icon  class="m-2 mr-3" style="cursor: pointer;">notifications</mat-icon>
-      <span class="example-spacer"></span>
-       <button mat-raised-button (click)="onlogout()">Logout</button>
+        <button mat-icon-button class="m-2" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <mat-icon class="m-2 mr-3" routerLink="dashboard" style="cursor: pointer;">home</mat-icon>
+        <mat-icon class="m-2 mr-3" routerLink="profile" style="cursor: pointer;">person</mat-icon>
+        <mat-icon class="m-2 mr-3" style="cursor: pointer;">notifications</mat-icon>
+        <span class="example-spacer"></span>
+        <button mat-raised-button (click)="onlogout()">	<mat-icon>exit_to_app</mat-icon>&nbsp;Logout</button>
     </mat-toolbar>
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -34,4 +34,13 @@
     </mat-sidenav-container>
   </div>
 
+<!-- route link for physician detail component  start -->
+<!-- <a mat-list-item routerLink="physician/patient-detail">
+<mat-icon>details</mat-icon>&nbsp;physician detail</a> -->
+<!-- route link for physician detail component  end -->
 
+
+        <mat-sidenav-content>
+            <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
+            <ng-content></ng-content>
+        </mat-sidenav-content>

@@ -16,7 +16,11 @@
               </mat-error>
                 <!-- password field -->
                 <mat-form-field class="full-width-input">
+
                     <input matInput type="password" formControlName="password" placeholder="Password">
+
+                    <mat-icon matSuffix> vpn_key</mat-icon>
+
                 </mat-form-field>
                 <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
                     Please enter valid password
@@ -33,6 +37,7 @@
                         <button mat-raised-button class="btn_register" color="primary" routerLink="registration">Register</button>
                     </div>
                 </div>
+
 
 
 

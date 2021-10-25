@@ -27,10 +27,10 @@ export class PatientAppointmentService {
   //   // });
   // }
 
-  getData(appointmentData: AppointmentTable) {
-    return this.http.patch('http://localhost:3004/schedule_appointment/10',appointmentData);
-    
-  }
+  // getData(appointmentData: AppointmentTable) {
+  //   return this.http.patch('http://localhost:3004/schedule_appointment/',appointmentData);
+
+  // }
 
 
 }

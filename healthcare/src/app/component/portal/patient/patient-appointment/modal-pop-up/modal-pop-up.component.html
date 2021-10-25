@@ -1,26 +1,35 @@
 <h2 mat-dialog-title>Add Event</h2>
 <mat-dialog-content class="mat-typography">
-    <!-- <mat-card>
+  <!-- <mat-card>
     <mat-card-content> -->
-    <form [formGroup]="eventForm">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <mat-form-field class="full-width-input">
-                        <input matInput formControlName="meeting_title" placeholder="Meeting Title">
-                        <mat-error *ngIf="!meeting_title.valid && meeting_title.touched && meeting_title.hasError('required')">
-                            Please enter title
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                </div>
-            </div>
+  <form [formGroup]="eventForm">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <mat-form-field class="full-width-input">
+            <input
+              matInput
+              formControlName="meeting_title"
+              placeholder="Meeting Title"
+            />
+            <mat-error
+              *ngIf="
+                !meeting_title.valid &&
+                meeting_title.touched &&
+                meeting_title.hasError('required')
+              "
+            >
+              Please enter title
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
 
-        <div class="row">
-            <!-- physician name field -->
-            <div class="col-sm-6">
-
-                <!-- <div class="form-group">
+    <div class="row">
+      <!-- physician name field -->
+      <div class="col-sm-6">
+        <!-- <div class="form-group">
                     <mat-form-field appearance="fill">
                         <mat-label>Speciality</mat-label>
                         <mat-select formControlName="speciality" name="speciality">
@@ -33,78 +42,110 @@
                         </mat-error>
                     </mat-form-field>
                 </div> -->
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Physician</mat-label>
-                        <mat-select formControlName="physician" name="physician">
-                            <mat-option *ngFor="let physician of physicians" [value]="physician">
-                                {{physician}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="!physician.valid && physician.touched && physician.hasError('required')">
-                            Please select Physician
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-            <!-- meeting title  field -->
-            <div class="col-sm-6">
-              
-                <div class="form-group">
-                    <mat-form-field class="full-width-input">
-                        <input matInput formControlName="description" placeholder="Add description...">
-                        <mat-error *ngIf="!description.valid && description.touched && description.hasError('required')">
-                            Please add description
-                        </mat-error>
-
-                    </mat-form-field>
-                </div>
-            </div>
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Physician</mat-label>
+            <mat-select formControlName="physician" name="physician">
+              <mat-option
+                *ngFor="let physician of physicians"
+                [value]="physician"
+              >
+                {{ physician }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="
+                !physician.valid &&
+                physician.touched &&
+                physician.hasError('required')
+              "
+            >
+              Please select Physician
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="row">
-            <!-- description field -->
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Date</mat-label>
-                        <input matInput formControlName="date" [matDatepicker]="dobpicker">
-                        <mat-datepicker-toggle matSuffix [for]="dobpicker">
-                        </mat-datepicker-toggle>
-                        <mat-datepicker #dobpicker></mat-datepicker>
-                        <mat-error *ngIf="!date.valid && date.touched && date.hasError('required')">
-                            Please enter date
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-              
-           
-            <!-- Date field -->
-            <div class="col-sm-6">
-            <div class="form-group">
-                    <mat-form-field class="full-width-input">
-                        <input matInput formControlName="time" placeholder="Time"> 
-                        
-                        <!-- <input matTimepicker 
-                         mode="24h"
-                        placeholder="time" formControlName="time" 
-                      > -->
-                        <mat-error *ngIf="!time.valid && time.touched && time.hasError('required')">
-                            Please enter time
-                        </mat-error>
-
-                    </mat-form-field>
-                </div>
+      </div>
+      <!-- meeting title  field -->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <mat-form-field class="full-width-input">
+            <input
+              matInput
+              formControlName="description"
+              placeholder="Add description..."
+            />
+            <mat-error
+              *ngIf="
+                !description.valid &&
+                description.touched &&
+                description.hasError('required')
+              "
+            >
+              Please add description
+            </mat-error>
+          </mat-form-field>
         </div>
+      </div>
     </div>
-     
-    </form>
-    <!-- </mat-card-content>
-     </mat-card>  -->
+    <div class="row">
+      <!-- description field -->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input
+              matInput
+              formControlName="date"
+              [matDatepicker]="dobpicker" [min]="minDate"
+            />
+            <mat-datepicker-toggle matSuffix [for]="dobpicker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #dobpicker></mat-datepicker>
+            <mat-error
+              *ngIf="!date.valid && date.touched && date.hasError('required')"
+            >
+              Please enter date
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
+      <!-- Date field -->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <mat-form-field class="full-width-input">
+            <input matInput formControlName="time" placeholder="Time" />
+
+            <!-- <input matTimepicker
+                         mode="24h"
+                        placeholder="time" formControlName="time"
+                      > -->
+            <mat-error
+              *ngIf="!time.valid && time.touched && time.hasError('required')"
+            >
+              Please enter time
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </form>
+  <!-- </mat-card-content>
+     </mat-card>  -->
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close  (click)="updateappointment()">Cancel</button>
-    <button mat-button  (click)="onSubmit()" [mat-dialog-close]="true" cdkFocusInitial >Add</button>
+  <!-- <button mat-button mat-dialog-close  (click)="updateappointment()">Cancel</button> -->
+  <button
+    mat-button
+    (click)="onSubmit()"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    Add
+  </button>
 </mat-dialog-actions>
-{{data1}}
+{{ data1 }}
