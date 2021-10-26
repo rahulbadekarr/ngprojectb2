@@ -87,14 +87,12 @@ export class Appoint {
 export class Order {
   id: string;
   appointment_id: string;
-  patient_vitals: {
-    blood_pressure: string;
-    pulse_rate: string;
-    temprature: string;
-    height: string;
-    weight: string;
-    oxygen_levels: string;
-  };
+  blood_pressure: string;
+  pulse_rate: string;
+  temprature: string;
+  height: string;
+  weight: string;
+  oxygen_levels: string;
   procedure_code_id: string;
   diagnosis_code_id: string;
   // procedure_code: {

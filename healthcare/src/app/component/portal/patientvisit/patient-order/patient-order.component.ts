@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Order, procedure_code, Users } from 'src/model/tabletypes';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { PatientvisitService } from '../../../../services/patientvisit.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
+import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 @Component({
   selector: 'app-patient-order',
   templateUrl: './patient-order.component.html',
@@ -16,6 +17,7 @@ export class PatientOrderComponent implements OnInit {
   orderDetail: Order = new Order();
   procedureCodes: procedure_code[];
   selectedProcedureCode: string;
+  selectedDiagnosisCode: string;
   appointmentStatus: string;
   user: Users = new Users();
 
@@ -23,8 +25,10 @@ export class PatientOrderComponent implements OnInit {
     private fb: FormBuilder,
     private patientvisit: PatientvisitService,
     private _route: ActivatedRoute,
+    private _router: Router,
     private _appointmentService: PatientService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _snackBar: CustomSnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -49,12 +53,12 @@ export class PatientOrderComponent implements OnInit {
         this.orderDetail = r[0];
         this.selectedProcedureCode = this.orderDetail.procedure_code_id;
         this.patient_orders_form.patchValue({
-          blood_pressure: [this.orderDetail.patient_vitals.blood_pressure],
-          pulse_rate: [this.orderDetail.patient_vitals.pulse_rate],
-          temprature: [this.orderDetail.patient_vitals.temprature],
-          height: [this.orderDetail.patient_vitals.height],
-          weight: [this.orderDetail.patient_vitals.weight],
-          oxygen_levels: [this.orderDetail.patient_vitals.oxygen_levels],
+          blood_pressure: [this.orderDetail.blood_pressure],
+          pulse_rate: [this.orderDetail.pulse_rate],
+          temprature: [this.orderDetail.temprature],
+          height: [this.orderDetail.height],
+          weight: [this.orderDetail.weight],
+          oxygen_levels: [this.orderDetail.oxygen_levels],
           medication: [this.orderDetail.medication],
         });
       });
@@ -76,7 +80,23 @@ export class PatientOrderComponent implements OnInit {
 
   OnSubmit() {
     let patientOrder: Order = new Order();
-    patientOrder = this.patient_orders_form.value;
+    patientOrder.id = this.orderDetail.id;
+    patientOrder.procedure_code_id = this.orderDetail.procedure_code_id;
+    patientOrder.weight = this.weight.value;
+    patientOrder.blood_pressure = this.blood_pressure.value;
+    patientOrder.pulse_rate = this.pulse_rate.value;
+    patientOrder.height = this.height.value;
+    patientOrder.oxygen_levels = this.oxygen_levels.value;
+    patientOrder.procedure_code_id = this.selectedProcedureCode;
+    patientOrder.diagnosis_code_id = this.selectedDiagnosisCode;
+    patientOrder.medication = this.medication.value;
+    this.patientvisit.savePatientOrder(patientOrder)
+        .subscribe(res =>{
+          if(res){
+            this._snackBar.openSnackBar('Data added successfully!');
+            //this._router.navigate(['portal'])
+          }
+        })
     console.log(patientOrder);
   }
 

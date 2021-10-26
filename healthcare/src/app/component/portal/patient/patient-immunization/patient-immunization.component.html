@@ -3,39 +3,12 @@
     <mat-card-content>
       <div class="row">
         <div class="col-sm-12">
-          <h2 class="heading_color">Immunization details</h2><br>
-
-
+          <h2 class="heading_color">Immunization details</h2>
         </div>
       </div>
-
       <form [formGroup]="registrationForm" (ngSubmit)="collImmune()">
-        <!-- <div class="group-gap">
-            <div class="d-block my-3">
-              <div class="mb-3">
-                <select
-                  class="form-control"
-                  name="covid_19_vaccine"
-                  formControlName="covid_19_vaccine"
-                >
-                  <option value="">Choose your Vaccine</option>
-                  <option *ngFor="let city of Vaccines" [ngValue]="city">
-                    {{ city }}
-                  </option>
-                </select>
-
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isSubmitted && covid_19_vaccine.errors?.required"
-                >
-                  <sup>*</sup>Please enter your vaccine name
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         <div class="row">
-          <!-- vaccine field -->
+
           <div class="col-sm-4">
             <div class="form-group">
               <mat-form-field appearance="fill">
@@ -49,24 +22,7 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- dose field -->
-          <div class="col-sm-4">
-            <div class="form-group">
-              <!-- <mat-radio-group aria-label="Select an option" formControlName="vaccinedosenumber">
-                                <mat-radio-button value="1">Dose 1 </mat-radio-button><br /><br />
-                                <mat-radio-button value="2">Dose 2 </mat-radio-button>
-                            </mat-radio-group> -->
-                            <br>
-              <mat-form-field class="full-width-input">
-                <input
-                  matInput
-                  formControlName="general_vaccine"
-                  placeholder="general vaccine"
-                />
-              </mat-form-field>
-            </div>
-          </div>
-          <!-- date of vaccination field -->
+
           <div class="col-sm-4">
             <div class="form-group">
               <mat-form-field appearance="fill">
@@ -76,6 +32,7 @@
                   [matDatepicker]="picker"
                   name="picker"
                   formControlName="vaccinedate"
+
                 />
                 <mat-datepicker-toggle
                   matSuffix
@@ -85,16 +42,71 @@
               </mat-form-field>
             </div>
           </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  formControlName="general_vaccine"
+                  placeholder="Other vaccine"
+                />
+              </mat-form-field>
+            </div>
+          </div>
         </div>
-        <!-- Submit Button -->
         <div class="row">
           <div class="col-sm-12">
-            <button type="submit" mat-raised-button color="primary">
+            <button [disabled]="registrationForm.invalid" type="submit" mat-raised-button color="primary">
               Submit
             </button>
           </div>
         </div>
       </form>
+      <br><br>
+      <h1>Vaccines</h1>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataList" class="mat-elevation-z8">
+    <ng-container matColumnDef="Vaccine">
+      <th mat-header-cell *matHeaderCellDef>Vaccine</th>
+      <td mat-cell *matCellDef="let element">{{ element.covid_19_vaccine }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Other">
+      <th mat-header-cell *matHeaderCellDef>Other</th>
+      <td mat-cell *matCellDef="let element">{{ element.general_vaccine }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.vaccinedate | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element" style="cursor: pointer;">
+        <mat-icon (click)="deleteImmune(element.id)">delete</mat-icon>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+
+  <div></div>
+</div>
+
       <!-- Form ends -->
     </mat-card-content>
   </mat-card>
