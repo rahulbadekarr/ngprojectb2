@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 // import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
 
+
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
   imports: [
@@ -26,8 +27,7 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
-          // { path: 'manage-users', component:RmanaguserComponent},
-          // { path: 'manage-users', component:ManageUsersComponent},
+
 
           {
             path: 'admin',
@@ -48,6 +48,11 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
             path: 'physician',
             loadChildren: () =>
               import('../portal/physician/physician.module').then((m) => m.PhysicianModule),
+          },
+          {
+            path: 'admin',
+            loadChildren: () =>
+              import('./admin/admin.module').then((m) => m.AdminModule),
           },
         ],
       },

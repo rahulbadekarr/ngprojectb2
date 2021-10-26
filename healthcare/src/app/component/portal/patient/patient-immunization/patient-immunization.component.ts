@@ -5,7 +5,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -32,13 +31,13 @@ export class PatientImmunizationComponent implements OnInit {
     'Fluzone Quadrivalent',
   ];
 
-  constructor(public fb: FormBuilder, private addMed: UserService, private _snackBar: CustomSnackBarService,) {}
+  constructor(public fb: FormBuilder, private addMed: UserService) {}
 
   /*########### Form ###########*/
   registrationForm = this.fb.group({
     covid_19_vaccine: ['', [Validators.required]],
     general_vaccine: new FormControl(''),
-    vaccinedate: new FormControl('',Validators.required),
+    vaccinedate: new FormControl(''),
   });
 
 
@@ -53,28 +52,6 @@ export class PatientImmunizationComponent implements OnInit {
       .saveImmunization(this.registrationForm.value)
       .subscribe((result) => {
         console.log('result', result);
-
-        if(result){
-          this._snackBar.openSnackBar('Added successfully');
-        }
-        else {
-                  this._snackBar.openSnackBar('Invalid data');
-                }
-
       });
   }
-
-
-  // onlogin() {
-  //   this._userService
-  //     .login(this.username.value, this.userpassword.value)
-  //     .subscribe((data) => {
-  //       if (data === true) {
-  //         this._snackBar.openSnackBar('Logged in successfully');
-  //         this._router.navigate(['portal']);
-  //       } else {
-  //         this._snackBar.openSnackBar('Invalid credentials');
-  //       }
-  //     });
-  // }
 }

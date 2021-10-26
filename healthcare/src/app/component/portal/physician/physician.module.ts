@@ -5,14 +5,12 @@ import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PhysicianService } from './services/physician.service';
-import { PhysicianInformationComponent } from './physician-information/physician-information.component';
 
 
 
 @NgModule({
   declarations: [
-    AppointmentListComponent,
-    PhysicianInformationComponent
+    AppointmentListComponent
   ],
   imports: [
     CommonModule,
@@ -23,10 +21,6 @@ import { PhysicianInformationComponent } from './physician-information/physician
       {
         path: 'appointments',
         component: AppointmentListComponent
-      },
-      {
-        path: 'physician-information',
-        component: PhysicianInformationComponent
       }
     ])
   ],

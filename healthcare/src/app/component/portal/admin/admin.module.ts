@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
 
 
+
 @NgModule({
   declarations: [
     // ManageUsersComponent,
@@ -21,7 +22,7 @@ import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
       {
         path: 'rmanage-users',
         component: RmanaguserComponent
-      },
+      }
     ])
   ],
   providers : [
