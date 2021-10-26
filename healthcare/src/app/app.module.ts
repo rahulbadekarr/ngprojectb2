@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './component/auth/forgot-password/forgot-password.component';
 
@@ -14,6 +15,7 @@ import { SharedModule } from './component/shared/shared.module';
 // import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+
 
 
 
@@ -33,6 +35,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     SharedModule
   ],
 
