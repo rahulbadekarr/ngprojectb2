@@ -151,6 +151,13 @@
       "vaccinedate": "",
       "patient_id": "pPqqRUQ",
       "id": 2
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "test",
+      "vaccinedate": "2021-10-04T18:30:00.000Z",
+      "patient_id": "pPqqRUQ",
+      "id": 3
     }
   ],
   "schedule_appointment": [
@@ -225,19 +232,6 @@
       "status": "Scheduled"
     },
     {
-      "physician": {
-        "physician_id": "su56c",
-        "physician_firstname": "",
-        "physician_lastname": ""
-      },
-      "meeting_title": "rahul",
-      "description": "rahul",
-      "date": "2021-10-05",
-      "time": "22",
-      "status": "",
-      "id": "9gixBxK"
-    },
-    {
       "physician": "",
       "date": "2021-09-28",
       "time": "",
@@ -270,19 +264,6 @@
       "id": "dnX-n_U"
     },
     {
-      "physician": {
-        "physician_id": "su56c",
-        "physician_firstname": "",
-        "physician_lastname": ""
-      },
-      "meeting_title": "chanchal",
-      "description": "cold",
-      "date": "2021-10-27",
-      "time": "2pm",
-      "status": "",
-      "id": "vfQbk8W"
-    },
-    {
       "physician": "",
       "date": "2021-10-27",
       "time": "",
@@ -302,14 +283,8 @@
         "weight": "",
         "oxygen_levels": ""
       },
-      "procedure_code": {
-        "procedure_code_id": "",
-        "procedure_code_name": ""
-      },
-      "diagnosis_code": {
-        "diagnosis_code_id": "",
-        "diagnosis_code_name": ""
-      },
+      "procedure_code_id": "",
+      "diagnosis_code_id": "",
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -324,23 +299,25 @@
     },
     {
       "id": "2",
-      "appointment_id": "",
-      "patient_vitals": {
-        "blood_pressure": "Medium",
-        "pulse_rate": "78",
-        "temprature": "96",
-        "height": "5",
-        "weight": "55",
-        "oxygen_levels": "Normal"
-      },
-      "procedure_code": {
-        "procedure_code_id": "002F68",
-        "procedure_code_name": "Structural Measures"
-      },
-      "diagnosis_code": {
-        "diagnosis_code_id": "0032f8",
-        "diagnosis_code_name": "Structural Measures"
-      },
+      "appointment_id": "a534fgh",
+      "blood_pressure": [
+        "120"
+      ],
+      "pulse_rate": [
+        "78"
+      ],
+      "temprature": "32",
+      "height": [
+        "170"
+      ],
+      "weight": [
+        "60"
+      ],
+      "oxygen_levels": [
+        "90"
+      ],
+      "procedure_code_id": "00160JA",
+      "diagnosis_code_id": "",
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -349,7 +326,7 @@
         "file_name": "",
         "file_path": ""
       },
-      "medication": "rahul",
+      "medication": "testing",
       "created_by": "",
       "created_date": ""
     }
@@ -384,14 +361,14 @@
       "Allerginicity": "IgE but no biological test"
     }
   ],
-  "procedure_cod": [
+  "procedure_code": [
     {
-      "procedure_cod_id": "00160J8",
-      "procedure_cod_name": "Bypass Cerebral Ventricle"
+      "procedure_code_id": "00160J8",
+      "procedure_code_name": "Bypass Cerebral Ventricle"
     },
     {
-      "procedure_cod_id": "00160JA",
-      "procedure_cod_name": "Subgaleal Space"
+      "procedure_code_id": "00160JA",
+      "procedure_code_name": "Subgaleal Space"
     }
   ],
   "diognosis_code": [

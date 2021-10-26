@@ -4,14 +4,7 @@
       <div class="row">
         <form [formGroup]="patient_orders_form">
           <div class="col-sm-12">
-            <h2 class="heading_color">Patient Orders</h2>
-          </div>
-          <div class="col-sm-12">
-            <div class="row">
-              <mat-card-header>
-                <h3 class="heading_color">Patient Vitals</h3>
-              </mat-card-header>
-            </div>
+            <h2 class="heading_color">Patient Vitals</h2>
           </div>
           <div class="row">
             <!-- Patient Vital Section -->
@@ -67,11 +60,7 @@
 
           <!--patient Code section-->
           <div class="col-sm-12">
-            <div class="row">
-              <mat-card-header>
-                <h3 class="heading_color">Patient code</h3>
-              </mat-card-header>
-            </div>
+            <h2 class="heading_color">Patient code</h2>
           </div>
           <div class="row">
             <div class="col-sm-4">
@@ -103,13 +92,9 @@
 
           <!--Patient Medication-->
           <div class="col-sm-12">
-            <div class="row">
-              <mat-card-header>
-                <h3 class="heading_color">
-                  Patient Medication Details
-                </h3>
-              </mat-card-header>
-            </div>
+            <h2 class="heading_color">
+              Patient Medication Details
+            </h2>
           </div>
           <div class="row">
             <mat-form-field>
@@ -120,8 +105,7 @@
           </div>
           <!-- <button *ngIf="appointmentStatus === 'Scheduled' && user.role === 'Physician'" mat-raised-button
             color="primary" (click)="OnSubmit()" style="margin-right: 10px;">Add</button> -->
-            <button mat-raised-button
-            color="primary" (click)="OnSubmit()" style="margin-right: 10px;">Add</button>
+          <button mat-raised-button color="primary" (click)="OnSubmit()" style="margin-right: 10px;">Add</button>
 
         </form>
       </div>
