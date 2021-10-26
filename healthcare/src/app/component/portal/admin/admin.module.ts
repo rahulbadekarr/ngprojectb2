@@ -19,7 +19,8 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
     DiognosiscodeComponent,
     AdddialogPopupComponent,
     // ManageUsersComponent,
-    RmanaguserComponent
+    RmanaguserComponent,
+    ProcedurecodeComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +46,8 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
       }
     ])
   ],
-  providers : [
-  ]
+  providers :[
+
+  ],
 })
 export class AdminModule { }

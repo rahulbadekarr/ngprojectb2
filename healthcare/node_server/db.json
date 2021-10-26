@@ -94,45 +94,48 @@
       "gender": "Male"
     },
     {
-      "email": "raj@gmail.com",
-      "password": "$2a$10$qWHVJyn/SanKx.Ug5E6kQOpV29I9BF03vnITgmb3wY2AQHN6UzlKi",
-      "role": "Patient",
-      "firstname": "raj",
-      "lastname": "badekar",
-      "phone": "9860636760",
-      "dob": "10/05/2021",
-      "address": "Pune",
-      "emergency_contact_name": "Rahul",
-      "emergency_contact_email": "rahul@gmail.com",
-      "emergency_contact_mobile": "9822423324",
-      "createdDate": "9/2/2021",
-      "id": "UyGYfoa",
+      "firstname": "test123",
+      "lastname": "test123",
+      "phone": "1234567890",
+      "dob": "9/4/2021",
+      "patient_id": "U510nSm",
+      "id": "YxgbFeV",
       "gender": "Male",
-      "ethanicity": "Indian",
-      "education": "BB",
+      "education": "Lawyer",
+      "address": "Test Address",
+      "ethanicity": "American",
       "occupation": "",
       "medicalhistory": "",
       "family_medical_history": "",
       "surgery": "",
       "insurance_provider": "ACROMAS",
-      "isActive": true
+      "isActive": true,
+      "emergency_contact_name": "",
+      "emergency_contact_email": "",
+      "emergency_contact_mobile": ""
     },
     {
-      "email": "sumit@gmail.com",
-      "password": "$2a$10$oyRn7UerrSeK8d2w6uS6HerJQubFnB28tXfj3796gW91L/Iiq3WPK",
-      "role": "Patient",
-      "firstname": "sumit",
-      "lastname": "malhotra",
+      "firstname": "rahul",
+      "lastname": "badekar",
       "phone": "9860636760",
-      "dob": "2021-10-05T18:30:00.000Z",
+      "dob": "2021-10-06",
+      "patient_id": "drdUoGE",
+      "id": "J7kJeWl"
+    },
+    {
+      "firstname": "sumit",
+      "lastname": "mahajan",
+      "phone": "9860666760",
+      "dob": "2021-10-06T18:30:00.000Z",
       "address": "Pune",
       "emergency_contact_name": "rahul",
       "emergency_contact_email": "rahul@gmail.com",
       "emergency_contact_mobile": "9860636766",
       "createdDate": "9/2/2021",
-      "id": "qXpk7w_",
       "isActive": true,
-      "gender": "Male"
+      "gender": "Male",
+      "patient_id": "R95Ymz1",
+      "id": "bfGyat8"
     }
   ],
   "medication_allergies": [
@@ -146,21 +149,36 @@
       "past_medication": "",
       "drug_allergies": "",
       "other_allergies_reaction": ""
-    },
-    {
-      "social_drugs": "Matinganestro",
-      "other_allergies_reaction": "No",
-      "drug_allergies": "Keracino",
-      "id": "taEEvbV"
     }
   ],
   "immunization": [
     {
       "covid_19_vaccine": "Covishield",
-      "general_vaccine": "test",
-      "vaccinedate": "2021-10-04T18:30:00.000Z",
+      "general_vaccine": "gg",
+      "vaccinedate": "2021-10-05T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
-      "id": "3rt5Us"
+      "id": 1
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "gg",
+      "vaccinedate": "2021-10-05T18:30:00.000Z",
+      "patient_id": "pPqqRUQ",
+      "id": 2
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "gg",
+      "vaccinedate": "2021-10-05T18:30:00.000Z",
+      "patient_id": "pPqqRUQ",
+      "id": 3
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "gg",
+      "vaccinedate": "2021-10-05T18:30:00.000Z",
+      "patient_id": "pPqqRUQ",
+      "id": 4
     }
   ],
   "schedule_appointment": [
@@ -193,7 +211,7 @@
       "status": "In-Progress"
     },
     {
-      "id": "a524fkh",
+      "id": "a534fgh",
       "patient_id": "pPqqRUQ",
       "patient_firstname": "abhay",
       "patient_lastname": "waldia",
@@ -207,7 +225,7 @@
       "status": "In-Progress"
     },
     {
-      "id": "a534fkg",
+      "id": "a264qkh",
       "patient_id": "gBtaOZR",
       "patient_firstname": "Robert",
       "patient_lastname": "Carlos",
@@ -221,7 +239,7 @@
       "status": "Scheduled"
     },
     {
-      "id": "awr4fkh",
+      "id": "c224fgx",
       "patient_id": "zKvaYUE",
       "patient_firstname": "Jason",
       "patient_lastname": "Patrick",
@@ -235,22 +253,40 @@
       "status": "Scheduled"
     },
     {
-      "physician": "",
-      "meeting_title": "rahulbadekar",
+      "physician": {
+        "physician_id": "su56c",
+        "physician_firstname": "",
+        "physician_lastname": ""
+      },
+      "meeting_title": "rahul",
       "description": "rahul",
       "date": "2021-10-05",
-      "time": "",
+      "time": "22",
       "status": "",
-      "id": "w_5IPA-"
+      "id": "9gixBxK"
     },
     {
       "physician": "",
-      "meeting_title": "dummy",
-      "description": "dummy",
-      "date": "2021-10-06",
-      "time": "22",
+      "date": "2021-09-28",
+      "time": "",
       "status": "",
-      "id": "CEdMtRS"
+      "id": "_4fEIaB"
+    },
+    {
+      "physician": "",
+      "date": "2021-09-28",
+      "time": "",
+      "status": "",
+      "id": "2YtPFa8"
+    },
+    {
+      "physician": "",
+      "meeting_title": "",
+      "description": "",
+      "date": null,
+      "time": "",
+      "status": "",
+      "id": "tQoXOr5"
     },
     {
       "physician": "",
@@ -262,19 +298,30 @@
       "id": "dnX-n_U"
     },
     {
-      "physician": "",
-      "meeting_title": "rahul",
-      "description": "rahuls",
-      "date": "2021-10-07",
-      "time": "11 pm",
+      "physician": {
+        "physician_id": "su56c",
+        "physician_firstname": "",
+        "physician_lastname": ""
+      },
+      "meeting_title": "chanchal",
+      "description": "cold",
+      "date": "2021-10-27",
+      "time": "2pm",
       "status": "",
-      "id": "NZIoh0t"
+      "id": "vfQbk8W"
+    },
+    {
+      "physician": "",
+      "date": "2021-10-27",
+      "time": "",
+      "status": "",
+      "id": "iQT30ra"
     }
   ],
   "order": [
     {
-      "id": "c321fdx",
-      "appointment_id": "a534fgh",
+      "id": "",
+      "appointment_id": "",
       "patient_vitals": {
         "blood_pressure": "",
         "pulse_rate": "",
@@ -283,8 +330,14 @@
         "weight": "",
         "oxygen_levels": ""
       },
-      "procedure_code_id": "",
-      "diagnosis_code_id": "",
+      "procedure_code": {
+        "procedure_code_id": "",
+        "procedure_code_name": ""
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "",
+        "diagnosis_code_name": ""
+      },
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -299,15 +352,23 @@
     },
     {
       "id": "2",
-      "appointment_id": "a534fgh",
-      "blood_pressure": "120",
-      "pulse_rate": "78",
-      "temprature": "32",
-      "height": "6",
-      "weight": "170",
-      "oxygen_levels": "90",
-      "procedure_code_id": "00160JA",
-      "diagnosis_code_id": "",
+      "appointment_id": "",
+      "patient_vitals": {
+        "blood_pressure": "Medium",
+        "pulse_rate": "78",
+        "temprature": "96",
+        "height": "5",
+        "weight": "55",
+        "oxygen_levels": "Normal"
+      },
+      "procedure_code": {
+        "procedure_code_id": "002F68",
+        "procedure_code_name": "Structural Measures"
+      },
+      "diagnosis_code": {
+        "diagnosis_code_id": "0032f8",
+        "diagnosis_code_name": "Structural Measures"
+      },
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -316,7 +377,7 @@
         "file_name": "",
         "file_path": ""
       },
-      "medication": "testing",
+      "medication": "rahul",
       "created_by": "",
       "created_date": ""
     }
@@ -351,28 +412,14 @@
       "Allerginicity": "IgE but no biological test"
     }
   ],
-  "procedure_code": [
+  "procedure_cod": [
     {
-      "procedure_code_id": "00160J8",
-      "procedure_code_name": "Bypass Cerebral Ventricle"
+      "procedure_cod_id": "00160J8",
+      "procedure_cod_name": "Bypass Cerebral Ventricle"
     },
     {
-      "procedure_code_id": "00160JA",
-      "procedure_code_name": "Subgaleal Space"
-    }
-  ],
-  "diognosis_code": [
-    {
-      "diognosis_id": "0016070",
-      "diognosis_name": "Bypass Cerebral Ventricle to Nasopharynx with Autologous Tissue Substitute/ Open Approach"
-    },
-    {
-      "procedure_code_id": "00160J8",
-      "procedure_code_name": "Bypass Cerebral Ventricle"
-    },
-    {
-      "procedure_code_id": "00160JA",
-      "procedure_code_name": "Subgaleal Space"
+      "procedure_cod_id": "00160JA",
+      "procedure_cod_name": "Subgaleal Space"
     }
   ]
 }
