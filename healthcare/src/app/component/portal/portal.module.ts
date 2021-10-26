@@ -12,7 +12,6 @@ import { FooterComponent } from './footer/footer.component';
 // import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
 
-
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
   imports: [
@@ -27,13 +26,6 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
-
-
-          {
-            path: 'admin',
-            loadChildren: () =>
-              import('./admin/admin.module').then((m) => m.AdminModule),
-          },
           {
             path: 'patient',
             loadChildren: () =>
