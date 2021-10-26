@@ -1,62 +1,3 @@
-<!-- <div class="container">
-  <mat-card>
-      <mat-card-content>
-          <div class="row">
-              <div class="col-sm-4">
-                  <mat-card-header>
-                      <div class="row">
-
-                          <div class="col-sm-12">
-                              <mat-card-title>Information</mat-card-title>
-                              <img class="profile-image" mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-                              <img mat-card-avatar class="rounded" [src]="urllink" ><br>
-                              <input type="file" accept="image/*" multiple (change) = "selectFiles($event)"><br>
-
-                              <button mat-raised-button color="primary">Upload</button>
-
-
-                          </div>
-                      </div>
-                  </mat-card-header>
-              </div>
-              <div class="col-sm-8">
-
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <mat-label>Patient Name: </mat-label>
-
-                      </div>
-
-                      <div class="col-sm-6">
-                          <mat-label>Role: </mat-label>
-
-                      </div>
-
-                  </div>
-
-
-
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <mat-label>Email  :  {{user.email}}</mat-label>
-                      </div>
-                      <div class="col-sm-6">
-                          <mat-label>Phone Number  : {{profile.phone}}</mat-label>
-                          <p>{{profile.phone}}</p>
-                      </div>
-                  </div>
-
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <mat-label>Gender:</mat-label>
-                          <p>{{profile.gender}}</p>
-                      </div>
-                      <div class="col-sm-6">
-                          <mat-label>Date of Birth:</mat-label>
-                          <p>{{profile.dob}}</p>
-                      </div>
-
-                  </div> -->
 <div class="container">
   <div class="row">
     <mat-card class="example-card">
@@ -71,13 +12,9 @@
         </mat-card-subtitle>
         <input type="file" style="display: none;" #fileInput accept="image/*" (change)="selectFiles($event)">
         <img class="profile-image" mat-card-sm-image *ngIf="!user.profilepicture"
-        src="../../../../assets/no-profile.png"
-        (click)="fileInput.click()"
-        >
+          src="../../../../assets/no-profile.png" (click)="fileInput.click()">
         <img class="profile-image" mat-card-sm-image *ngIf="user.profilepicture"
-        src="{{'data:image/jpg;base64,' + user.profilepicture}}"
-        (click)="fileInput.click()"
-        >
+          src="{{'data:image/jpg;base64,' + user.profilepicture}}" (click)="fileInput.click()">
       </mat-card-title-group>
       <mat-card-content>
         <div class="row">
@@ -85,7 +22,7 @@
             <mat-label>Email : {{user.email}}</mat-label>
           </div>
           <div class="col-sm-4">
-            <mat-label>Date of birth : {{user.dob}}</mat-label>
+            <mat-label>Date of birth : {{user.dob | date}}</mat-label>
           </div>
           <div class="col-sm-4">
             <mat-label>Mobile : {{user.phone}}</mat-label>

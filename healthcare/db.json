@@ -112,20 +112,6 @@
       "vaccinedate": "2021-10-14T18:30:00.000Z",
       "patient_id": "R95Ymz1",
       "id": "hKI_hR4"
-    },
-    {
-      "covid_19_vaccine": "Covaxin",
-      "general_vaccine": "No",
-      "vaccinedate": "2021-10-12T18:30:00.000Z",
-      "patient_id": "to1nncG",
-      "id": "_Z3eLG6"
-    },
-    {
-      "covid_19_vaccine": "Sputnik",
-      "general_vaccine": "No",
-      "vaccinedate": "2021-10-15T18:30:00.000Z",
-      "patient_id": "to1nncG",
-      "id": "pZvAGmp"
     }
   ],
   "schedule_appointment": [

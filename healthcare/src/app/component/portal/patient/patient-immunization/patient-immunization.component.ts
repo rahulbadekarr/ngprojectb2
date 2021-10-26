@@ -60,12 +60,7 @@ export class PatientImmunizationComponent implements OnInit {
         else {
                   this._snackBar.openSnackBar('Invalid data');
                 }
-        //  if (data === true) {
-  //         this._snackBar.openSnackBar('Logged in successfully');
-  //         this._router.navigate(['portal']);
-  //       } else {
-  //         this._snackBar.openSnackBar('Invalid credentials');
-  //       }
+
       });
   }
 

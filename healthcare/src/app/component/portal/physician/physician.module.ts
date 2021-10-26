@@ -25,7 +25,7 @@ import { PhysicianInformationComponent } from './physician-information/physician
         component: AppointmentListComponent
       },
       {
-        path: 'Physician Information',
+        path: 'physician-information',
         component: PhysicianInformationComponent
       }
     ])
