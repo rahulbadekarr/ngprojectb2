@@ -24,6 +24,7 @@ export class Users {
   family_medical_history: string | null;
   surgery: string | null;
   insurance_provider: string | null;
+  profilepicture: string | null;
 }
 
 // export class Demographics {
@@ -84,14 +85,29 @@ export class Appoint {
 }
 
 export class Order {
-  id: number;
-  patient_id: string;
-  patient_vitals: string;
-  procedure_code: string;
-  diagnosis_code: string;
-  lab_report: string;
-  radiology_report: string;
+  id: string;
+  appointment_id: string;
+  patient_vitals: {
+    blood_pressure: string;
+    pulse_rate: string;
+    temprature: string;
+    height: string;
+    weight: string;
+    oxygen_levels: string;
+  };
+  procedure_code_id: string;
+  diagnosis_code_id: string;
+  // procedure_code: {
+  //   procedure_code_id: string;
+  //   procedure_code_name: string;
+  // };
+  // diagnosis_code: {
+  //   diagnosis_code_id: string;
+  //   diagnosis_code_name: string;
+  // };
   medication: string;
+  created_by: string;
+  created_date: string;
 }
 
 export interface Pay_details {
@@ -114,4 +130,9 @@ export interface Allergies {
   Allerginicity: string;
 }
 
+
+export class procedure_code{
+  procedure_code_id: string;
+  procedure_code_name: string;
+}
 

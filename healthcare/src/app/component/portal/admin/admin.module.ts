@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+// import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
 import { AdddialogPopupComponent } from './diognosiscode/adddialog-popup/adddialog-popup.component';
+import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
+
 
 
 
@@ -13,7 +17,9 @@ import { AdddialogPopupComponent } from './diognosiscode/adddialog-popup/adddial
   declarations: [
     ManageUsersComponent,
     DiognosiscodeComponent,
-    AdddialogPopupComponent
+    AdddialogPopupComponent,
+    // ManageUsersComponent,
+    RmanaguserComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +32,16 @@ import { AdddialogPopupComponent } from './diognosiscode/adddialog-popup/adddial
         component: ManageUsersComponent
       },
       {
-        path: 'diog-data',
-        component: DiognosiscodeComponent
+        path: 'rmanage-users',
+        component: RmanaguserComponent
+      },
+      {
+        path: 'diog-code',
+        component:  DiognosiscodeComponent,
+      },
+      {
+        path: 'procedure-code',
+        component:  ProcedurecodeComponent,
       }
     ])
   ],

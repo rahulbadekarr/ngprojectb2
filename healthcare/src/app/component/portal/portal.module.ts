@@ -9,7 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
-
+// import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
 
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
@@ -25,14 +26,13 @@ import { FooterComponent } from './footer/footer.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
-
           {
             path: 'patient',
             loadChildren: () =>
               import('./patient/patient.module').then((m) => m.PatientModule),
           },
           {
-            path: 'visit',
+            path: 'visit/:appointmentId',
             loadChildren: () =>
               import('../portal/patientvisit/patient-visit.module').then((m) => m.PatientVisitModule),
           },

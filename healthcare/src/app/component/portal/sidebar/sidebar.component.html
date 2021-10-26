@@ -17,12 +17,13 @@
             <a mat-list-item routerLink="dashboard" >Dashboard</a>
             <a mat-list-item routerLink="patient/patient-demographics">Patient Demographics</a>
             <a mat-list-item routerLink="patient/patient-immunization">Patient Immunization</a>
-            <a mat-list-item routerLink="patient/patient-medication-allergy">Patient Medication</a>
+            <a mat-list-item routerLink="patient/patient-medication-allergy">Patient Allergy</a>
             <a mat-list-item [routerLink]="['patient/patient-appointment-history',user.id]">Patient Appointment</a>
             <a mat-list-item routerLink="patient/patient-appointment">Schedule Appointment</a>
           </div>
           <div *ngIf="user.role === 'Physician'">
             <a mat-list-item routerLink="physician/appointments">Appointment List</a>
+            <a mat-list-item routerLink="physician/physician-information">Info</a>
           </div>
 
         </mat-nav-list>
