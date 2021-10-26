@@ -96,7 +96,7 @@
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>View Detail</mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <button mat-icon-button routerLink='/portal/visit'>
+              <button mat-icon-button [routerLink]="['/portal/visit/',element.id]">
                 <mat-icon>remove_red_eye</mat-icon>
               </button>
             </mat-cell>

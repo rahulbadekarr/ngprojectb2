@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/model/tabletypes';
+import { Order, procedure_code, Users } from 'src/model/tabletypes';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { PatientvisitService } from '../../../../services/patientvisit.service';
+import { ActivatedRoute } from '@angular/router';
+import { PatientService } from 'src/app/services/patient.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-patient-order',
   templateUrl: './patient-order.component.html',
@@ -9,40 +12,52 @@ import { PatientvisitService } from '../../../../services/patientvisit.service';
 })
 export class PatientOrderComponent implements OnInit {
   patient_orders_form: FormGroup;
+  appointment_id: string;
+  orderDetail: Order = new Order();
+  procedureCodes: procedure_code[];
+  selectedProcedureCode: string;
+  appointmentStatus: string;
+  user: Users = new Users();
 
-  appointment_id = 2;
-  collpatientData: any = [];
   constructor(
     private fb: FormBuilder,
-    private patientvisit: PatientvisitService
+    private patientvisit: PatientvisitService,
+    private _route: ActivatedRoute,
+    private _appointmentService: PatientService,
+    private _userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.createOrders();
-    this.patientvisit.getpatientvisit(this.appointment_id).subscribe((r) => {
-      console.log(r);
-      // this.collpatientData=r
-
-      this.patient_orders_form = this.fb.group({
-        blood_pressure: [r['patient_vitals'].blood_pressure],
-        pulse_rate: [r['patient_vitals'].pulse_rate],
-        temprature: [r['patient_vitals'].temprature],
-        height: [r['patient_vitals'].height],
-        weight: [r['patient_vitals'].weight],
-        oxygen_levels: [r['patient_vitals'].oxygen_levels],
-        procedure_code_id:[r['procedure_code'].procedure_code_id],
-
-        diagnosis_code_id: [r['diagnosis_code'].diagnosis_code_id],
-        medication: [r['medication']],
-      });
+    this._route.params.subscribe((params) => {
+      this.appointment_id = params['appointmentId'];
     });
-
-    // this.patientvisit.getprocedureCod(this.appointment_id).subscribe((res) => {
-    //   console.log(res);
-    //   this.patient_orders_form = this.fb.group({
-    //     procedure_cod: [res['procedure_cod'].procedure_cod_id],
-    //   });
-    // });
+    this.patientvisit
+      .getprocedureCodes()
+      .subscribe((data: procedure_code[]) => {
+        this.procedureCodes = data;
+      });
+    this._appointmentService
+      .getAppointmentStatus(this.appointment_id)
+      .subscribe((data: string) => {
+        this.appointmentStatus = data;
+      });
+    this.user = this._userService.getUserDetails();
+    this.patientvisit
+      .getpatientvisit(this.appointment_id)
+      .subscribe((r: Order) => {
+        this.orderDetail = r[0];
+        this.selectedProcedureCode = this.orderDetail.procedure_code_id;
+        this.patient_orders_form.patchValue({
+          blood_pressure: [this.orderDetail.patient_vitals.blood_pressure],
+          pulse_rate: [this.orderDetail.patient_vitals.pulse_rate],
+          temprature: [this.orderDetail.patient_vitals.temprature],
+          height: [this.orderDetail.patient_vitals.height],
+          weight: [this.orderDetail.patient_vitals.weight],
+          oxygen_levels: [this.orderDetail.patient_vitals.oxygen_levels],
+          medication: [this.orderDetail.medication],
+        });
+      });
   }
 
   createOrders() {
@@ -56,7 +71,6 @@ export class PatientOrderComponent implements OnInit {
       procedure_code_id: [''],
       diagnosis_code_id: [''],
       medication: [''],
-      procedure_cod_id: [''],
     });
   }
 
@@ -81,31 +95,31 @@ export class PatientOrderComponent implements OnInit {
   get weight(): AbstractControl {
     return this.patient_orders_form.get('weight');
   }
-  oxygen_levels(): AbstractControl {
+  get oxygen_levels(): AbstractControl {
     return this.patient_orders_form.get('oxygen_levels');
   }
-  procedure_code_id(): AbstractControl {
+  get procedure_code_id(): AbstractControl {
     return this.patient_orders_form.get('procedure_code_id');
   }
-  diagnosis_code_id(): AbstractControl {
+  get diagnosis_code_id(): AbstractControl {
     return this.patient_orders_form.get('diagnosis_code_id');
   }
-  medication(): AbstractControl {
+  get medication(): AbstractControl {
     return this.patient_orders_form.get('medication');
   }
 
-  procedureCodes: Array<string> = [
-    'Composite Measures (0001F – 0015F)',
-    'Patient Management (0500F – 0584F)',
-    'Patient History (1000F – 1505F)',
-    'Physical Examination (2000F – 2060F)',
-    'Diagnostic/Screening Processes or Results (3006F – 3776F)',
-    'Therapeutic, Preventive, or Other Interventions (4000F – 4563F)',
-    'Follow-up or Other Outcomes (5005F – 5250F)',
-    'Patient Safety (6005F – 6150F)',
-    'Structural Measures (7010F – 7025F)',
-    'Nonmeasure Code Listing (9001F – 9007F)',
-  ];
+  // procedureCodes: Array<string> = [
+  //   'Composite Measures (0001F – 0015F)',
+  //   'Patient Management (0500F – 0584F)',
+  //   'Patient History (1000F – 1505F)',
+  //   'Physical Examination (2000F – 2060F)',
+  //   'Diagnostic/Screening Processes or Results (3006F – 3776F)',
+  //   'Therapeutic, Preventive, or Other Interventions (4000F – 4563F)',
+  //   'Follow-up or Other Outcomes (5005F – 5250F)',
+  //   'Patient Safety (6005F – 6150F)',
+  //   'Structural Measures (7010F – 7025F)',
+  //   'Nonmeasure Code Listing (9001F – 9007F)',
+  // ];
 
   diognosisCode: Array<string> = [
     'A: Infectious and parasitic diseases',

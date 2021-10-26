@@ -40,7 +40,7 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
               import('./patient/patient.module').then((m) => m.PatientModule),
           },
           {
-            path: 'visit',
+            path: 'visit/:appointmentId',
             loadChildren: () =>
               import('../portal/patientvisit/patient-visit.module').then((m) => m.PatientVisitModule),
           },
