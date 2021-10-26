@@ -85,7 +85,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatExpansionModule,
     MatDialogModule
 
-
   ]
 })
 export class SharedModule {}
