@@ -6,13 +6,18 @@ import { RouterModule } from '@angular/router';
 // import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
-import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
 import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
+import { AdddialogPopupComponent } from './diognosiscode/adddialog-popup/adddialog-popup.component';
+import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
+
 
 
 
 @NgModule({
   declarations: [
+    ManageUsersComponent,
+    DiognosiscodeComponent,
+    AdddialogPopupComponent,
     // ManageUsersComponent,
     RmanaguserComponent
   ],
