@@ -1,7 +1,7 @@
 {
   "users": [
     {
-         "username": "rahul",
+      "username": "rahul",
       "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
       "role": "Physician",
       "email": "rahulb@gmail.com",
@@ -129,24 +129,10 @@
   "immunization": [
     {
       "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gestreao",
-      "vaccinedate": "2021-10-07T18:30:00.000Z",
-      "patient_id": "UyGYfoa",
-      "id": 1
-    },
-    {
-      "covid_19_vaccine": "",
-      "general_vaccine": "",
-      "vaccinedate": "",
-      "patient_id": "pPqqRUQ",
-      "id": 2
-    },
-    {
-      "covid_19_vaccine": "Covishield",
       "general_vaccine": "test",
       "vaccinedate": "2021-10-04T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
-      "id": 3
+      "id": "3rt5Us"
     }
   ],
   "schedule_appointment": [

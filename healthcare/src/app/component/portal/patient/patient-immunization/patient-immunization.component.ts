@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,11 +15,34 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./patient-immunization.component.css'],
 })
 export class PatientImmunizationComponent implements OnInit {
-  // [x: string]: any;
-
-  ngOnInit(): void {}
-
+  displayedColumns: string[] = ['Vaccine', 'Other', 'Date', 'Delete'];
+  dataList: MatTableDataSource<any> = new MatTableDataSource();
   isSubmitted = false;
+
+  constructor(
+    public fb: FormBuilder,
+    private addMed: UserService,
+    private _snackBar: CustomSnackBarService
+  ) {}
+
+  ngOnInit(): void {
+    this.addMed.getImmunizationList().subscribe((result) => {
+      this.dataList = new MatTableDataSource(result);
+    });
+  }
+
+  deleteImmune(item) {
+    this.addMed.deleteImmun(item).subscribe((res) => {
+      if (res) {
+        this._snackBar.openSnackBar('Deleted successfully');
+        this.addMed.getImmunizationList().subscribe((result) => {
+          this.dataList = new MatTableDataSource(result);
+        });
+      } else {
+        this._snackBar.openSnackBar('Invalid Operation');
+      }
+    });
+  }
 
   Vaccines: any = [
     'Covishield',
@@ -32,18 +56,12 @@ export class PatientImmunizationComponent implements OnInit {
     'Fluzone Quadrivalent',
   ];
 
-  constructor(public fb: FormBuilder, private addMed: UserService, private _snackBar: CustomSnackBarService,) {}
-
-  /*########### Form ###########*/
   registrationForm = this.fb.group({
     covid_19_vaccine: ['', [Validators.required]],
     general_vaccine: new FormControl(''),
-    vaccinedate: new FormControl('',Validators.required),
+    vaccinedate: new FormControl('', Validators.required),
   });
 
-
-
-  // Getter method to access formcontrols
   get covid_19_vaccine() {
     return this.registrationForm.get('covid_19_vaccine');
   }
@@ -52,29 +70,11 @@ export class PatientImmunizationComponent implements OnInit {
     this.addMed
       .saveImmunization(this.registrationForm.value)
       .subscribe((result) => {
-        console.log('result', result);
-
-        if(result){
+        if (result) {
           this._snackBar.openSnackBar('Added successfully');
+        } else {
+          this._snackBar.openSnackBar('Invalid data');
         }
-        else {
-                  this._snackBar.openSnackBar('Invalid data');
-                }
-
       });
   }
-
-
-  // onlogin() {
-  //   this._userService
-  //     .login(this.username.value, this.userpassword.value)
-  //     .subscribe((data) => {
-  //       if (data === true) {
-  //         this._snackBar.openSnackBar('Logged in successfully');
-  //         this._router.navigate(['portal']);
-  //       } else {
-  //         this._snackBar.openSnackBar('Invalid credentials');
-  //       }
-  //     });
-  // }
 }

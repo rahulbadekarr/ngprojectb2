@@ -1,41 +1,16 @@
 <h1>Vaccines</h1>
-
-<!-- <div class="container"> -->
-  <!-- <table class=" table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Vaccine</th>
-      <th scope="col">General vaccine</th>
-      <th scope="col">Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let i of immuneList ">
-      <td>{{i.covid_19_vaccine}}</td>
-      <td>{{i.general_vaccine}}</td>
-      <td>{{i.vaccinedate}}</td>
-    </tr>
-
-  </tbody>
-</table> -->
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataList" class="mat-elevation-z8">
-    <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
     <ng-container matColumnDef="Vaccine">
       <th mat-header-cell *matHeaderCellDef>Vaccine</th>
       <td mat-cell *matCellDef="let element">{{ element.covid_19_vaccine }}</td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="Other">
       <th mat-header-cell *matHeaderCellDef>Other</th>
       <td mat-cell *matCellDef="let element">{{ element.general_vaccine }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="Date">
       <th mat-header-cell *matHeaderCellDef>Date</th>
       <td mat-cell *matCellDef="let element">
@@ -43,7 +18,6 @@
       </td>
     </ng-container>
 
-    <!--  -->
     <ng-container matColumnDef="Delete">
 
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
