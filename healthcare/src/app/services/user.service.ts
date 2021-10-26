@@ -145,20 +145,20 @@ export class UserService {
     );
   }
 
-  uploadUserPicture(user : Users){
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.http.patch(
-      `${this.baseUrl}/${user.id}`,
-      user,
-      {
-        headers: headers,
-      }
-    ).pipe(
-      tap((resData : Users) => {
-        let userStorage = JSON.parse(localStorage.getItem("user"));
-        userStorage.profilepicture = resData.profilepicture;
-        localStorage.setItem('user', JSON.stringify(userStorage));
-      })
-    );
-  }
+  // uploadUserPicture(user : Users){
+  //   const headers = new HttpHeaders().set('content-type', 'application/json');
+  //   return this.http.patch(
+  //     `${this.baseUrl}/${user.id}`,
+  //     user,
+  //     {
+  //       headers: headers,
+  //     }
+  //   ).pipe(
+  //     tap((resData : Users) => {
+  //       let userStorage = JSON.parse(localStorage.getItem("user"));
+  //       userStorage.profilepicture = resData.profilepicture;
+  //       localStorage.setItem('user', JSON.stringify(userStorage));
+  //     })
+  //   );
+  // }
 }
