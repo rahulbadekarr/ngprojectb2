@@ -35,7 +35,6 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
     SharedModule
   ],
 

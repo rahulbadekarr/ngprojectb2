@@ -50,5 +50,8 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
       },
     ]),
   ],
+  exports:[
+    SharedModule,
+  ],
 })
 export class PortalModule {}

@@ -41,7 +41,6 @@ import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component'
     ])
   ],
   providers : [
-
   ]
 })
 export class AdminModule { }
