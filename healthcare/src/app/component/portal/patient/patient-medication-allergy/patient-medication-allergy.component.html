@@ -3,11 +3,29 @@
         <mat-card-content>
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="heading_color">Patient Medication and Allergy</h2>
+                    <h2 class="heading_color">Patient Allergy</h2>
                 </div>
             </div>
             <!-- allergy form start here -->
             <form [formGroup]="med_allergy_form">
+                <div class="row">
+
+
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                          <mat-form-field class="full-width-input">
+                              <input matInput formControlName="drug_allergies" placeholder="Allergy" />
+                              <mat-error *ngIf="
+                !drug_allergies.valid &&
+                drug_allergies.touched &&
+                drug_allergies.hasError('required')
+              ">
+                                  Please enter Allergies
+                              </mat-error>
+                          </mat-form-field>
+                      </div>
+                  </div>
+                </div>
 
                 <div class="row">
                     <!-- social drug -->
@@ -26,39 +44,24 @@
                         </div>
                     </div>
 
-                    <!-- drug allergic field -->
+                </div>
+                <div class="row">
+                    <!-- other allergic reaction field -->
                     <div class="col-sm-4">
                         <div class="form-group">
                             <mat-form-field class="full-width-input">
-                                <input matInput formControlName="drug_allergies" placeholder="drug_allergies" />
+                                <input matInput formControlName="other_allergies_reaction" placeholder="Other Allergic Details" />
                                 <mat-error *ngIf="
-                  !drug_allergies.valid &&
-                  drug_allergies.touched &&
-                  drug_allergies.hasError('required')
+                  !other_allergies_reaction.valid &&
+                  other_allergies_reaction.touched &&
+                  other_allergies_reaction.hasError('required')
                 ">
-                                    Please enter Drug Allergies
+                                    Please enter Other allergic details
                                 </mat-error>
                             </mat-form-field>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                          <mat-form-field class="full-width-input">
-                              <input matInput formControlName="other_allergies_reaction" placeholder="Other Allergic Details" />
-                              <mat-error *ngIf="
-                !other_allergies_reaction.valid &&
-                other_allergies_reaction.touched &&
-                other_allergies_reaction.hasError('required')
-              ">
-                                  Please enter Other allergic details
-                              </mat-error>
-                          </mat-form-field>
-                      </div>
-                    </div>
-
                 </div>
-
-
                 <!-- buttons -->
                 <div class="row">
                     <div class="col-sm-12 col-md-12">

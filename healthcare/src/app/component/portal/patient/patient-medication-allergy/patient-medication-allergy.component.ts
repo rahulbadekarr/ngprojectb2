@@ -26,7 +26,7 @@ export class PatientMedicationAllergyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.updateData(1);
+    // this.updateData("HtWlS9M");
     console.log(this._medi_allergyService.getData);
     this.med_allergy_form = this.fb.group({
       social_drugs: ['', Validators.required],
@@ -40,8 +40,10 @@ export class PatientMedicationAllergyComponent implements OnInit {
     let Patient_Medical_Allergy: Med_allergy = new Med_allergy();
 
     Patient_Medical_Allergy.social_drugs = this.social_drugs.value;
-
+    Patient_Medical_Allergy.other_allergies_reaction =
+      this.other_allergies_reaction.value;
     Patient_Medical_Allergy.drug_allergies = this.drug_allergies.value;
+
 
     this._medi_allergyService
       .createmedicationallergy(Patient_Medical_Allergy)
@@ -51,10 +53,9 @@ export class PatientMedicationAllergyComponent implements OnInit {
     this.med_allergy_form.reset();
   }
 
-  updateData(id: number) {
+  updateData(id: string) {
     return this._medi_allergyService.getData(id).subscribe(console.log);
   }
-
   get social_drugs(): AbstractControl {
     return this.med_allergy_form.get('social_drugs');
   }
