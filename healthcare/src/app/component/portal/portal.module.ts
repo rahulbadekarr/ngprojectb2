@@ -25,7 +25,7 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
-         
+
 
           {
             path: 'patient',
@@ -33,7 +33,7 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
               import('./patient/patient.module').then((m) => m.PatientModule),
           },
           {
-            path: 'visit',
+            path: 'visit/:appointmentId',
             loadChildren: () =>
               import('../portal/patientvisit/patient-visit.module').then((m) => m.PatientVisitModule),
           },

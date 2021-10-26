@@ -75,45 +75,6 @@
       "id": "zKvaYUE"
     }
   ],
-  "demographics": [
-    {
-      "firstname": "test123",
-      "lastname": "test123",
-      "phone": "1234567890",
-      "dob": "9/4/2021",
-      "patient_id": "U510nSm",
-      "id": "YxgbFeV",
-      "gender": "Male",
-      "education": "Lawyer",
-      "address": "Test Address",
-      "ethanicity": "American",
-      "occupation": "",
-      "medicalhistory": "",
-      "family_medical_history": "",
-      "surgery": "",
-      "insurance_provider": "test Insurance Provider",
-      "emergency_contact_name": "",
-      "emergency_contact_email": "",
-      "emergency_contact_mobile": ""
-    },
-    {
-      "firstname": "rahul",
-      "lastname": "badekar",
-      "phone": "9860636760",
-      "dob": "2021-10-06",
-      "patient_id": "drdUoGE",
-      "id": "J7kJeWl"
-    },
-    {
-      "firstname": "sumit",
-      "lastname": "mahajan",
-      "phone": "9860666760",
-      "dob": "2021-10-06T18:30:00.000Z",
-      "address": "Pune",
-      "patient_id": "R95Ymz1",
-      "id": "bfGyat8"
-    }
-  ],
   "medication_allergies": [
     {
       "id": "",
@@ -206,41 +167,22 @@
       "date": "10/25/2021",
       "time": "4-5",
       "status": "Scheduled"
-    },
-    {
-      "physician": {
-        "physician_id": "su56c",
-        "physician_firstname": "",
-        "physician_lastname": ""
-      },
-      "meeting_title": "rahul",
-      "description": "rahul",
-      "date": "2021-10-05",
-      "time": "22",
-      "status": "",
-      "id": "9gixBxK"
     }
   ],
   "order": [
     {
-      "id": "",
-      "appointment_id": "",
+      "id": "c321fdx",
+      "appointment_id": "a534fgh",
       "patient_vitals": {
-        "blood_pressure": "",
-        "pulse_rate": "",
-        "temprature": "",
-        "height": "",
-        "weight": "",
-        "oxygen_levels": ""
+        "blood_pressure": "120",
+        "pulse_rate": "170",
+        "temprature": "32",
+        "height": "170",
+        "weight": "80",
+        "oxygen_levels": "90"
       },
-      "procedure_code": {
-        "procedure_code_id": "",
-        "procedure_code_name": ""
-      },
-      "diagnosis_code": {
-        "diagnosis_code_id": "",
-        "diagnosis_code_name": ""
-      },
+      "procedure_code_id":"00160J8",
+      "diagnosis_code_id": "",
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -315,14 +257,14 @@
       "Allerginicity": "IgE but no biological test"
     }
   ],
-  "procedure_cod": [
+  "procedure_code": [
     {
-      "procedure_cod_id": "00160J8",
-      "procedure_cod_name": "Bypass Cerebral Ventricle"
+      "procedure_code_id": "00160J8",
+      "procedure_code_name": "Bypass Cerebral Ventricle"
     },
     {
-      "procedure_cod_id": "00160JA",
-      "procedure_cod_name": "Subgaleal Space"
+      "procedure_code_id": "00160JA",
+      "procedure_code_name": "Subgaleal Space"
     }
   ]
 }

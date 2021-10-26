@@ -40,6 +40,15 @@ export class PatientService {
     );
   }
 
+  getAppointmentStatus(appointmentId : string) : Observable<string>{
+    return this.http.get(`${this.baseUrl}?id=${appointmentId}`)
+      .pipe(
+        map((resData : AppointmentTable) =>{
+          return resData.status
+        })
+      )
+  }
+
   private getAppointmentList(data: AppointmentTable[]): Appointments[] {
     let appointmentList: Appointments[] = [];
     if (data.length > 0) {
