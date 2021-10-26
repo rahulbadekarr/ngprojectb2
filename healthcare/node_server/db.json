@@ -73,6 +73,44 @@
       "emergency_contact_mobile": "1212333111",
       "createdDate": "9/7/2021",
       "id": "zKvaYUE"
+    },
+    {
+      "email": "raj@gmail.com",
+      "password": "$2a$10$qWHVJyn/SanKx.Ug5E6kQOpV29I9BF03vnITgmb3wY2AQHN6UzlKi",
+      "role": "Patient",
+      "firstname": "raj",
+      "lastname": "badekar",
+      "phone": "9860636760",
+      "dob": "10/05/2021",
+      "address": "Pune",
+      "emergency_contact_name": "Rahul",
+      "emergency_contact_email": "rahul@gmail.com",
+      "emergency_contact_mobile": "9822423324",
+      "createdDate": "9/2/2021",
+      "id": "UyGYfoa",
+      "gender": "Male",
+      "ethanicity": "Indian",
+      "education": "BB",
+      "occupation": "",
+      "medicalhistory": "",
+      "family_medical_history": "",
+      "surgery": "",
+      "insurance_provider": "ACROMAS"
+    },
+    {
+      "email": "sumit@gmail.com",
+      "password": "$2a$10$oyRn7UerrSeK8d2w6uS6HerJQubFnB28tXfj3796gW91L/Iiq3WPK",
+      "role": "Patient",
+      "firstname": "sumit",
+      "lastname": "malhotra",
+      "phone": "9860636760",
+      "dob": "2021-10-05T18:30:00.000Z",
+      "address": "Pune",
+      "emergency_contact_name": "rahul",
+      "emergency_contact_email": "rahul@gmail.com",
+      "emergency_contact_mobile": "9860636766",
+      "createdDate": "9/2/2021",
+      "id": "qXpk7w_"
     }
   ],
   "demographics": [
@@ -125,17 +163,15 @@
       "past_medication": "",
       "drug_allergies": "",
       "other_allergies_reaction": ""
-    }
-  ],
-  "immunization": [
+    },
     {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "Tesla",
-      "vaccinedate": "2021-10-09T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 1
+      "social_drugs": "Matinganestro",
+      "other_allergies_reaction": "No",
+      "drug_allergies": "Keracino",
+      "id": "taEEvbV"
     }
   ],
+  "immunization": [],
   "schedule_appointment": [
     {
       "id": "b629nqh",
@@ -219,6 +255,33 @@
       "time": "22",
       "status": "",
       "id": "9gixBxK"
+    },
+    {
+      "physician": "",
+      "meeting_title": "rahulbadekar",
+      "description": "rahul",
+      "date": "2021-10-05",
+      "time": "",
+      "status": "",
+      "id": "w_5IPA-"
+    },
+    {
+      "physician": "",
+      "meeting_title": "dummy",
+      "description": "dummy",
+      "date": "2021-10-06",
+      "time": "22",
+      "status": "",
+      "id": "CEdMtRS"
+    },
+    {
+      "physician": "",
+      "meeting_title": "Physician",
+      "description": "Physician",
+      "date": "2021-10-27",
+      "time": "1-2",
+      "status": "",
+      "id": "X_vfzXg"
     }
   ],
   "order": [

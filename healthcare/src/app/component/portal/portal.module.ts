@@ -9,7 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
-import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+// import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
 
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
@@ -25,8 +26,14 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
-         
+          // { path: 'manage-users', component:RmanaguserComponent},
+          // { path: 'manage-users', component:ManageUsersComponent},
 
+          {
+            path: 'admin',
+            loadChildren: () =>
+              import('./admin/admin.module').then((m) => m.AdminModule),
+          },
           {
             path: 'patient',
             loadChildren: () =>
