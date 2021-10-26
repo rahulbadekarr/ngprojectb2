@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
+import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
 
 
 
@@ -20,8 +23,20 @@ import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
     SharedModule,
     RouterModule.forChild([
       {
+        path: 'manage-users',
+        component: ManageUsersComponent
+      },
+      {
         path: 'rmanage-users',
         component: RmanaguserComponent
+      },
+      {
+        path: 'diog-code',
+        component:  DiognosiscodeComponent,
+      },
+      {
+        path: 'procedure-code',
+        component:  ProcedurecodeComponent,
       }
     ])
   ],
