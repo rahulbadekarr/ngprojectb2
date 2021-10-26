@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
 // import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
+import { ProcedurecodeComponent } from './admin/procedurecode/procedurecode.component';
 
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
@@ -26,6 +27,7 @@ import { RmanaguserComponent } from './admin/rmanaguser/rmanaguser.component';
           { path: '', redirectTo: 'dashboard' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'profile', component:ProfileComponent},
+       
           {
             path: 'patient',
             loadChildren: () =>

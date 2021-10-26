@@ -21,17 +21,15 @@ export class ProcedureService {
     .pipe(map((res:any)=>{
       return res;
     }))
-    // console.log('inside services')
-    // return this.http.get(`${this.procedureUrl}/${procedure_cod_id} `)
   }
-  updateProcedure(data:any, id:number){
-    return this.http.patch<any>("http://localhost:3004/procedure_cod",+id, data)
+  updateProcedure(data:any, id:string){
+    return this.http.patch<any>("http://localhost:3004/procedure_cod", +id, data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   deleteProcedure(id:number){
-    return this.http.patch<any>("http://localhost:3004/procedure_cod",+id)
+    return this.http.patch<any>("http://localhost:3004/procedure_cod", +id)
     .pipe(map((res:any)=>{
       return res;
     }))

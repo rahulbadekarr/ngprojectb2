@@ -129,10 +129,8 @@ export interface Allergies {
   Isoforms_or_partial_sequences_of_allergen: string;
   Allerginicity: string;
 }
-
-
 export class procedure_code{
-  procedure_code_id: string;
-  procedure_code_name: string;
+id: string;
+name: string;
 }
 
