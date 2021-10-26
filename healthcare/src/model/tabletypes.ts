@@ -24,7 +24,6 @@ export class Users {
   family_medical_history: string | null;
   surgery: string | null;
   insurance_provider: string | null;
-  profilepicture: string | null;
 }
 
 // export class Demographics {
@@ -130,12 +129,6 @@ export interface Allergies {
   Allerginicity: string;
 }
 
-export interface Phytoviewpatientcal {
-  name: string;
-  date: string;
-  status: string;
-
-}
 
 export class procedure_code{
   procedure_code_id: string;

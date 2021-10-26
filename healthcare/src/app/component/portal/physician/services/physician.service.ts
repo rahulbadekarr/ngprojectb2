@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppointmentTable, Med_allergy, Users } from 'src/model/tabletypes';
+import { HttpClient } from '@angular/common/http';
+import { AppointmentTable, Med_allergy } from 'src/model/tabletypes';
 import { Observable } from 'rxjs';
 import { Appointments } from 'src/model/Appointment.model';
 import { map } from 'rxjs/operators';
+import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class PhysicianService {
@@ -54,20 +55,5 @@ export class PhysicianService {
       });
     }
     return appointmentList;
-  }
-
-  getPatientAppointmentDetails(appointmentId : string){
-    return this.http.get(`${this.baseUrl}?id=${appointmentId}`)
-  }
-
-  updateAppointmentStatus(userAppointmentData : AppointmentTable){
-      const headers = new HttpHeaders().set('content-type', 'application/json');
-      return this.http.patch(
-        `${this.baseUrl}/${userAppointmentData[0].id}`,
-        userAppointmentData[0],
-        {
-          headers: headers,
-        }
-      );
   }
 }

@@ -4,17 +4,12 @@ import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
-import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
-import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
-
 
 
 
 @NgModule({
   declarations: [
-    ManageUsersComponent,
-    ProcedurecodeComponent,
-    DiognosiscodeComponent
+    ManageUsersComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +20,7 @@ import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component'
       {
         path: 'manage-users',
         component: ManageUsersComponent
-      },
+      }
     ])
   ],
   providers : [
