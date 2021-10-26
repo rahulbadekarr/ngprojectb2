@@ -46,7 +46,6 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
     ])
   ],
   providers : [
-
   ]
 })
 export class AdminModule { }

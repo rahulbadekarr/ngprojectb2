@@ -133,6 +133,13 @@
       "vaccinedate": "2021-10-07T18:30:00.000Z",
       "patient_id": "UyGYfoa",
       "id": 1
+    },
+    {
+      "covid_19_vaccine": "",
+      "general_vaccine": "",
+      "vaccinedate": "",
+      "patient_id": "pPqqRUQ",
+      "id": 2
     }
   ],
   "schedule_appointment": [
