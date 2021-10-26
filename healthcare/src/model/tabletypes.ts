@@ -3,7 +3,6 @@ import { Time } from "@angular/common";
 
 export class Users {
   id: string;
-  username: string;
   email: string;
   role: string;
   password: string;
@@ -25,6 +24,7 @@ export class Users {
   surgery: string | null;
   insurance_provider: string | null;
   profilepicture: string | null;
+  isActive: boolean;
 }
 
 // export class Demographics {

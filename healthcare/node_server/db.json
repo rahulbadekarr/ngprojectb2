@@ -1,12 +1,29 @@
 {
   "users": [
     {
-      "username": "rahul",
+      "firstname": "Rahul",
+      "lastname": "Badekar",
       "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
       "role": "Physician",
       "email": "rahulb@gmail.com",
       "createdDate": "9/1/2021",
-      "id": "drdUoGE"
+      "id": "drdUoGE",
+      "isActive": true,
+      "gender": "Male"
+    },
+    {
+      "email": "test7@test7.com",
+      "password": "$2a$10$7QXWBi/8XcFPpziKmnkNAuxsJ9bfsJAjeoX/JMyijUCVYO7UvI70W",
+      "role": "Admin",
+      "firstname": "Karan",
+      "lastname": "Deshmukh",
+      "phone": "1234567890",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "address": "test",
+      "createdDate": "9/5/2021",
+      "id": "pPqqRUQ",
+      "isActive": true,
+      "gender": "Male"
     },
     {
       "email": "test@test.com",
@@ -21,7 +38,9 @@
       "emergency_contact_email": "test2@test2.com",
       "emergency_contact_mobile": "1212333111",
       "createdDate": "9/5/2021",
-      "id": "pPqqRUQ"
+      "id": "pPqqRUQ",
+      "isActive": true,
+      "gender": "Male"
     },
     {
       "email": "test1@test1.com",
@@ -36,7 +55,9 @@
       "emergency_contact_email": "test2@test2.com",
       "emergency_contact_mobile": "1212333111",
       "createdDate": "9/5/2021",
-      "id": "tGaaQUR"
+      "id": "tGaaQUR",
+      "isActive": true,
+      "gender": "Male"
     },
     {
       "email": "test2@test2.com",
@@ -51,11 +72,13 @@
       "emergency_contact_email": "test2@test2.com",
       "emergency_contact_mobile": "1212333111",
       "createdDate": "9/1/2021",
-      "id": "gBtaOZR"
+      "id": "gBtaOZR",
+      "isActive": true,
+      "gender": "Male"
     },
     {
       "email": "test3@test3.com",
-      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "password": "$2a$10$GxX6NOX3tzuWXYutVm4oR.jxeQ9FoWIJdkf1uow1KN5uKuKJ0ldaC",
       "role": "Patient",
       "firstname": "Jason",
       "lastname": "Patrick",
@@ -66,7 +89,9 @@
       "emergency_contact_email": "test3@test3.com",
       "emergency_contact_mobile": "1212333111",
       "createdDate": "9/7/2021",
-      "id": "zKvaYUE"
+      "id": "zKvaYUE",
+      "isActive": true,
+      "gender": "Male"
     },
     {
       "email": "raj@gmail.com",
@@ -89,7 +114,8 @@
       "medicalhistory": "",
       "family_medical_history": "",
       "surgery": "",
-      "insurance_provider": "ACROMAS"
+      "insurance_provider": "ACROMAS",
+      "isActive": true
     },
     {
       "email": "sumit@gmail.com",
@@ -104,7 +130,9 @@
       "emergency_contact_email": "rahul@gmail.com",
       "emergency_contact_mobile": "9860636766",
       "createdDate": "9/2/2021",
-      "id": "qXpk7w_"
+      "id": "qXpk7w_",
+      "isActive": true,
+      "gender": "Male"
     }
   ],
   "medication_allergies": [
