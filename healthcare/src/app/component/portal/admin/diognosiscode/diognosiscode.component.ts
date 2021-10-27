@@ -5,7 +5,7 @@ import { CodeService } from 'src/app/services/code.service';
 import { diognosis_code } from 'src/model/tabletypes';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { MatDialog } from '@angular/material/dialog';
-import { PopupComponent } from './popup/popup.component';
+
 
 @Component({
   selector: 'app-diognosiscode',
@@ -48,22 +48,25 @@ export class DiognosiscodeComponent implements OnInit {
       .subscribe(res=>{
         console.log(res);
         this.snack.openSnackBar("Data added")
+      },
+      (error)=>{
+       this.snack.openSnackBar("Duplicate Data Detected")
       })
       this.getAllDiognosis();
 
     }
 
-    openPopup()
-    {
-      const dialog = this.dialog.open(PopupComponent);
+    // openPopup()
+    // {
+    //   const dialog = this.dialog.open(PopupComponent);
 
     //   dialog.afterClosed().subscribe((result) => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+     //   console.log(`Dialog result: ${result}`);
+     // });
 
 
 
-    }
+    // }
 
   deleteDiognosisCode(id:number)
   {

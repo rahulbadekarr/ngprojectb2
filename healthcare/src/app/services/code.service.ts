@@ -16,7 +16,8 @@ export class CodeService {
     return this.http.post<any>(this.diagnosisdataURL,data)
     .pipe(map((res:any)=>{
       return res;
-    }))
+    }
+    ))
   }
   getDiognosis(){
     return this.http.get<any>(this.diagnosisdataURL)

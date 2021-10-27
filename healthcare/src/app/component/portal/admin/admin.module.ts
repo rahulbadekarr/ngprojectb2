@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
-import { AdddialogPopupComponent } from './diognosiscode/adddialog-popup/adddialog-popup.component';
+
 import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
 
 
@@ -18,7 +18,7 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
   declarations: [
     ManageUsersComponent,
     DiognosiscodeComponent,
-    AdddialogPopupComponent,
+
     // ManageUsersComponent,
     RmanaguserComponent,
     ProcedurecodeComponent
