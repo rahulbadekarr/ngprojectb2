@@ -45,7 +45,7 @@ export class ProcedurecodeComponent implements OnInit {
     this.procedure_service
       .checkProceddureCodeExists(this.procedure_code_name.value)
       .subscribe((res: any) => {
-        if (res.length = 0) {
+        if ((res.length = 0)) {
           let procedureCodeData: procedure_code = new procedure_code();
           if (this.procForm.controls['id'].value === '') {
             procedureCodeData.id = '';
@@ -77,8 +77,7 @@ export class ProcedurecodeComponent implements OnInit {
                 }
               });
           }
-        }
-        else{
+        } else {
           this._snackBar.openSnackBar('Already exists!');
         }
       });
@@ -98,15 +97,14 @@ export class ProcedurecodeComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.procedure_service.deleteProcedure(id)
-      .subscribe(res =>{
-        if(res){
-          this.procedure_service.getProcedure().subscribe((res) => {
-            this.bindGrid(res);
-          });
-          this._snackBar.openSnackBar('Deleted successfully!');
-        }
-      })
+    this.procedure_service.deleteProcedure(id).subscribe((res) => {
+      if (res) {
+        this.procedure_service.getProcedure().subscribe((res) => {
+          this.bindGrid(res);
+        });
+        this._snackBar.openSnackBar('Deleted successfully!');
+      }
+    });
   }
 
   clearForm() {

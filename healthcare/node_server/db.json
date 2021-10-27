@@ -113,26 +113,12 @@
       "general_vaccine": "gg",
       "vaccinedate": "2021-10-05T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
-      "id": 1
-    },
-    {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 2
-    },
-    {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
       "id": 3
     },
     {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
+      "covid_19_vaccine": "Covaxin",
+      "general_vaccine": "sss",
+      "vaccinedate": "2021-10-11T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
       "id": 4
     }
@@ -376,6 +362,116 @@
     {
       "id": "00160JA",
       "procedure_code_name": "Subgaleal Space"
+    }
+  ],
+  "diognosis_code": [
+    {
+      "id": "0016070",
+      "name": "Bypass Cerebral Ventricle to Nasopharynx with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016071",
+      "name": "Bypass Cerebral Ventricle to Mastoid Sinus with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016072",
+      "name": "Bypass Cerebral Ventricle to Atrium with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016073",
+      "name": "Bypass Cerebral Ventricle to Blood Vessel with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016074",
+      "name": "Bypass Cerebral Ventricle to Pleural Cavity with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016075",
+      "name": "Bypass Cerebral Ventricle to Intestine with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016076",
+      "name": "Bypass Cerebral Ventricle to Peritoneal Cavity with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016077",
+      "name": "Bypass Cerebral Ventricle to Urinary Tract with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "0016078",
+      "name": "Bypass Cerebral Ventricle to Bone Marrow with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "001607B",
+      "name": "Bypass Cerebral Ventricle to Cerebral Cisterns with Autologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J1",
+      "name": "Bypass Cerebral Ventricle to Mastoid Sinus with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J3",
+      "name": "Bypass Cerebral Ventricle to Blood Vessel with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J4",
+      "name": "Bypass Cerebral Ventricle to Pleural Cavity with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J5",
+      "name": "Bypass Cerebral Ventricle to Intestine with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J6",
+      "name": "Bypass Cerebral Ventricle to Peritoneal Cavity with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J7",
+      "name": "Bypass Cerebral Ventricle to Urinary Tract with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160J8",
+      "name": "Bypass Cerebral Ventricle to Bone Marrow with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160JA",
+      "name": "Bypass Cerebral Ventricle to Subgaleal Space with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160JB",
+      "name": "Bypass Cerebral Ventricle to Cerebral Cisterns with Synthetic Substitute/ Open Approach"
+    },
+    {
+      "id": "00160K0",
+      "name": "Bypass Cerebral Ventricle to Nasopharynx with Nonautologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "00160K1",
+      "name": "Bypass Cerebral Ventricle to Mastoid Sinus with Nonautologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "00160K2",
+      "name": "Bypass Cerebral Ventricle to Atrium with Nonautologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "00160K3",
+      "name": "Bypass Cerebral Ventricle to Blood Vessel with Nonautologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "00160K4",
+      "name": "Bypass Cerebral Ventricle to Pleural Cavity with Nonautologous Tissue Substitute/ Open Approach"
+    },
+    {
+      "id": "09432432",
+      "name": "Manual SystemControl"
+    },
+    {
+      "id": "094324234",
+      "name": "By PassThe Data to the System User Config"
+    },
+    {
+      "id": "432432432",
+      "name": "Root Objects has been added towrads"
     }
   ]
 }

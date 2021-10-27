@@ -131,4 +131,9 @@ export class procedure_code{
 id: string;
 procedure_code_name: string;
 }
+export class diognosis_code
+{
+  id:string;
+  name:string;
+}
 
