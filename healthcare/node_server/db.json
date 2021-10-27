@@ -3,7 +3,7 @@
     {
       "firstname": "Rahul",
       "lastname": "Badekar",
-      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Physician",
       "email": "rahulb@gmail.com",
       "createdDate": "9/1/2021",
@@ -13,7 +13,7 @@
     },
     {
       "email": "test7@test7.com",
-      "password": "$2a$10$7QXWBi/8XcFPpziKmnkNAuxsJ9bfsJAjeoX/JMyijUCVYO7UvI70W",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Admin",
       "firstname": "Karan",
       "lastname": "Deshmukh",
@@ -27,7 +27,7 @@
     },
     {
       "email": "test@test.com",
-      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Patient",
       "firstname": "amit",
       "lastname": "deshmukh",
@@ -44,7 +44,7 @@
     },
     {
       "email": "test1@test1.com",
-      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Patient",
       "firstname": "shreyas",
       "lastname": "iyer",
@@ -61,7 +61,7 @@
     },
     {
       "email": "test2@test2.com",
-      "password": "$2a$10$AGCKg/HWkPF7geQGa96FoOwTuMf0blSmp962NjHUmX/K372RQAJ3W",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Patient",
       "firstname": "Robert",
       "lastname": "Carlos",
@@ -78,7 +78,7 @@
     },
     {
       "email": "test3@test3.com",
-      "password": "$2a$10$GxX6NOX3tzuWXYutVm4oR.jxeQ9FoWIJdkf1uow1KN5uKuKJ0ldaC",
+      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Patient",
       "firstname": "Jason",
       "lastname": "Patrick",
@@ -92,50 +92,6 @@
       "id": "zKvaYUE",
       "isActive": true,
       "gender": "Male"
-    },
-    {
-      "firstname": "test123",
-      "lastname": "test123",
-      "phone": "1234567890",
-      "dob": "9/4/2021",
-      "patient_id": "U510nSm",
-      "id": "YxgbFeV",
-      "gender": "Male",
-      "education": "Lawyer",
-      "address": "Test Address",
-      "ethanicity": "American",
-      "occupation": "",
-      "medicalhistory": "",
-      "family_medical_history": "",
-      "surgery": "",
-      "insurance_provider": "ACROMAS",
-      "isActive": true,
-      "emergency_contact_name": "",
-      "emergency_contact_email": "",
-      "emergency_contact_mobile": ""
-    },
-    {
-      "firstname": "rahul",
-      "lastname": "badekar",
-      "phone": "9860636760",
-      "dob": "2021-10-06",
-      "patient_id": "drdUoGE",
-      "id": "J7kJeWl"
-    },
-    {
-      "firstname": "sumit",
-      "lastname": "mahajan",
-      "phone": "9860666760",
-      "dob": "2021-10-06T18:30:00.000Z",
-      "address": "Pune",
-      "emergency_contact_name": "rahul",
-      "emergency_contact_email": "rahul@gmail.com",
-      "emergency_contact_mobile": "9860636766",
-      "createdDate": "9/2/2021",
-      "isActive": true,
-      "gender": "Male",
-      "patient_id": "R95Ymz1",
-      "id": "bfGyat8"
     }
   ],
   "medication_allergies": [
@@ -412,14 +368,14 @@
       "Allerginicity": "IgE but no biological test"
     }
   ],
-  "procedure_cod": [
+  "procedure_code": [
     {
-      "procedure_cod_id": "00160J8",
-      "procedure_cod_name": "Bypass Cerebral Ventricle"
+      "id": "00160J8",
+      "procedure_code_name": "Bypass Cerebral Ventricle"
     },
     {
-      "procedure_cod_id": "00160JA",
-      "procedure_cod_name": "Subgaleal Space"
+      "id": "00160JA",
+      "procedure_code_name": "Subgaleal Space"
     }
   ]
 }

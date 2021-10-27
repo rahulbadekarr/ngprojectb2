@@ -41,7 +41,7 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
         component:  DiognosiscodeComponent,
       },
       {
-        path: 'procedure-code',
+        path: 'procedurecode',
         component:  ProcedurecodeComponent,
       }
     ])
