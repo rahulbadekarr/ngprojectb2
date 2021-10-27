@@ -1,37 +1,78 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/internal/operators/map';
+import {  procedure_code } from 'src/model/tabletypes';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProcedureService {
-  procedureUrl = 'http://localhost:3004/procedure_cod';
+  // headers =new HttpHeaders().set('Content-Type', 'application/json').set('Accept','appication/json');
+  // httpOptions={
+  //   headers: this.headers
+  // }
+  private procedureUrl = 'http://localhost:3004/procedure_cod';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  postProcedure(data:any){
-    return this.http.post<any>("http://localhost:3004/procedure_cod",data)
+  postprocedure_code(data:any){
+    return this.http.post<any>(this.procedureUrl,data)
+
     .pipe(map((res:any)=>{
+
       return res;
+
     }))
   }
-  getProcedure(){
-    return this.http.get<any>("http://localhost:3004/procedure_cod")
-    .pipe(map((res:any)=>{
-      return res;
-    }))
+  getprocedure_code() {
+  //  return this.http.get<procedure_code[]>(this.procedureUrl);
+   return this.http.get<any>(this.procedureUrl)
+
+   .pipe(map((res:any)=>{
+
+     return res;
+
+   }))
   }
-  updateProcedure(data:any, id:string){
-    return this.http.patch<any>("http://localhost:3004/procedure_cod", +id, data)
+  getupdateprocedure_code(id:string) {
+    return this.http.get<any>(this.procedureUrl)
+
     .pipe(map((res:any)=>{
+
       return res;
+
     }))
+    }
+  updateprocedure_code(proceduer: procedure_code){
+    // return this.http.patch<any>("http://localhost:3004/procedure_cod", +id)
+
+    // .pipe(map((res:any)=>{
+
+    //   return res;
+
+    // }))
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.patch(
+      `${this.procedureUrl}/${proceduer.id}`,
+      proceduer,
+      {
+        headers: headers,
+      }
+    );
   }
-  deleteProcedure(id:number){
-    return this.http.patch<any>("http://localhost:3004/procedure_cod", +id)
+
+  deleteprocedure_code(id:string){
+    console.log("from service",id)
+
+    return this.http.delete<any>(`${this.procedureUrl}/${id}`)
+
     .pipe(map((res:any)=>{
+
       return res;
+
     }))
   }
 }
+
+

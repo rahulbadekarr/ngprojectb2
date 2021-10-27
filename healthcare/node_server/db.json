@@ -157,26 +157,12 @@
       "general_vaccine": "gg",
       "vaccinedate": "2021-10-05T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
-      "id": 1
-    },
-    {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 2
-    },
-    {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
       "id": 3
     },
     {
-      "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
+      "covid_19_vaccine": "Covaxin",
+      "general_vaccine": "sss",
+      "vaccinedate": "2021-10-11T18:30:00.000Z",
       "patient_id": "pPqqRUQ",
       "id": 4
     }
@@ -414,12 +400,12 @@
   ],
   "procedure_cod": [
     {
-      "procedure_cod_id": "00160J8",
-      "procedure_cod_name": "Bypass Cerebral Ventricle"
+      "id": "2332",
+      "name": "shivi"
     },
     {
-      "procedure_cod_id": "00160JA",
-      "procedure_cod_name": "Subgaleal Space"
+      "id": "ax",
+      "name": "aa"
     }
   ],
   "diognosis_code": [
