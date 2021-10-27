@@ -85,7 +85,8 @@ export class RegistrationComponent implements OnInit {
     userData.address = this.address.value;
     userData.emergency_contact_name = this.emergencycontactname.value;
     userData.emergency_contact_email = this.emergencycontactemail.value;
-    userData.emergency_contact_mobile = this.emergencycontactmobile.value
+    userData.emergency_contact_mobile = this.emergencycontactmobile.value;
+    userData.isActive = false;
 
 
     this._userService.registerUser(userData).subscribe((data: Users) => {

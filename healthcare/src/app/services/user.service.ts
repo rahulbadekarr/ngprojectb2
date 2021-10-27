@@ -19,7 +19,7 @@ export class UserService {
   login(email: string, password: string) {
     return this.http.post('http://localhost:3004/login',{email,password}).pipe(
       map((data : any) => {
-        if (data) {
+        if (data && data?.user?.isActive) {
           localStorage.removeItem('user');
           localStorage.setItem('user', JSON.stringify(data.user));
           localStorage.removeItem('token');

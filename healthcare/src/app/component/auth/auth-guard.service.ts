@@ -16,6 +16,6 @@ export class AuthGuard implements CanActivate {
     if(token){
       return true;
     }
-    return this._router.createUrlTree(['login'])
+    return this._router.navigate(['login'], {replaceUrl: true})
   }
 }
