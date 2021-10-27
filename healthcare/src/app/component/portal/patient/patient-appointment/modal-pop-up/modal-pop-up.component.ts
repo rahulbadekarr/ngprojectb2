@@ -1,112 +1,163 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit,Inject, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl
+  AbstractControl,
 } from '@angular/forms';
-import { PatientAppointmentService } from 'src/app/services/patient-appointment.service';
-import { UserService } from 'src/app/services/user.service';
-import { Appointments } from 'src/model/Appointment.model';
-import { AppointmentTable, Users } from 'src/model/tabletypes';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Users } from 'src/model/tabletypes';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventappointService } from 'src/app/services/eventappoint.service';
-
-
+import { CalendarEvent } from 'src/model/calendarevent.model';
+import { UserService } from 'src/app/services/user.service';
+import { PatientService } from 'src/app/services/patient.service';
+import { CustomSnackBarService } from 'src/app/services/snackbar.service';
+import { Router } from '@angular/router';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-modal-pop-up',
   templateUrl: './modal-pop-up.component.html',
-  styleUrls: ['./modal-pop-up.component.css']
+  styleUrls: ['./modal-pop-up.component.css'],
 })
 export class ModalPopUpComponent implements OnInit {
+  addedPhysician: string;
   minDate = new Date();
-  // @Output() childData=new EventEmitter<any>()
-
   eventForm: FormGroup;
-  //specialities = ['Patient', 'Physician'];
- // physicians= ['Obstetrician/Gynecologist','Cardiologist','Oncologist','Infectious Disease Physician','Gastroenterologist'];
-  physicians = [ { physician_id:"su56c", physician_firstname:"",physician_lastname:""} ];
-  user: Users = new Users();
-  response:string;
-  data1:any;
-  constructor(private evtapp:EventappointService ,private fb: FormBuilder,private _PatientAppointmentService: PatientAppointmentService,@Inject(MAT_DIALOG_DATA) public data: any) { }
-  message:any={}
+  physicianUsers: Users[] = [];
+  response: string;
+  data1: any;
+  message: any = {};
+  appointmentData: CalendarEvent;
+  appointmentStatus: string;
+  selectedPhysician: string;
+
+  constructor(
+    private fb: FormBuilder,
+    private _patientService: PatientService,
+    private _eventAppointmentService: EventappointService,
+    private _userService: UserService,
+    private _snackBarService: CustomSnackBarService,
+    private _router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
   ngOnInit(): void {
-  //this.updateappoinment(10);
-  // this.evtapp.getMessage()
-    console.log(this.eventForm);
-    this.eventForm = this.fb.group(
-      {
-       // meeting_title: new FormControl('', Validators.required),
-        physician: new FormControl('', Validators.required),
-        meeting_title: ['', Validators.required],
-        description: ['', Validators.required],
-        date: ['', Validators.required],
-        time: ['', [Validators.required]],
-        status: ['',Validators.required],
-        // dummy:['']
-      }
-
-    );
-    console.log(this.data);
-    if(this.data){
-      this.eventForm.controls['meeting_title'].setValue(this.data.event.title)
-      this.eventForm.controls['date'].setValue(this.data.event.date)
-      // this.eventForm.controls['time'].setValue(this.data.event.time)
-      // this.eventForm.controls['dummy'].setValue(this.data.event.dummy)
-      this.eventForm.controls['description'].setValue(this.data.event.description)
-
+    this._userService.getPhysicianUsers().subscribe((res: Users[]) => {
+      res.forEach((element) => {
+        this.physicianUsers.push(element);
+      });
+    });
+    this.eventForm = this.fb.group({
+      physician: new FormControl('', Validators.required),
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      id: [''],
+      physicianId: [''],
+      PhysicianFirstName: [''],
+      PhysicianLastName: [''],
+    });
+    if (this.data?.event.id) {
+      this.appointmentData = this.data.event;
+      this.selectedPhysician = this.appointmentData.physician_id;
+      this._patientService
+        .getAppointmentStatus(this.appointmentData.id)
+        .subscribe((res) => {
+          this.appointmentStatus = res;
+        });
+      this.eventForm.controls['title'].setValue(this.appointmentData.title);
+      this.eventForm.controls['date'].setValue(this.appointmentData.date);
+      this.eventForm.controls['id'].setValue(this.appointmentData.id);
+      this.eventForm.controls['physicianId'].setValue(this.appointmentData.physician_id);
+      this.eventForm.controls['PhysicianFirstName'].setValue(this.appointmentData.physician_firstname);
+      this.eventForm.controls['PhysicianLastName'].setValue(this.appointmentData.physician_lastname);
+      this.eventForm.controls['description'].setValue(
+        this.appointmentData.description
+      );
+      this.eventForm.controls['time'].setValue(this.appointmentData.time);
     }
-
-
-
   }
-
-
 
   onSubmit() {
+    let user = this._userService.getUserDetails();
+    let appointmentData = new CalendarEvent();
+    appointmentData.id = this.eventForm.get('id').value;
+    appointmentData.time = this.eventForm.get('time').value;
+    appointmentData.date = new DatePipe('en-US').transform(
+      this.eventForm.get('date').value,
+      'MM/dd/YYYY'
+    );
+    appointmentData.description = this.eventForm.get('description').value;
+    appointmentData.title = this.eventForm.get('title').value;
+    appointmentData.patient_id = user.id;
+    appointmentData.patient_firstname = user.firstname;
+    appointmentData.patient_lastname = user.lastname;
+    if(this.eventForm.get('physicianId').value !== ''){
+      appointmentData.physician_id = this.eventForm.get('physicianId').value;
+      appointmentData.physician_firstname = this.eventForm.get('PhysicianFirstName').value;
+      appointmentData.physician_lastname = this.eventForm.get('PhysicianLastName').value;
+    }else{
+      appointmentData.physician_id = this.selectedPhysician;
+      appointmentData.physician_firstname = this.addedPhysician?.split(
+        ' '
+      )[0];
+      appointmentData.physician_lastname = this.addedPhysician?.split(
+        ' '
+      )[1];
+    }
 
-    let userappointment: AppointmentTable = new AppointmentTable();
-    userappointment = this.eventForm.value;
-    userappointment.patient_id = this.user.id;
-    userappointment.date = new DatePipe('en-US').transform(this.date.value, 'yyyy-MM-dd');
-    // userappointment.date = new DatePipe('en-US').transform(this.date.value, 'MM/dd/yyyy');
-    this._PatientAppointmentService.createAppointment(userappointment)
-        .subscribe((response) => {
-          console.log('response consoling', response);
-          this.message=response;
-
-
-        })
-        // this.childData.emit(this.collection)
-
+    console.log(appointmentData);
+    if (
+      appointmentData?.id === undefined ||
+      appointmentData?.id === ''
+    ) {
+      appointmentData.status = 'In-Progress';
+      console.log(appointmentData);
+      this._eventAppointmentService
+        .saveAppointmentData(appointmentData)
+        .subscribe((res) => {
+          if (res) {
+            this._snackBarService.openSnackBar(
+              'Appointment added successfully!'
+            );
+            let userId = this._userService.getUserDetails().id;
+            this._router.navigate([
+              'portal/patient/patient-appointment-history',
+              userId,
+            ]);
+          }
+        });
+    } else {
+      this._eventAppointmentService
+        .updateAppointment(appointmentData)
+        .subscribe((res) => {
+          if (res) {
+            this._snackBarService.openSnackBar(
+              'Appointment updated successfully!'
+            );
+            let userId = this._userService.getUserDetails().id;
+            this._router.navigate([
+              'portal/patient/patient-appointment-history',
+              userId,
+            ]);
+          }
+        });
+    }
   }
 
-  // updateappointment() {
-  //   let userappointment: AppointmentTable = new AppointmentTable();
-  //   userappointment = this.eventForm.value;
-  //   userappointment.patient_id = this.user.id;
-  //   userappointment.date = new DatePipe('en-US').transform(this.date.value, 'yyyy-MM-dd');
-  //   this._PatientAppointmentService.getData(userappointment)
-  //       .subscribe((response) => {
-  //         console.log('response update', response);
+  getSelectedPhysician(event: MatSelectChange) {
+    this.addedPhysician = event.source.triggerValue;
+  }
 
-  //       })
-  // }
-
-
-
-  // get meeting_title(): AbstractControl {
-  //   return this.eventForm.get('meeting_title');
-  // }
   get physician(): AbstractControl {
     return this.eventForm.get('physician');
   }
-  get meeting_title(): AbstractControl {
-    return this.eventForm.get('meeting_title');
+  get title(): AbstractControl {
+    return this.eventForm.get('title');
   }
   get description(): AbstractControl {
     return this.eventForm.get('description');
@@ -115,9 +166,6 @@ export class ModalPopUpComponent implements OnInit {
     return this.eventForm.get('date');
   }
   get time(): AbstractControl {
-    return this.eventForm.get('time');
-  }
-  get status(): AbstractControl {
     return this.eventForm.get('time');
   }
 }

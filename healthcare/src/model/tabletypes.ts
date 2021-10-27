@@ -1,5 +1,4 @@
 import { Time } from "@angular/common";
-//not sure about time
 
 export class Users {
   id: string;
@@ -26,11 +25,6 @@ export class Users {
   profilepicture: string | null;
   isActive: boolean;
 }
-
-// export class Demographics {
-//   id: string;
-//   patient_id: string;
-// }
 
 export class Med_allergy {
   id: number;
@@ -61,7 +55,7 @@ export class AppointmentTable {
   physician_id: string;
   physician_firstname: string;
   physician_lastname: string;
-  meeting_title: string;
+  title: string;
   description: string;
   date: string;
   time: Time;
@@ -69,18 +63,17 @@ export class AppointmentTable {
 }
 
 export class Appoint {
-  id: number;
+  id: string;
   patient_id: string;
   patient_firstname: string;
   patient_lastname: string;
   physician_id: string;
   physician_firstname: string;
   physician_lastname: string;
-  meeting_title: string;
+  title: string;
   description: string;
   date: string;
   time: string;
-  // dummy:string
   status: string;
 }
 
@@ -95,14 +88,6 @@ export class Order {
   oxygen_levels: string;
   procedure_code_id: string;
   diagnosis_code_id: string;
-  // procedure_code: {
-  //   procedure_code_id: string;
-  //   procedure_code_name: string;
-  // };
-  // diagnosis_code: {
-  //   diagnosis_code_id: string;
-  //   diagnosis_code_name: string;
-  // };
   medication: string;
   created_by: string;
   created_date: string;

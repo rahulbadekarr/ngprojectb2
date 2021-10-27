@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Appoint, AppointmentTable } from 'src/model/tabletypes';
+import { Appoint } from 'src/model/tabletypes';
 import { CalendarEvent } from 'src/model/calendarevent.model';
 import { Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -11,50 +12,51 @@ import { Observable } from 'rxjs';
 export class EventappointService {
 
   private baseUrl = 'http://localhost:3004/schedule_appointment';
-// message:any={
-//   title:"raj",
-//   description:"hello rajbro",
-//   date:"2021-10-18"
-// }
+
   constructor(private http:HttpClient) { }
 
-  // setMessage(data){
-  //   this.message=data;
-  // }
-
-  // getMessage(){
-  //   return this.message;
-  // }
-
-  getMessage(): Observable<CalendarEvent[]>{
-    console.log("inside get list")
-    let calendarlist:CalendarEvent[]=[]
-    return this.http.get(this.baseUrl).pipe(
-      // map((data:AppointmentTable[])=>{
+  getMessage(loggedInUserId: string): Observable<CalendarEvent[]>{
+    let calendarlist:CalendarEvent[]=[];
+    let datepipe: DatePipe = new DatePipe('en-US');
+    return this.http.get(`${this.baseUrl}?patient_id=${loggedInUserId}`).pipe(
       map((data:Appoint[])=>{
-
         if (data.length > 0) {
           data.forEach((data) => {
             let calenderobj:CalendarEvent = {
-              // ...data,
-              // patient_name: `${data.patient_firstname} ${data.patient_lastname}`,
-              // physician_name: `${data.physician_firstname} ${data.physician_lastname}`,
-              title:data.meeting_title,
-              date:data.date,
+              title:data.title,
+              date:datepipe.transform(data.date, 'YYYY-MM-dd'),
               description:data.description,
               id:data.id,
-             
-
+              patient_id: data.patient_id,
+              patient_firstname : data.patient_firstname,
+              patient_lastname : data.patient_lastname,
+              physician_id: data.physician_id,
+              physician_firstname : data.physician_firstname,
+              physician_lastname : data.physician_lastname,
+              time: data.time,
+              status: data.status
             };
             calendarlist.push(calenderobj);
           });
         }
-        console.log("Inside map",calendarlist)
         return calendarlist;
-
-
       })
     )
+  }
+
+  saveAppointmentData(appointmentData : CalendarEvent){
+    return this.http.post(this.baseUrl,appointmentData)
+  }
+
+  updateAppointment(appointmentData : CalendarEvent){
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.patch(
+      `${this.baseUrl}/${appointmentData.id}`,
+      appointmentData,
+      {
+        headers: headers,
+      }
+    );
   }
 
 }

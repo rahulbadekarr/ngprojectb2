@@ -21,16 +21,17 @@
       "dob": "1994-02-28T18:30:00.000Z",
       "address": "test",
       "createdDate": "9/5/2021",
-      "id": "pPqqRUQ",
+      "id": "abt67Ghp",
       "isActive": true,
-      "gender": "Male"
+      "gender": "Male",
+      "profilepicture": ""
     },
     {
       "email": "test@test.com",
       "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
       "role": "Patient",
-      "firstname": "amit",
-      "lastname": "deshmukh",
+      "firstname": "Amit",
+      "lastname": "Deshmukh",
       "phone": "1234567890",
       "dob": "1994-02-28T18:30:00.000Z",
       "address": "test",
@@ -40,7 +41,8 @@
       "createdDate": "9/5/2021",
       "id": "pPqqRUQ",
       "isActive": true,
-      "gender": "Male"
+      "gender": "Male",
+      "profilepicture":""
     },
     {
       "email": "test1@test1.com",
@@ -78,7 +80,7 @@
     },
     {
       "email": "test3@test3.com",
-      "password": "$2a$10$JB/DjtY/rAj3oMWDymgGHO8JFV1hHPhcBLSzonWNoh/41iYG6gQ1.",
+      "password": "$2a$10$421pfNW/bHFIyRa40X8Saub/m/myQFROOKhVhsovlVbgPD9dyTiq6",
       "role": "Patient",
       "firstname": "Jason",
       "lastname": "Patrick",
@@ -127,14 +129,14 @@
     {
       "id": "b629nqh",
       "patient_id": "pPqqRUQ",
-      "patient_firstname": "abhay",
-      "patient_lastname": "waldia",
+      "patient_firstname": "Amit",
+      "patient_lastname": "Deshmukh",
       "physician_id": "drdUoGE",
       "physician_firstname": "rahul",
       "physician_lastname": "badekar",
-      "meeting_title": "Monthly Check-up",
+      "title": "Monthly Check-up",
       "description": "Full body checkup",
-      "date": "09/13/2021",
+      "date": "10/13/2021",
       "time": "1-2",
       "status": "Completed"
     },
@@ -146,7 +148,7 @@
       "physician_id": "drdUoGE",
       "physician_firstname": "rahul",
       "physician_lastname": "badekar",
-      "meeting_title": "Fever Check-up",
+      "title": "Fever Check-up",
       "description": "Having high fever",
       "date": "10/28/2021",
       "time": "1-2",
@@ -155,15 +157,15 @@
     {
       "id": "a534fgh",
       "patient_id": "pPqqRUQ",
-      "patient_firstname": "abhay",
-      "patient_lastname": "waldia",
+      "patient_firstname": "Amit",
+      "patient_lastname": "Deshmukh",
       "physician_id": "drdUoGE",
       "physician_firstname": "rahul",
       "physician_lastname": "badekar",
-      "meeting_title": "Fever Check-up",
+      "title": "Fever Check-up",
       "description": "Having high fever",
       "date": "10/30/2021",
-      "time": "4-5",
+      "time": "4-6",
       "status": "In-Progress"
     },
     {
@@ -174,7 +176,7 @@
       "physician_id": "drdUoGE",
       "physician_firstname": "rahul",
       "physician_lastname": "badekar",
-      "meeting_title": "Fever Check-up",
+      "title": "Fever Check-up",
       "description": "Having high fever",
       "date": "10/26/2021",
       "time": "2-3",
@@ -188,76 +190,25 @@
       "physician_id": "drdUoGE",
       "physician_firstname": "rahul",
       "physician_lastname": "badekar",
-      "meeting_title": "Fever Check-up",
+      "title": "Fever Check-up",
       "description": "Having high fever",
       "date": "10/25/2021",
       "time": "4-5",
       "status": "Scheduled"
     },
     {
-      "physician": {
-        "physician_id": "su56c",
-        "physician_firstname": "",
-        "physician_lastname": ""
-      },
-      "meeting_title": "rahul",
-      "description": "rahul",
-      "date": "2021-10-05",
-      "time": "22",
-      "status": "",
-      "id": "9gixBxK"
-    },
-    {
-      "physician": "",
-      "date": "2021-09-28",
-      "time": "",
-      "status": "",
-      "id": "_4fEIaB"
-    },
-    {
-      "physician": "",
-      "date": "2021-09-28",
-      "time": "",
-      "status": "",
-      "id": "2YtPFa8"
-    },
-    {
-      "physician": "",
-      "meeting_title": "",
-      "description": "",
-      "date": null,
-      "time": "",
-      "status": "",
-      "id": "tQoXOr5"
-    },
-    {
-      "physician": "",
-      "meeting_title": "",
-      "description": "",
-      "date": null,
-      "time": "",
-      "status": "",
-      "id": "dnX-n_U"
-    },
-    {
-      "physician": {
-        "physician_id": "su56c",
-        "physician_firstname": "",
-        "physician_lastname": ""
-      },
-      "meeting_title": "chanchal",
-      "description": "cold",
-      "date": "2021-10-27",
-      "time": "2pm",
-      "status": "",
-      "id": "vfQbk8W"
-    },
-    {
-      "physician": "",
-      "date": "2021-10-27",
-      "time": "",
-      "status": "",
-      "id": "iQT30ra"
+      "time": "4-5",
+      "date": "10/31/2021",
+      "description": "Testing",
+      "title": "Testing",
+      "patient_id": "pPqqRUQ",
+      "patient_firstname": "Amit",
+      "patient_lastname": "Deshmukh",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "Rahul",
+      "physician_lastname": "Badekar",
+      "status": "In-Progress",
+      "id": "Mh645Og"
     }
   ],
   "order": [

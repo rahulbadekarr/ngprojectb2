@@ -44,7 +44,7 @@ export class PatientService {
     return this.http.get(`${this.baseUrl}?id=${appointmentId}`)
       .pipe(
         map((resData : AppointmentTable) =>{
-          return resData.status
+          return resData[0].status
         })
       )
   }

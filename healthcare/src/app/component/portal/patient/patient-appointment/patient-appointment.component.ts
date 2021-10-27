@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FullCalendarComponent, CalendarOptions } from '@fullcalendar/angular';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalPopUpComponent } from './modal-pop-up/modal-pop-up.component';
 import { UserService } from 'src/app/services/user.service';
-import { PatientAppointmentService } from 'src/app/services/patient-appointment.service';
 import { Users } from 'src/model/tabletypes';
 import { EventappointService } from 'src/app/services/eventappoint.service';
 
@@ -14,70 +12,46 @@ import { EventappointService } from 'src/app/services/eventappoint.service';
   styleUrls: ['./patient-appointment.component.css'],
 })
 export class PatientAppointmentComponent implements OnInit {
-  user: Users = new Users();
 
-  constructor(private evtapp:EventappointService,public dialog: MatDialog) {}
   receivedmessage:any={};
-  testevents:any[]=[]
-
-  ngOnInit(): void {
-
-    this.evtapp.getMessage().subscribe((res)=>{
-      // console.log(res)
-      // console.log(res[0].meeting_title)
-      this.testevents=res;
-      // this.testevents.push({title:'moh',id:'rkdie',description:'kohn',date:'2021-10-13'})
-      console.log(this.testevents)
-      this.calendarOptions.events=this.testevents
-
-
-    })
-
-
-
-  }
-
-
-
-
-
+  eventData:any[]=[]
+  user: Users = new Users();
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
+  constructor(private evtapp:EventappointService,public dialog: MatDialog, private _userService : UserService) {}
 
-  // t:any=this.receivedmessage[0].meeting_title
-  // td:any=receivedmessage[0].date
-  // tdd:any=receivedmessage[0].description
+  ngOnInit(): void {
+    this.user = this._userService.getUserDetails();
+    this.evtapp.getMessage(this.user.id).subscribe((res : any[])=>{
+      res.forEach(element => {
+        this.eventData.push(element);
+      });
+      //this.testevents.push({title:'moh',id:'rkdie',description:'kohn',date:'2021-10-13'})
+      this.calendarOptions.events=this.eventData
+    })
+  }
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     weekends: true,
     selectable: true,
     dateClick: this.handleDateClick.bind(this), // bind is important!
-    // events:this.testevents,
-
-
-  //   [
-
-
-  //     // { title: this.t, date: this.td, description: this.tdd},
-  //     // { title: `${this.receivedmessage[1]?.meeting_title}`, date: `${this.receivedmessage[1]?.date}`, description: `${this.receivedmessage[1]?.description}`
-  //     { title: this.receivedmessage[0].meeting_title, date: '2021-10-10', description: this.receivedmessage[0].description},
-
-  //     { title: 'event 1', date: '2021-10-12', description: 'Hello World' },
-  //     // { title: 'event 2', date: '2021-10-12', description: this.receivedmessage.description }
-  //  ],
-
     eventClick: (args) => {
-      console.log('ash', args.event.start);
-      console.log('title', args.event.title);
-
-
-      let event = {
+      let eventObj = {
         title: args.event.title,
         date: args.event.start,
         description: args.event._def.extendedProps.description,
+        patient_id: args.event._def.extendedProps.patient_id,
+        patient_firstname: args.event._def.extendedProps.patient_firstname,
+        patient_lastname: args.event._def.extendedProps.patient_lastname,
+        physician_id: args.event._def.extendedProps.physician_id,
+        physician_firstname: args.event._def.extendedProps.physician_firstname,
+        physician_lastname: args.event._def.extendedProps.physician_lastname,
+        time: args.event._def.extendedProps.time,
+        status: args.event._def.extendedProps.status,
+        id: args.event.id
       };
-      this.handleDateClick(event);
+      this.handleDateClick(eventObj);
     },
   };
 
@@ -87,7 +61,6 @@ export class PatientAppointmentComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -98,7 +71,6 @@ export class PatientAppointmentComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalPopUpComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }
