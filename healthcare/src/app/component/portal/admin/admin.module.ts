@@ -30,7 +30,7 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
     SharedModule,
     RouterModule.forChild([
       {
-        path: 'manage-users',
+        path: 'manageusers',
         component: ManageUsersComponent
       },
       {
