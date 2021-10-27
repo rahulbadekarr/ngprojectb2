@@ -42,7 +42,7 @@
       "id": "pPqqRUQ",
       "isActive": true,
       "gender": "Male",
-      "profilepicture":""
+      "profilepicture": ""
     },
     {
       "email": "test1@test1.com",
@@ -213,24 +213,26 @@
   ],
   "order": [
     {
-      "id": "",
-      "appointment_id": "",
-      "patient_vitals": {
-        "blood_pressure": "",
-        "pulse_rate": "",
-        "temprature": "",
-        "height": "",
-        "weight": "",
-        "oxygen_levels": ""
-      },
-      "procedure_code": {
-        "procedure_code_id": "",
-        "procedure_code_name": ""
-      },
-      "diagnosis_code": {
-        "diagnosis_code_id": "",
-        "diagnosis_code_name": ""
-      },
+      "id": "fgIo90",
+      "appointment_id": "a534fgh",
+      "blood_pressure": [
+        "120"
+      ],
+      "pulse_rate": [
+        "70"
+      ],
+      "temprature": "32",
+      "height": [
+        "170"
+      ],
+      "weight": [
+        "75"
+      ],
+      "oxygen_levels": [
+        "92"
+      ],
+      "procedure_code_id": "00160J8",
+      "diagnosis_code_id": "",
       "lab_report": {
         "file_name": "",
         "file_path": ""
@@ -239,29 +241,21 @@
         "file_name": "",
         "file_path": ""
       },
-      "medication": "",
+      "medication": "test",
       "created_by": "",
       "created_date": ""
     },
     {
       "id": "2",
       "appointment_id": "",
-      "patient_vitals": {
-        "blood_pressure": "Medium",
-        "pulse_rate": "78",
-        "temprature": "96",
-        "height": "5",
-        "weight": "55",
-        "oxygen_levels": "Normal"
-      },
-      "procedure_code": {
-        "procedure_code_id": "002F68",
-        "procedure_code_name": "Structural Measures"
-      },
-      "diagnosis_code": {
-        "diagnosis_code_id": "0032f8",
-        "diagnosis_code_name": "Structural Measures"
-      },
+      "blood_pressure": "Medium",
+      "pulse_rate": "78",
+      "temprature": "96",
+      "height": "5",
+      "weight": "55",
+      "oxygen_levels": "Normal",
+      "procedure_code_id": "002F68",
+      "diagnosis_code_id": "0032f8",
       "lab_report": {
         "file_name": "",
         "file_path": ""
