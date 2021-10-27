@@ -5,9 +5,7 @@ import { map } from 'rxjs/operators';
 import { AdminUsers } from 'src/model/admin-users-list.model';
 import { Users } from 'src/model/tabletypes';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminService {
 
   private baseUrl = 'http://localhost:3004/users';

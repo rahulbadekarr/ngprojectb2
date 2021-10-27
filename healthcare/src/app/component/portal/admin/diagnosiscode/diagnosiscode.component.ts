@@ -8,53 +8,55 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
-import { procedure_code, Users } from 'src/model/tabletypes';
+import { diagnosis_code, Users } from 'src/model/tabletypes';
+import { DiagnosisService } from '../services/diagnosis.service';
 import { ProcedureService } from '../services/procedure.service';
 
 @Component({
-  selector: 'app-procedurecode',
-  templateUrl: './procedurecode.component.html',
-  styleUrls: ['./procedurecode.component.css'],
+  selector: 'app-diagnosiscode',
+  templateUrl: './diagnosiscode.component.html',
+  styleUrls: ['./diagnosiscode.component.css']
 })
-export class ProcedurecodeComponent implements OnInit {
-  procForm: FormGroup;
+export class DiagnosiscodeComponent implements OnInit {
+
+  diagnosisForm: FormGroup;
   user: Users = new Users();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataList: MatTableDataSource<any> = new MatTableDataSource();
   columnList: string[];
 
   constructor(
-    private procedure_service: ProcedureService,
+    private diagnosis_service: DiagnosisService,
     private fb: FormBuilder,
     private _snackBar: CustomSnackBarService
   ) {
-    this.columnList = ['procedureName', 'actions'];
+    this.columnList = ['diagnosisName', 'actions'];
   }
 
   ngOnInit(): void {
-    this.procForm = this.fb.group({
+    this.diagnosisForm = this.fb.group({
       id: [''],
-      procedure_code_name: ['', Validators.required],
+      diagnosis_code_name: ['', Validators.required],
     });
-    this.procedure_service.getProcedure().subscribe((res) => {
+    this.diagnosis_service.getDiagnosis().subscribe((res) => {
       this.bindGrid(res);
     });
   }
 
-  saveProcedureCode() {
-    this.procedure_service
-      .checkProceddureCodeExists(this.procedure_code_name.value)
+  saveDiagnosisCode() {
+    this.diagnosis_service
+      .checkDiagnosisCodeExists(this.diagnosis_code_name.value)
       .subscribe((res: any) => {
         if (res == 0) {
-          let procedureCodeData: procedure_code = new procedure_code();
-          if (this.procForm.controls['id'].value === '' || this.procForm.controls['id'].value === null) {
-            procedureCodeData.id = '';
-            procedureCodeData.procedure_code_name = this.procedure_code_name.value;
-            this.procedure_service
-              .saveProcedure(procedureCodeData)
+          let diagnosisCodeData: diagnosis_code = new diagnosis_code();
+          if (this.diagnosisForm.controls['id'].value === '' || this.diagnosisForm.controls['id'].value === null){
+            diagnosisCodeData.id = '';
+            diagnosisCodeData.diagnosis_code_name = this.diagnosis_code_name.value;
+            this.diagnosis_service
+              .saveDiagnosis(diagnosisCodeData)
               .subscribe((res) => {
                 if (res) {
-                  this.procedure_service.getProcedure().subscribe((res) => {
+                  this.diagnosis_service.getDiagnosis().subscribe((res) => {
                     this.bindGrid(res);
                   });
                   this._snackBar.openSnackBar('Data Added successfully!');
@@ -63,12 +65,12 @@ export class ProcedurecodeComponent implements OnInit {
                 }
               });
           } else {
-            procedureCodeData = this.procForm.value;
-            this.procedure_service
-              .updateProcedureCode(procedureCodeData)
+            diagnosisCodeData = this.diagnosisForm.value;
+            this.diagnosis_service
+              .updateDiagnosisCode(diagnosisCodeData)
               .subscribe((res) => {
                 if (res) {
-                  this.procedure_service.getProcedure().subscribe((res) => {
+                  this.diagnosis_service.getDiagnosis().subscribe((res) => {
                     this.bindGrid(res);
                   });
                   this._snackBar.openSnackBar('Data Updated successfully!');
@@ -89,18 +91,17 @@ export class ProcedurecodeComponent implements OnInit {
     this.dataList.paginator = this.paginator;
   }
 
-  onEdit(id: string, name: string, event: any) {
-    event.preventDefault();
-    this.procForm.patchValue({
+  onEdit(id: string, name: string) {
+    this.diagnosisForm.patchValue({
       id: id,
-      procedure_code_name: name,
+      diagnosis_code_name: name,
     });
   }
 
   onDelete(id: string) {
-    this.procedure_service.deleteProcedure(id).subscribe((res) => {
+    this.diagnosis_service.deleteDiagnosis(id).subscribe((res) => {
       if (res) {
-        this.procedure_service.getProcedure().subscribe((res) => {
+        this.diagnosis_service.getDiagnosis().subscribe((res) => {
           this.bindGrid(res);
         });
         this._snackBar.openSnackBar('Deleted successfully!');
@@ -109,10 +110,11 @@ export class ProcedurecodeComponent implements OnInit {
   }
 
   clearForm() {
-    this.procForm.reset();
+    this.diagnosisForm.reset();
   }
 
-  get procedure_code_name(): AbstractControl {
-    return this.procForm.get('procedure_code_name');
+  get diagnosis_code_name(): AbstractControl {
+    return this.diagnosisForm.get('diagnosis_code_name');
   }
+
 }

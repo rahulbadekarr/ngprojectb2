@@ -3,25 +3,18 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-// import { ManageUsersComponent } from './manage-users/manage-users.component';
-import { RmanaguserComponent } from './rmanaguser/rmanaguser.component';
+
+
 import { ManageUsersComponent } from './manage-users/manage-users.component';
-import { DiognosiscodeComponent } from './diognosiscode/diognosiscode.component';
-
 import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
-
-
-
-
+import { DiagnosiscodeComponent } from './diagnosiscode/diagnosiscode.component';
+import { AdminService } from './services/admin.service';
 
 @NgModule({
   declarations: [
     ManageUsersComponent,
-    DiognosiscodeComponent,
-
-    // ManageUsersComponent,
-    RmanaguserComponent,
-    ProcedurecodeComponent
+    ProcedurecodeComponent,
+    DiagnosiscodeComponent
   ],
   imports: [
     CommonModule,
@@ -34,12 +27,8 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
         component: ManageUsersComponent
       },
       {
-        path: 'rmanage-users',
-        component: RmanaguserComponent
-      },
-      {
-        path: 'diog-code',
-        component:  DiognosiscodeComponent,
+        path: 'diagnosiscode',
+        component:  DiagnosiscodeComponent,
       },
       {
         path: 'procedurecode',
@@ -48,7 +37,7 @@ import { ProcedurecodeComponent } from './procedurecode/procedurecode.component'
     ])
   ],
   providers :[
-
+    AdminService
   ],
 })
 export class AdminModule { }
