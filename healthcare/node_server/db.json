@@ -78,7 +78,7 @@
     },
     {
       "email": "test3@test3.com",
-      "password": "$2a$10$kOyNTVfbJv4BnF5U09qi5u5gJihsonDc.Qp2P3F1xLax6fz4jbjjy",
+      "password": "$2a$10$JB/DjtY/rAj3oMWDymgGHO8JFV1hHPhcBLSzonWNoh/41iYG6gQ1.",
       "role": "Patient",
       "firstname": "Jason",
       "lastname": "Patrick",

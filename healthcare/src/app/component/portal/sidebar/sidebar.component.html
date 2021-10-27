@@ -1,41 +1,57 @@
-<!-- sidenav  -->
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="primary" class="example-toolbar d-flex flex-row">
-        <button mat-icon-button class="m-2" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <mat-icon class="m-2 mr-3" routerLink="dashboard" style="cursor: pointer;">home</mat-icon>
-        <mat-icon class="m-2 mr-3" routerLink="profile" style="cursor: pointer;">person</mat-icon>
-        <mat-icon class="m-2 mr-3" style="cursor: pointer;">notifications</mat-icon>
-        <span class="example-spacer"></span>
-        <button mat-raised-button (click)="onlogout()">	<mat-icon>exit_to_app</mat-icon>&nbsp;Logout</button>
-    </mat-toolbar>
-    <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
-          <div *ngIf="user.role === 'Patient'">
-            <a mat-list-item routerLink="dashboard" >Dashboard</a>
-            <a mat-list-item routerLink="patient/patient-demographics">Patient Demographics</a>
-            <a mat-list-item routerLink="patient/patient-immunization">Patient Immunization</a>
-            <a mat-list-item routerLink="patient/patient-medication-allergy">Patient Allergy</a>
-            <a mat-list-item [routerLink]="['patient/patient-appointment-history',user.id]">Patient Appointment</a>
-            <a mat-list-item routerLink="patient/patient-appointment">Schedule Appointment</a>
-          </div>
-          <div *ngIf="user.role === 'Physician'">
-            <a mat-list-item routerLink="physician/appointments">Appointment List</a>
-            <a mat-list-item routerLink="physician/physician-information">Info</a>
-          </div>
-
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
-        <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
-        <ng-content></ng-content>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-
-<!-- route link for physician detail component  start -->
-<!-- <a mat-list-item routerLink="physician/patient-detail">
-<mat-icon>details</mat-icon>&nbsp;physician detail</a> -->
-<!-- route link for physician detail component  end -->
+  <mat-toolbar color="primary" class="example-toolbar d-flex flex-row">
+    <button mat-icon-button class="m-2" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon class="m-2 mr-3" routerLink="dashboard" style="cursor: pointer;">home</mat-icon>
+    <mat-icon class="m-2 mr-3" routerLink="profile" style="cursor: pointer;">person</mat-icon>
+    <mat-icon class="m-2 mr-3" style="cursor: pointer;">notifications</mat-icon>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="onlogout()">
+      <mat-icon>exit_to_app</mat-icon>&nbsp;Logout
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <img class="profile-image" mat-card-sm-image *ngIf="!user.profilepicture" src="../../../../assets/no-profile.png">
+      <img class="profile-image" mat-card-sm-image *ngIf="user.profilepicture"
+        src="{{'data:image/jpg;base64,' + user.profilepicture}}">
+        <mat-chip-list aria-label="Role">
+          <mat-chip color="accent" selected>{{user.role}}
+          </mat-chip>
+        </mat-chip-list>
+      <mat-divider style="margin-top: 2%;"></mat-divider>
+      <mat-nav-list>
+        <div *ngIf="user.role === 'Patient'">
+          <a mat-list-item routerLink="dashboard">Dashboard</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="patient/patient-demographics">Patient Demographics</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="patient/patient-immunization">Patient Immunization</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="patient/patient-medication-allergy">Patient Allergy</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item [routerLink]="['patient/patient-appointment-history',user.id]">Patient Appointment</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="patient/patient-appointment">Schedule Appointment</a>
+        </div>
+        <div *ngIf="user.role === 'Physician'">
+          <a mat-list-item routerLink="physician/appointments">Appointment List</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="physician/physician-information">Info</a>
+        </div>
+        <div *ngIf="user.role === 'Admin'">
+          <a mat-list-item routerLink="admin/manageusers">Manage Users</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="admin/procedurecode">Procedure Code</a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="admin/diagnosiscode">Diagnosis Code</a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
