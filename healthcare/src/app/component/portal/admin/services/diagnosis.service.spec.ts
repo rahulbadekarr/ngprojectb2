@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { DiagnosisService } from './diagnosis.service';
 
-fdescribe('DiagnosisService', () => {
+describe('DiagnosisService', () => {
   let service: DiagnosisService;
   let httpTestingController: HttpTestingController;
 
