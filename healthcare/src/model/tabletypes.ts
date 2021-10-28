@@ -27,7 +27,7 @@ export class Users {
 }
 
 export class Med_allergy {
-  id: number;
+  id: string;
   patient_id: string;
   current_medication: string;
   otc_medication: string;

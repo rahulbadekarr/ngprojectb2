@@ -8,8 +8,9 @@ import {
   AbstractControl,
   Validators,
 } from '@angular/forms';
-import { Med_allergy } from 'src/model/tabletypes';
+import { Med_allergy, Users } from 'src/model/tabletypes';
 import { PatientService } from 'src/app/services/patient.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-patient-medication-allergy',
@@ -18,15 +19,18 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class PatientMedicationAllergyComponent implements OnInit {
   med_allergy_form: FormGroup;
+  user : Users;
 
   constructor(
     private _medi_allergyService: PatientService,
     private fb: FormBuilder,
-    private _snack: CustomSnackBarService
+    private _snack: CustomSnackBarService,
+    private _userService : UserService
   ) {}
 
   ngOnInit(): void {
     // this.updateData("HtWlS9M");
+    this.user = this._userService.getUserDetails();
     console.log(this._medi_allergyService.getData);
     this.med_allergy_form = this.fb.group({
       social_drugs: ['', Validators.required],
@@ -43,12 +47,13 @@ export class PatientMedicationAllergyComponent implements OnInit {
     Patient_Medical_Allergy.other_allergies_reaction =
       this.other_allergies_reaction.value;
     Patient_Medical_Allergy.drug_allergies = this.drug_allergies.value;
+    Patient_Medical_Allergy.patient_id = this.user.id;
 
 
     this._medi_allergyService
       .createmedicationallergy(Patient_Medical_Allergy)
       .subscribe((data) => {
-        this._snack.openSnackBar('Value Added the Server');
+        this._snack.openSnackBar('Allergy information added!');
       });
     this.med_allergy_form.reset();
   }
