@@ -5,7 +5,7 @@ import { Immune,  Users } from 'src/model/tabletypes';
 import { catchError, map, tap } from 'rxjs/operators';
 // import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
-import { Observable, Subject, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +36,7 @@ export class UserService {
 
   registerUser(data: Users) : Observable<Users> {
     let date = new Date();
-    data.createdDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
+    data.createdDate = `${date.getMonth()+ 1}/${date.getDate()}/${date.getFullYear()}`;
     return this.http.post<Users>('http://localhost:3004/register', data).pipe(
       catchError(errResponse =>{
         return throwError(errResponse.error)

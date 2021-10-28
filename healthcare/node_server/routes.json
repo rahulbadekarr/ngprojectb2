@@ -1,5 +1,9 @@
 {
-
-    "demographics": 660,
-    "physiciandata": 660
+    "medication_allergies": 660,
+    "immunization": 660,
+    "schedule_appointment": 660,
+    "order": 660,
+    "allergies": 660,
+    "procedure_code": 660,
+    "diagnosis_code": 660
 }
