@@ -1,4 +1,15 @@
 mat-grid-tile {
     background: #e8eceee1;
   }
-  
+  .card-1color{
+background-color:#ffe0e6;
+  }
+  .card-2color{
+    background-color:#dbf2f2;
+  }
+  .card-3color{
+    background-color:#ffecd9;
+  }
+  .card-color{
+    background-color: #ebe5f6;
+  }

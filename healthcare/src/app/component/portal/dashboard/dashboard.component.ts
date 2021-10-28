@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     this.ctx = this.canvas.getContext('2d');
 
     new Chart(this.ctx, {
-      type: 'line',
+      type: 'bar',
       data: {
           datasets: [
           //   {
@@ -32,8 +32,24 @@ export class DashboardComponent implements OnInit {
           {
             label: 'Number of Patients Visits',
             data: [0, 20, 40, 60, 80],
-            backgroundColor: "#47a0e8",
-            borderColor: "#007ee7",
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
             fill: true,
         }],
           labels: ['July 2021', 'Aug 2021', 'Sep 2021', 'Oct 2021']
