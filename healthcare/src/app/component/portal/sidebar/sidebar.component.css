@@ -51,12 +51,12 @@ flex: 1 1 auto;
 img{
   border-radius: 50%;
   width: 75%;
-  height: 100px;
+  height: 125px;
   margin-left: 10%;
 
 }
 .mat-chip{
-  margin-left: 25% !important;
+  margin-left: 29% !important;
 }
 /* @media all and (max-width: 1000px){
   img{

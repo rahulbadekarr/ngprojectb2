@@ -33,9 +33,12 @@ export class LoginComponent implements OnInit {
   onlogin() {
     this._userService
       .login(this.email.value, this.userpassword.value)
-      .subscribe((data) => {
+      .subscribe((data : boolean) => {
         if (data) {
           this._snackBar.openSnackBar('Logged in successfully');
+          this._router.navigate(['portal']);
+        }else{
+          this._snackBar.openSnackBar('Log in credentials are not valid');
           this._router.navigate(['portal']);
         }
       },
