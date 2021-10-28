@@ -49,10 +49,14 @@ export class AdminService {
   }
 
   updatedUserAccess(user: Users){
+    let obj = {
+      id:user.id,
+      isActive:user.isActive
+    }
     const headers = new HttpHeaders().set('content-type', 'application/json');
     return this.http.patch(
       `${this.baseUrl}/${user.id}`,
-      user,
+      obj,
       {
         headers: headers,
       }

@@ -96,22 +96,6 @@
       "gender": "Male"
     },
     {
-      "email": "josha@gmail.com",
-      "password": "$2a$10$Z77LVMhXzYRpsLUyL8hEeO5wdSRPR418FxywXdNBx7WC1g9SSnOnC",
-      "role": "Patient",
-      "firstname": "Josh",
-      "lastname": "Affleck",
-      "phone": "1234567890",
-      "dob": "1996-03-06T18:30:00.000Z",
-      "address": "Test Address",
-      "emergency_contact_name": "Natlie Affleck",
-      "emergency_contact_email": "natliea@gmail.com",
-      "emergency_contact_mobile": "1234567890",
-      "isActive": true,
-      "createdDate": "10/28/2021",
-      "id": "kNseCDo"
-    },
-    {
       "email": "carolm@gmail.com",
       "password": "$2a$10$pBVcUmK9MQBqGvC0NuM/geWXlCSWzL4Y/b/gj7kU7jcx0OmFvvFT6",
       "role": "Patient",
@@ -123,7 +107,7 @@
       "emergency_contact_name": "Miles Mathew",
       "emergency_contact_email": "milesm@gmail.com",
       "emergency_contact_mobile": "1234767840",
-      "isActive": false,
+      "isActive": true,
       "createdDate": "10/28/2021",
       "id": "DKJdKg_"
     },
@@ -190,6 +174,22 @@
       "isActive": false,
       "createdDate": "10/28/2021",
       "id": "M--guhs"
+    },
+    {
+      "email": "josha@gmail.com",
+      "password": "$2a$10$tj00rV9VsPvnRkIQJmxonO/UY09tEEyMhxQoAh/3hsgpH3Cv57Qw.",
+      "role": "Patient",
+      "firstname": "Josh",
+      "lastname": "Affleck",
+      "phone": "1234567890",
+      "dob": "1992-03-04T18:30:00.000Z",
+      "address": "Test Address",
+      "emergency_contact_name": "Natlie Affleck",
+      "emergency_contact_email": "natliea@gmail.com",
+      "emergency_contact_mobile": "1234567890",
+      "isActive": false,
+      "createdDate": "10/28/2021",
+      "id": "GXWFNn7"
     }
   ],
   "medication_allergies": [
