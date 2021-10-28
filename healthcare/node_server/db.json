@@ -96,36 +96,28 @@
       "gender": "Male"
     },
     {
-      "email": "josha@gmail.com",
-      "password": "$2a$10$Z77LVMhXzYRpsLUyL8hEeO5wdSRPR418FxywXdNBx7WC1g9SSnOnC",
-      "role": "Patient",
-      "firstname": "Josh",
-      "lastname": "Affleck",
-      "phone": "1234567890",
-      "dob": "1996-03-06T18:30:00.000Z",
-      "address": "Test Address",
-      "emergency_contact_name": "Natlie Affleck",
-      "emergency_contact_email": "natliea@gmail.com",
-      "emergency_contact_mobile": "1234567890",
-      "isActive": true,
-      "createdDate": "10/28/2021",
-      "id": "kNseCDo"
-    },
-    {
       "email": "carolm@gmail.com",
       "password": "$2a$10$pBVcUmK9MQBqGvC0NuM/geWXlCSWzL4Y/b/gj7kU7jcx0OmFvvFT6",
       "role": "Patient",
       "firstname": "Carol",
       "lastname": "Mathew",
       "phone": "1234567890",
-      "dob": "1969-06-03T18:30:00.000Z",
+      "dob": "06/04/1969",
       "address": "Test Address",
       "emergency_contact_name": "Miles Mathew",
       "emergency_contact_email": "milesm@gmail.com",
-      "emergency_contact_mobile": "1234767840",
-      "isActive": false,
+      "emergency_contact_mobile": "1234767841",
+      "isActive": true,
       "createdDate": "10/28/2021",
-      "id": "DKJdKg_"
+      "id": "DKJdKg_",
+      "gender": "Female",
+      "ethanicity": "",
+      "education": "",
+      "occupation": "",
+      "medicalhistory": "",
+      "family_medical_history": "",
+      "surgery": "",
+      "insurance_provider": "Test Insurance Company"
     },
     {
       "email": "alexr@gmail.com",
@@ -190,6 +182,22 @@
       "isActive": false,
       "createdDate": "10/28/2021",
       "id": "M--guhs"
+    },
+    {
+      "email": "josha@gmail.com",
+      "password": "$2a$10$tj00rV9VsPvnRkIQJmxonO/UY09tEEyMhxQoAh/3hsgpH3Cv57Qw.",
+      "role": "Patient",
+      "firstname": "Josh",
+      "lastname": "Affleck",
+      "phone": "1234567890",
+      "dob": "1992-03-04T18:30:00.000Z",
+      "address": "Test Address",
+      "emergency_contact_name": "Natlie Affleck",
+      "emergency_contact_email": "natliea@gmail.com",
+      "emergency_contact_mobile": "1234567890",
+      "isActive": false,
+      "createdDate": "10/28/2021",
+      "id": "GXWFNn7"
     }
   ],
   "medication_allergies": [
@@ -208,17 +216,17 @@
   "immunization": [
     {
       "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 3
+      "general_vaccine": "",
+      "vaccinedate": "2021-05-31T18:30:00.000Z",
+      "patient_id": "DKJdKg_",
+      "id": 1
     },
     {
-      "covid_19_vaccine": "Covaxin",
-      "general_vaccine": "sss",
-      "vaccinedate": "2021-10-11T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 4
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "",
+      "vaccinedate": "2021-09-01T18:30:00.000Z",
+      "patient_id": "DKJdKg_",
+      "id": 2
     }
   ],
   "schedule_appointment": [
@@ -305,6 +313,20 @@
       "physician_lastname": "Badekar",
       "status": "In-Progress",
       "id": "Mh645Og"
+    },
+    {
+      "id": "JY3fMEL",
+      "time": "1-2",
+      "date": "10/29/2021",
+      "description": "Fever Check Up",
+      "title": "Fever Check Up",
+      "patient_id": "DKJdKg_",
+      "patient_firstname": "Carol",
+      "patient_lastname": "Mathew",
+      "physician_id": "drdUoGE",
+      "physician_firstname": "Rahul",
+      "physician_lastname": "Badekar",
+      "status": "In-Progress"
     }
   ],
   "order": [

@@ -71,6 +71,9 @@ export class PatientImmunizationComponent implements OnInit {
       .saveImmunization(this.registrationForm.value)
       .subscribe((result) => {
         if (result) {
+          this.addMed.getImmunizationList().subscribe((result) => {
+            this.dataList = new MatTableDataSource(result);
+          });
           this._snackBar.openSnackBar('Added successfully');
         } else {
           this._snackBar.openSnackBar('Invalid data');
