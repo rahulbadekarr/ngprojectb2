@@ -216,17 +216,17 @@
   "immunization": [
     {
       "covid_19_vaccine": "Covishield",
-      "general_vaccine": "gg",
-      "vaccinedate": "2021-10-05T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 3
+      "general_vaccine": "",
+      "vaccinedate": "2021-05-31T18:30:00.000Z",
+      "patient_id": "DKJdKg_",
+      "id": 1
     },
     {
-      "covid_19_vaccine": "Covaxin",
-      "general_vaccine": "sss",
-      "vaccinedate": "2021-10-11T18:30:00.000Z",
-      "patient_id": "pPqqRUQ",
-      "id": 4
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "",
+      "vaccinedate": "2021-09-01T18:30:00.000Z",
+      "patient_id": "DKJdKg_",
+      "id": 2
     }
   ],
   "schedule_appointment": [
