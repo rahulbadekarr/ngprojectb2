@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
   imports: [
