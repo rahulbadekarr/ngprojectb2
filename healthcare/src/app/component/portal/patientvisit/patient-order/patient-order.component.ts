@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Order, procedure_code, Users } from 'src/model/tabletypes';
+import { diagnosis_code, Order, procedure_code, Users } from 'src/model/tabletypes';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { PatientvisitService } from '../../../../services/patientvisit.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
+import { DiagnosisService } from '../../admin/services/diagnosis.service';
 @Component({
   selector: 'app-patient-order',
   templateUrl: './patient-order.component.html',
@@ -16,6 +17,7 @@ export class PatientOrderComponent implements OnInit {
   appointment_id: string;
   orderDetail: Order = new Order();
   procedureCodes: procedure_code[];
+  diagnosisCodes: diagnosis_code[];
   selectedProcedureCode: string;
   selectedDiagnosisCode: string;
   appointmentStatus: string;
@@ -28,7 +30,8 @@ export class PatientOrderComponent implements OnInit {
     private _router: Router,
     private _appointmentService: PatientService,
     private _userService: UserService,
-    private _snackBar: CustomSnackBarService
+    private _snackBar: CustomSnackBarService,
+    private _diagnosisCodeService : DiagnosisService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +44,11 @@ export class PatientOrderComponent implements OnInit {
       .subscribe((data: procedure_code[]) => {
         this.procedureCodes = data;
       });
+    this._diagnosisCodeService
+      .getDiagnosis()
+      .subscribe((data: diagnosis_code[]) => {
+        this.diagnosisCodes = data;
+      });
     this._appointmentService
       .getAppointmentStatus(this.appointment_id)
       .subscribe((data: string) => {
@@ -52,6 +60,7 @@ export class PatientOrderComponent implements OnInit {
       .subscribe((r: Order) => {
         this.orderDetail = r[0];
         this.selectedProcedureCode = this.orderDetail.procedure_code_id;
+        this.selectedDiagnosisCode = this.orderDetail.diagnosis_code_id;
         this.patient_orders_form.patchValue({
           blood_pressure: [this.orderDetail.blood_pressure],
           pulse_rate: [this.orderDetail.pulse_rate],
@@ -141,32 +150,32 @@ export class PatientOrderComponent implements OnInit {
   //   'Nonmeasure Code Listing (9001F – 9007F)',
   // ];
 
-  diognosisCode: Array<string> = [
-    'A: Infectious and parasitic diseases',
-    'B: Infectious and parasitic diseases',
-    'C: Cancer',
-    'D: Neoplasms, blood, and blood-forming organs',
-    'E: Endocrine, nutritional, or metabolic',
-    'F: Mental and behavioral disorders',
-    'G: Nervous system',
-    'H: Eyes, ears, nose, and throat',
-    'I: Circulatory system',
-    ' J: Respiratory system',
-    'K: Digestive system',
-    'L: Skin',
-    'M: Musculoskeletal system',
-    'N: Genitourinary system',
-    ' O: Pregnancy and childbirth',
-    ' P: Perinatal conditions',
-    'Q: Congenital and chromosomal abnormalities',
-    ' R: Abnormal clinical and lab findings',
-    'S: Injury, poisoning, and other external causes',
-    'T: Injury, poisoning, and other external causes',
-    '  U: Used for emergency designation',
-    'V: External causes of morbidity',
-    'W: External causes of morbidity',
-    '  X: External causes of morbidity',
-    '  Y: External causes of morbidity',
-    'Z: Factors influencing health status and contact with health services',
-  ];
+  // diognosisCode: Array<string> = [
+  //   'A: Infectious and parasitic diseases',
+  //   'B: Infectious and parasitic diseases',
+  //   'C: Cancer',
+  //   'D: Neoplasms, blood, and blood-forming organs',
+  //   'E: Endocrine, nutritional, or metabolic',
+  //   'F: Mental and behavioral disorders',
+  //   'G: Nervous system',
+  //   'H: Eyes, ears, nose, and throat',
+  //   'I: Circulatory system',
+  //   ' J: Respiratory system',
+  //   'K: Digestive system',
+  //   'L: Skin',
+  //   'M: Musculoskeletal system',
+  //   'N: Genitourinary system',
+  //   ' O: Pregnancy and childbirth',
+  //   ' P: Perinatal conditions',
+  //   'Q: Congenital and chromosomal abnormalities',
+  //   ' R: Abnormal clinical and lab findings',
+  //   'S: Injury, poisoning, and other external causes',
+  //   'T: Injury, poisoning, and other external causes',
+  //   '  U: Used for emergency designation',
+  //   'V: External causes of morbidity',
+  //   'W: External causes of morbidity',
+  //   '  X: External causes of morbidity',
+  //   '  Y: External causes of morbidity',
+  //   'Z: Factors influencing health status and contact with health services',
+  // ];
 }
