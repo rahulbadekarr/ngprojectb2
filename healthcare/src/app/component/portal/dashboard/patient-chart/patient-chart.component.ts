@@ -31,7 +31,7 @@ export class PatientChartComponent implements OnInit {
           // },
           {
             label: 'Number of Patients Visits',
-            data: [[10,20],[20,50],[60,10], [10, 30]],
+            data: [[10,20],[20,50],[55,10], [10, 30], [10,57]],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 159, 64, 0.2)',
@@ -52,7 +52,7 @@ export class PatientChartComponent implements OnInit {
             ],
             fill: true,
         }],
-          labels: ['July 2021', 'Aug 2021', 'Sep 2021', 'Oct 2021']
+          labels: ['Jun 2021', 'July 2021', 'Aug 2021', 'Sep 2021', 'Oct 2021']
       },
   });
   }
