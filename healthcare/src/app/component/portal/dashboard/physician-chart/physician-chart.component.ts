@@ -22,7 +22,6 @@ export class PhysicianChartComponent implements OnInit {
           datasets: [
           {
             label: 'Number of Phyician',
-            
              data: [11, 16, 7, 3, 14],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
