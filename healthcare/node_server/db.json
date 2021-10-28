@@ -9,7 +9,10 @@
       "createdDate": "09/01/2021",
       "id": "drdUoGE",
       "isActive": true,
-      "gender": "Male"
+      "gender": "Male",
+      "dob": "1994-02-28T18:30:00.000Z",
+      "phone": "1234567890",
+      "address": "Test Address"
     },
     {
       "email": "admin@test.com",
@@ -343,7 +346,7 @@
       "physician_id": "drdUoGE",
       "physician_firstname": "Rahul",
       "physician_lastname": "Badekar",
-      "status": "In-Progress"
+      "status": "Scheduled"
     },
     {
       "id": "CDNw8iC",
