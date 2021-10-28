@@ -6,6 +6,7 @@ import {
   Validators,
   AbstractControl
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
 // import { Demographics, Users } from 'src/model/tabletypes';
@@ -23,7 +24,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _userService: UserService,
-    private _snackBar: CustomSnackBarService
+    private _snackBar: CustomSnackBarService,
+    private _router : Router
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +94,7 @@ export class RegistrationComponent implements OnInit {
     this._userService.registerUser(userData).subscribe((data: Users) => {
       if (data) {
           this._snackBar.openSnackBar('Registered successfully');
+          this._router.navigate(['login']);
         // userDemographics.patient_id = data.id;
         // this._userService
         //   .createUserDemographics(userDemographics)
