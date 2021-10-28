@@ -1,78 +1,147 @@
 <div class="container">
-    <mat-card>
-        <mat-card-content>
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="heading_color">Patient Allergy</h2>
-                </div>
+  <mat-card>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="heading_color">Patient Allergy</h2>
+        </div>
+      </div>
+      <!-- allergy form start here -->
+      <form [formGroup]="med_allergy_form">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  formControlName="drug_allergies"
+                  placeholder="Allergy"
+                />
+                <mat-error
+                  *ngIf="
+                    !drug_allergies.valid &&
+                    drug_allergies.touched &&
+                    drug_allergies.hasError('required')
+                  "
+                >
+                  Please enter Allergies
+                </mat-error>
+              </mat-form-field>
             </div>
-            <!-- allergy form start here -->
-            <form [formGroup]="med_allergy_form">
-                <div class="row">
+          </div>
+        </div>
 
+        <div class="row">
+          <!-- social drug -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  formControlName="social_drugs"
+                  placeholder="Social Drug "
+                />
+                <mat-error
+                  *ngIf="
+                    !social_drugs.valid &&
+                    social_drugs.touched &&
+                    social_drugs.hasError('required')
+                  "
+                >
+                  Please enter social drug details
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- other allergic reaction field -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  formControlName="other_allergies_reaction"
+                  placeholder="Other Allergic Details"
+                />
+                <mat-error
+                  *ngIf="
+                    !other_allergies_reaction.valid &&
+                    other_allergies_reaction.touched &&
+                    other_allergies_reaction.hasError('required')
+                  "
+                >
+                  Please enter Other allergic details
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- buttons -->
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="med_allergy_form.invalid"
+              style="margin-right: 10px"
+              (click)="createPatientAllergyDetails()"
+            >
+              Add
+            </button>
+            <button type="button" mat-raised-button (click)="cancel()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+      <br /><br />
+      <h1>Allergies</h1>
+      <!-- medication form end here -->
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataList" class="mat-elevation-z8">
+          <ng-container matColumnDef="Allergy">
+            <th mat-header-cell *matHeaderCellDef>Allergy</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.drug_allergies }}
+            </td>
+          </ng-container>
 
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                          <mat-form-field class="full-width-input">
-                              <input matInput formControlName="drug_allergies" placeholder="Allergy" />
-                              <mat-error *ngIf="
-                !drug_allergies.valid &&
-                drug_allergies.touched &&
-                drug_allergies.hasError('required')
-              ">
-                                  Please enter Allergies
-                              </mat-error>
-                          </mat-form-field>
-                      </div>
-                  </div>
-                </div>
+          <ng-container matColumnDef="Social Drug">
+            <th mat-header-cell *matHeaderCellDef>Social Drug</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.social_drugs }}
+            </td>
+          </ng-container>
 
-                <div class="row">
-                    <!-- social drug -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="social_drugs" placeholder="Social Drug " />
-                                <mat-error *ngIf="
-                  !social_drugs.valid &&
-                  social_drugs.touched &&
-                  social_drugs.hasError('required')
-                ">
-                                    Please enter social drug details
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+          <ng-container matColumnDef="Other Allergy">
+            <th mat-header-cell *matHeaderCellDef>Other Allergy</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.other_allergies_reaction }}
+            </td>
+          </ng-container>
 
-                </div>
-                <div class="row">
-                    <!-- other allergic reaction field -->
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <mat-form-field class="full-width-input">
-                                <input matInput formControlName="other_allergies_reaction" placeholder="Other Allergic Details" />
-                                <mat-error *ngIf="
-                  !other_allergies_reaction.valid &&
-                  other_allergies_reaction.touched &&
-                  other_allergies_reaction.hasError('required')
-                ">
-                                    Please enter Other allergic details
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </div>
-                <!-- buttons -->
-                <div class="row">
-                    <div class="col-sm-12 col-md-12">
-                        <button mat-raised-button color="primary" [disabled]="med_allergy_form.invalid" style="margin-right:10px;" (click)="createPatientAllergyDetails()">
-        ADD
-      </button>
-                        <button type="button" mat-raised-button>Cancel</button>
-                    </div>
-                </div>
-            </form>
-            <!-- medication form end here -->
-        </mat-card-content>
-    </mat-card>
+          <ng-container matColumnDef="Delete">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let element" style="cursor: pointer">
+              <mat-icon (click)="deleteData(element.id)">delete</mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <div>
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page of periodic elements"
+          >
+          </mat-paginator>
+        </div>
+
+        <div></div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
