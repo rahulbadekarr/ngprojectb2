@@ -9,10 +9,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { PatientChartComponent } from './dashboard/patient-chart/patient-chart.component';
+import { PhysicianChartComponent } from './dashboard/physician-chart/physician-chart.component';
 
 
 @NgModule({
-  declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent],
+  declarations: [PortalComponent, DashboardComponent, SidebarComponent, FooterComponent, ProfileComponent, PatientChartComponent, PhysicianChartComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
