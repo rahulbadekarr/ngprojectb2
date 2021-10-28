@@ -15,6 +15,13 @@ import { SharedModule } from './component/shared/shared.module';
 // import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgotUsernameComponent } from './component/auth/forgot-username/forgot-username.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 
 
@@ -35,7 +42,13 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
 
   providers: [{
