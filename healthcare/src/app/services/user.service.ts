@@ -44,6 +44,16 @@ export class UserService {
     );
   }
 
+  addUser(data: Users) : Observable<Users> {
+    let date = new Date();
+    data.createdDate = `${date.getMonth()+ 1}/${date.getDate()}/${date.getFullYear()}`;
+    return this.http.post<Users>('http://localhost:3004/users', data).pipe(
+      catchError(errResponse =>{
+        return throwError(errResponse.error)
+      })
+    );
+  }
+
   getUserDetails(): Users |null {
     console.log(JSON.parse(localStorage.getItem('user')));
     return JSON.parse(localStorage.getItem('user'));

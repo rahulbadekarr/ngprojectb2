@@ -27,15 +27,37 @@ describe('PatientMedicationAllergyComponent', () => {
       ]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(PatientMedicationAllergyComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.ngOnInit()
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(PatientMedicationAllergyComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
+
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+  it('is Patient Medication Allergy Component Present', () => {
+
+    expect(component).toBeDefined();
   });
+
+  it('Is Patient Medication Allergy form invalid when empty/invalid data is inserted',()=>{
+    let drugallergy=component.med_allergy_form.controls["drug_allergies"];
+    drugallergy.setValue("Penicillin")
+    let socialdrug=component.med_allergy_form.controls["social_drugs"];
+    socialdrug.setValue("cannabis")
+    let otherallergysection=component.med_allergy_form.controls["other_allergies_reaction"];
+    otherallergysection.setValue("Itchy Eyes to Sneezing")
+   
+
+
+    expect(component.med_allergy_form.valid).toBeTruthy()
+  })
+
+
 });
