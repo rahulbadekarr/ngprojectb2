@@ -18,6 +18,7 @@ import { Users } from 'src/model/tabletypes';
 export class CreateUserComponent implements OnInit {
   createuserForm: FormGroup;
   roles=["Admin","Physician"];
+  genderole=["Male","Female"];
   constructor(  private fb: FormBuilder,
     private _userService: UserService,
     private _snackBar: CustomSnackBarService) { }
@@ -40,6 +41,7 @@ export class CreateUserComponent implements OnInit {
         ],
         dateofbirth: ['', Validators.required],
         userrole: ['', Validators.required],
+        genderselection:['', Validators.required],
         address: ['',Validators.required],
        
       },
@@ -52,6 +54,7 @@ export class CreateUserComponent implements OnInit {
     let userData: Users = new Users();
     userData.email = this.email.value;
     userData.role = this.userrole.value;
+    userData.gender = this.genderselection.value;
     userData.password = "test@test.com";
     userData.firstname = this.firstname.value;
     userData.lastname = this.lastname.value;
@@ -102,6 +105,10 @@ export class CreateUserComponent implements OnInit {
 
   get userrole(): AbstractControl {
     return this.createuserForm.get('userrole');
+  }
+  
+  get genderselection(): AbstractControl {
+    return this.createuserForm.get('genderselection');
   }
 
 
