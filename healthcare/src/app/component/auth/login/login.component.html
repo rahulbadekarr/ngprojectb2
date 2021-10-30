@@ -7,20 +7,21 @@
                 <!-- username field -->
                 <mat-form-field class="full-width-input">
                     <input matInput formControlName="email" placeholder="Email">
+                    <mat-icon matSuffix class="email"> email</mat-icon>
                 </mat-form-field>
                 <mat-error *ngIf="!email.valid && email.touched && email.hasError('required')">
                     Please enter email
                 </mat-error>
                 <mat-error *ngIf="!email.valid && email.touched && email.hasError('email')">
-                  Please enter valid email
-              </mat-error>
+                    Please enter valid email
+                </mat-error>
                 <!-- password field -->
                 <mat-form-field class="full-width-input">
 
                     <input matInput type="password" formControlName="password" placeholder="Password">
 
-                    <mat-icon matSuffix> vpn_key</mat-icon>
-
+                    <!-- <mat-icon matSuffix> vpn_key</mat-icon> -->
+                    <mat-icon matSuffix class="password">remove_red_eye</mat-icon>
                 </mat-form-field>
                 <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
                     Please enter valid password
