@@ -9,12 +9,15 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ProcedurecodeComponent } from './procedurecode/procedurecode.component';
 import { DiagnosiscodeComponent } from './diagnosiscode/diagnosiscode.component';
 import { AdminService } from './services/admin.service';
+import { CreateUserComponent } from './create-user/create-user.component';
+
 
 @NgModule({
   declarations: [
     ManageUsersComponent,
     ProcedurecodeComponent,
-    DiagnosiscodeComponent
+    DiagnosiscodeComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,12 @@ import { AdminService } from './services/admin.service';
       {
         path: 'procedurecode',
         component:  ProcedurecodeComponent,
-      }
+      },
+      {
+        path: 'create-user',
+        component:  CreateUserComponent,
+      },
+      
     ])
   ],
   providers :[
