@@ -3,9 +3,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { DiagnosisService } from './diagnosis.service';
+import { ProcedureService } from './procedure.service';
 
 describe('DiagnosisService', () => {
-  let service: DiagnosisService;
+  let service: ProcedureService;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
@@ -13,7 +14,7 @@ describe('DiagnosisService', () => {
       imports:[HttpClientTestingModule]
     });
     httpTestingController = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(DiagnosisService);
+    service = TestBed.inject(ProcedureService);
   });
   afterEach(() => {
     httpTestingController.verify();
@@ -23,35 +24,27 @@ describe('DiagnosisService', () => {
   it('#getData should return expected data', (done) => {
     const expectedData = [
       {
-        "id": "",
-        "diagnosis_code_name": ""
+        id:"",
+procedure_code_name: ""
       },
     ];
 
-    service.getDiagnosis().subscribe(data => {
+    service.getProcedure().subscribe(data => {
       expect(data).toEqual(expectedData);
       done();
     });
 
-    const testRequest = httpTestingController.expectOne('http://localhost:3004/diagnosis_code');
+    const testRequest = httpTestingController.expectOne('http://localhost:3004/procedure_code');
 
     testRequest.flush(expectedData);
   });
 
   it('#getDiognosis should use GET to retrieve data', () => {
-    service.getDiagnosis().subscribe();
+    service.getProcedure().subscribe();
 
-    const testRequest = httpTestingController.expectOne('http://localhost:3004/diagnosis_code');
+    const testRequest = httpTestingController.expectOne('http://localhost:3004/procedure_code');
 
     expect(testRequest.request.method).toEqual('GET');
-  });
-
-  it('#getDiognosis should use GET to retrieve data', () => {
-    service.deleteDiagnosis("data").subscribe();
-
-    const testRequest = httpTestingController.expectOne('http://localhost:3004/diagnosis_code');
-
-    expect(testRequest.request.method).toEqual('DELETE');
   });
 
   // it('#update should use Patch to delete data', () => {

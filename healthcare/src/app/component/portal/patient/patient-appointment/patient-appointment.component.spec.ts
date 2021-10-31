@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('PatientAppointmentComponent', () => {
   let component: PatientAppointmentComponent;
   let fixture: ComponentFixture<PatientAppointmentComponent>;
+  let id=4;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
