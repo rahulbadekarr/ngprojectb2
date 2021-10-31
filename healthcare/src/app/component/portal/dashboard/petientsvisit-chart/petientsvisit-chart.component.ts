@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Chart from 'chart.js';
+import {data, Users } from 'src/model/tabletypes';
+import { PatientsvisitsService } from 'src/app/component/portal/dashboard/services/patientsvisits.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-petientsvisit-chart',
@@ -7,10 +11,20 @@ import * as Chart from 'chart.js';
   styleUrls: ['./petientsvisit-chart.component.css']
 })
 export class PetientsvisitChartComponent implements OnInit {
+  userModelobj:Users=new Users
+  constructor(private http: HttpClient, private patientsvisitservice: PatientsvisitsService, private _snackBar: MatSnackBar) {
 
-  constructor() { }
+   }
 
   ngOnInit(): void {
+this.patientsvisitservice.getusersdata;
+console.warn();
+  }
+  getdata(){
+    this.patientsvisitservice.getusersdata()
+    .subscribe(res =>{
+      this.canvas = res;
+    })
   }
   canvas: any;
   ctx: any;
@@ -26,7 +40,8 @@ export class PetientsvisitChartComponent implements OnInit {
           datasets: [
           {
             label: 'Total Visited Patients ',
-             data: [10, 30, 35, 30, 20, 25, 28, 29, 30, 26, 34],
+             data: [this.mychart],
+            // data:'this.patientsvisitservice.getusersdata;',
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 159, 64, 0.2)',

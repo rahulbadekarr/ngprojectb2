@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Chart } from 'chart.js';
 @Component({
   selector: 'app-patient-chart',
@@ -8,7 +9,7 @@ import { Chart } from 'chart.js';
 export class PatientChartComponent implements OnInit {
 
  
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
   ngOnInit(): void {}
   canvas: any;
   ctx: any;
