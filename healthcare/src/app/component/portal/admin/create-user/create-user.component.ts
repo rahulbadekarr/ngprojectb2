@@ -7,6 +7,7 @@ import {
   Validators,
   AbstractControl
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
 import { Users } from 'src/model/tabletypes';
@@ -21,13 +22,14 @@ export class CreateUserComponent implements OnInit {
   genderole=["Male","Female"];
   constructor(  private fb: FormBuilder,
     private _userService: UserService,
-    private _snackBar: CustomSnackBarService) { }
+    private _snackBar: CustomSnackBarService,
+    private _route: Router) { }
 
   ngOnInit(): void {
     console.log(this.createuserForm);
     this.createuserForm = this.fb.group(
       {
-       
+
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -43,9 +45,9 @@ export class CreateUserComponent implements OnInit {
         userrole: ['', Validators.required],
         genderselection:['', Validators.required],
         address: ['',Validators.required],
-       
+
       },
-     
+
     );
   }
 
@@ -62,13 +64,13 @@ export class CreateUserComponent implements OnInit {
     userData.dob = this.dateofbirth.value;
     userData.address = this.address.value;
     userData.isActive = true;
-   
+
 
 
     this._userService.addUser(userData).subscribe((data: Users) => {
       if (data) {
           this._snackBar.openSnackBar('User created successfully');
-          console.log("data",data)
+          this._route.navigate(['admin/manageusers'])
       }
     },
     error =>{
@@ -82,7 +84,7 @@ export class CreateUserComponent implements OnInit {
 
   }
 
-  
+
   get firstname(): AbstractControl {
     return this.createuserForm.get('firstname');
   }
@@ -106,7 +108,7 @@ export class CreateUserComponent implements OnInit {
   get userrole(): AbstractControl {
     return this.createuserForm.get('userrole');
   }
-  
+
   get genderselection(): AbstractControl {
     return this.createuserForm.get('genderselection');
   }
