@@ -38,10 +38,10 @@ import { CreateUserComponent } from './create-user/create-user.component';
         component:  ProcedurecodeComponent,
       },
       {
-        path: 'create-user',
+        path: 'createuser',
         component:  CreateUserComponent,
       },
-      
+
     ])
   ],
   providers :[
