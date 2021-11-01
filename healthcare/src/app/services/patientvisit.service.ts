@@ -21,14 +21,6 @@ export class PatientvisitService {
 
   savePatientOrder(patientOrderData : Order){
     return this.http.post(this.patientorderUrl,patientOrderData)
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.http.patch(
-      `${this.patientorderUrl}/${patientOrderData.id}`,
-      patientOrderData,
-      {
-        headers: headers,
-      }
-    );
   }
 
   editPatientOrder(patientOrderData : Order){

@@ -465,22 +465,32 @@
     },
     {
       "appointment_id": "S8hCUU_",
-      "weight": "72",
+      "weight": "73",
       "blood_pressure": [
-        "128"
+        [
+          "128"
+        ]
       ],
       "pulse_rate": [
-        "100"
+        [
+          "100"
+        ]
       ],
       "height": [
-        "168"
+        [
+          "168"
+        ]
       ],
       "oxygen_levels": [
-        "92"
+        [
+          "92"
+        ]
       ],
       "procedure_code_id": "ix4kZGK",
       "medication": [
-        ""
+        [
+          ""
+        ]
       ],
       "id": "HHT5E2T"
     }
