@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 
 import {
@@ -12,6 +12,7 @@ import { Med_allergy, Users } from 'src/model/tabletypes';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-patient-medication-allergy',
@@ -23,6 +24,7 @@ export class PatientMedicationAllergyComponent implements OnInit {
   user : Users;
   displayedColumns: string[] = ['Allergy', 'Social Drug', 'Other Allergy', 'Delete'];
   dataList: MatTableDataSource<any> = new MatTableDataSource();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
   constructor(
@@ -67,6 +69,7 @@ export class PatientMedicationAllergyComponent implements OnInit {
   getData() {
     this._medi_allergyService.getMedicationData().subscribe((result) => {
       this.dataList = new MatTableDataSource(result);
+      this.dataList.paginator = this.paginator;
     });
   }
 

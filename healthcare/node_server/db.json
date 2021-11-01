@@ -215,15 +215,11 @@
   ],
   "medication_allergies": [
     {
-      "id": "",
-      "patient_id": "1",
-      "current_medication": "",
-      "otc_medication": "",
-      "natural_product_hurbs": "",
-      "socila_drugs": "",
-      "past_medication": "",
-      "drug_allergies": "",
-      "other_allergies_reaction": ""
+      "social_drugs": "InJection",
+      "other_allergies_reaction": "Skin Allergy",
+      "drug_allergies": "Phycology-",
+      "patient_id": "DKJdKg_",
+      "id": "u5aepIn"
     },
     {
       "social_drugs": "NA",
@@ -232,6 +228,7 @@
       "patient_id": "DKJdKg_",
       "id": "u5aepIn"
     }
+
   ],
   "immunization": [
     {
