@@ -23,7 +23,7 @@ export class CreateUserComponent implements OnInit {
   constructor(  private fb: FormBuilder,
     private _userService: UserService,
     private _snackBar: CustomSnackBarService,
-    private _route: Router) { }
+    private _router: Router) { }
 
   ngOnInit(): void {
     console.log(this.createuserForm);
@@ -70,7 +70,8 @@ export class CreateUserComponent implements OnInit {
     this._userService.addUser(userData).subscribe((data: Users) => {
       if (data) {
           this._snackBar.openSnackBar('User created successfully');
-          this._route.navigate(['admin/manageusers'])
+
+          this._router.navigate(['portal/admin/manageusers'])
       }
     },
     error =>{

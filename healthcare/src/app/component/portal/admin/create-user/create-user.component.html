@@ -2,10 +2,10 @@
     <mat-card>
         <mat-card-content>
             <h2>Add User</h2>
-         
+
             <form [formGroup]="createuserForm">
                 <div class="row">
-                   
+
                     <div class="col-sm-6">
                       <mat-form-field class="full-width-input">
                         <input matInput formControlName="firstname" placeholder="First Name">
@@ -13,7 +13,7 @@
                             Please enter firstname
                         </mat-error>
                     </mat-form-field>
-                    
+
                     </div>
                     <!-- firstname field -->
                     <div class="col-sm-6">
@@ -94,11 +94,11 @@
                     </div>
                 </div>
 
-          
+
 
 
                 <div class="row">
-                
+
                     <div class="col-sm-6">
                         <div class="form-group">
                             <mat-form-field class="full-width-input">
@@ -107,7 +107,7 @@
                                     Please enter phone number
                                 </mat-error>
                             </mat-form-field>
-                        </div> 
+                        </div>
                         </div>
                         <div class="col-sm-6">
                         <div class="form-group">
@@ -120,20 +120,20 @@
                         </div>
                     </div>
                 </div>
-             
+
                 <!-- buttons -->
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
                         <button mat-raised-button class="btn_register" color="primary" [disabled]="createuserForm.invalid" (click)="onUsercreate()" style="margin-right: 10px;">Add User</button>
                         <button mat-raised-button type="button" class="btn_cancel" (click)="onReset()" mat-raised-button>Cancel</button>
                     </div>
-                    
-                      
-                   
+
+
+
                 </div>
 
             </form>
-           
+
         </mat-card-content>
     </mat-card>
 </div>
