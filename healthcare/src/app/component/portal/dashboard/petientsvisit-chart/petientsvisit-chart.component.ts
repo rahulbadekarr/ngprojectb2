@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Chart from 'chart.js';
-import {data, Users } from 'src/model/tabletypes';
 import { PatientsvisitsService } from 'src/app/component/portal/dashboard/services/patientsvisits.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Appointments } from 'src/model/Appointment.model';
+import { Order, Users } from 'src/model/tabletypes';
+
 
 @Component({
   selector: 'app-petientsvisit-chart',
@@ -11,21 +12,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./petientsvisit-chart.component.css']
 })
 export class PetientsvisitChartComponent implements OnInit {
-  userModelobj:Users=new Users
-  constructor(private http: HttpClient, private patientsvisitservice: PatientsvisitsService, private _snackBar: MatSnackBar) {
+  userModelobj:Appointments=new Appointments;
+  user: Users = new Users();
+  order: Order = new Order();
+
+  constructor(private http: HttpClient, private patientsvisitservice: PatientsvisitsService) {
 
    }
 
   ngOnInit(): void {
-this.patientsvisitservice.getusersdata;
-console.warn();
+    // this.order = this.patientsvisitservice.getpatientvisit();
+    // this.order = this.patientsvisitservice.getpatientvisit();
   }
-  getdata(){
-    this.patientsvisitservice.getusersdata()
-    .subscribe(res =>{
-      this.canvas = res;
-    })
-  }
+
   canvas: any;
   ctx: any;
   @ViewChild('mychart') mychart:any;
@@ -35,12 +34,12 @@ console.warn();
     this.ctx = this.canvas.getContext('2d');
 
     new Chart(this.ctx, {
-      type: 'doughnut',
+      type: 'bar',
       data: {
           datasets: [
           {
             label: 'Total Visited Patients ',
-             data: [this.mychart],
+             data: [1,3,0,1,2],
             // data:'this.patientsvisitservice.getusersdata;',
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
