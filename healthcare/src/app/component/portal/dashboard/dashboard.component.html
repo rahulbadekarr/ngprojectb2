@@ -1,38 +1,37 @@
 
     <mat-card>
-        <div class="row mb-3">
-         
-            <!-- <div class="col-md-3">
-                <mat-card class="card-1color mb-2" routerlink="admin">
-                    <mat-icon>dashboard</mat-icon>
-                    <h4>Manage Users</h4>
-                </mat-card>
-            </div> -->
+        <div class="row ">
             <h2 class="heading_color">Dashboard</h2>
-            <div class="col-md-6">
-                <mat-card class=" mb-2" routerlink="patient-history">
-                   
-                    <h4> <mat-icon>person</mat-icon> Total Patient </h4>
-                    <app-petientsvisit-chart></app-petientsvisit-chart>
-                </mat-card>
-            </div>
-            <div class="col-md-6">
-                <mat-card class=" mb-2" routerlink="">
+            <div class="col-md-12">
+                <mat-card class=" mb-2" *ngIf="user.role === 'Physician'">
                     <h4><mat-icon>person</mat-icon>Total Physician</h4>
                     <app-physicianrating-chart></app-physicianrating-chart>
                 </mat-card>
             </div>
         </div>  
         <div class="row">
-            <div class="col-md-6" >
-                <mat-card >
+            <div class="col-md-12" >
+                <mat-card *ngIf="user.role === 'Patient'">
+                    <h4><mat-icon>person</mat-icon>Total Patient Visit</h4>
                    <app-patient-chart></app-patient-chart>
                 </mat-card>
             </div>
-            <div class="col-md-6">
-                <mat-card>
-                   <app-physician-chart></app-physician-chart>
-                </mat-card>
+        </div>
+            <div class="row" *ngIf="user.role === 'Admin'">
+                <div class="col-md-6">
+                    <mat-card>
+                        <!-- <app-patient-chart></app-patient-chart> -->
+                        <app-petientsvisit-chart></app-petientsvisit-chart>
+                    </mat-card>
+                      
+                </div>
+                <div class="col-md-6">
+                    <mat-card>
+                        <app-physician-chart></app-physician-chart>
+                    </mat-card>
+
+                </div>
             </div>
-        </div>    
+  
+      
 </mat-card>

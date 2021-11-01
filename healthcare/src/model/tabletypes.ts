@@ -121,7 +121,5 @@ export class diagnosis_code
   id:string;
   diagnosis_code_name:string;
 }
-export class  data{
- data:string;
-} 
+
 

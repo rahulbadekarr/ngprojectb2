@@ -9,7 +9,7 @@ import * as Chart from 'chart.js';
 })
 export class PhysicianratingChartComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -26,7 +26,7 @@ export class PhysicianratingChartComponent implements OnInit {
       data: {
           datasets: [
           {
-            label: 'Total Visited Patients ',
+            label: 'Total Physician ',
              data: [10, 30, 35, 30, 20, 25, 28, 29, 30, 26, 34],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',

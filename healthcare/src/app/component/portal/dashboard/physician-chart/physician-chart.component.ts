@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Chart } from 'chart.js';
 @Component({
   selector: 'app-physician-chart',
@@ -7,7 +6,7 @@ import { Chart } from 'chart.js';
   styleUrls: ['./physician-chart.component.css']
 })
 export class PhysicianChartComponent implements OnInit {
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor() { }
   ngOnInit(): void {}
   canvas: any;
   ctx: any;
@@ -18,12 +17,12 @@ export class PhysicianChartComponent implements OnInit {
     this.ctx = this.canvas.getContext('2d');
 
     new Chart(this.ctx, {
-      type: 'polarArea',
+      type: 'line',
       data: {
           datasets: [
           {
             label: 'Number of Phyician',
-             data: [11, 16, 7, 3, 14],
+           data: [2,0,3,1,2],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 159, 64, 0.2)',
