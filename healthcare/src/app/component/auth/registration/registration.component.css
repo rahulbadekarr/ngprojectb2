@@ -19,3 +19,7 @@ mat-form-field {
 .btn_cancel {
     width: 100%;
 }
+
+.home {
+    color: gray;
+}

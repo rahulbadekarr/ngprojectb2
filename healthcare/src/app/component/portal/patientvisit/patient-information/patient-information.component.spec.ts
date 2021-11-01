@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 import { PatientInformationComponent } from './patient-information.component';
 
@@ -8,7 +11,8 @@ describe('PatientInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PatientInformationComponent ]
+      declarations: [ PatientInformationComponent ],
+      providers:[UserService,HttpClientTestingModule, FormBuilder, ReactiveFormsModule,]
     })
     .compileComponents();
   });

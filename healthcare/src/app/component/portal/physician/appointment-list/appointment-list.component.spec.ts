@@ -1,4 +1,11 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CustomSnackBarService } from 'src/app/services/snackbar.service';
+import { UserService } from 'src/app/services/user.service';
+import { PhysicianService } from '../services/physician.service';
 
 import { AppointmentListComponent } from './appointment-list.component';
 
@@ -8,7 +15,14 @@ describe('AppointmentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppointmentListComponent ]
+      declarations: [ AppointmentListComponent ],
+      imports:[HttpClientTestingModule,RouterTestingModule,MatSnackBarModule],
+      providers:[
+        PhysicianService,
+         UserService,
+
+        CustomSnackBarService
+      ]
     })
     .compileComponents();
   });

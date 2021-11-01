@@ -1,16 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Chart } from 'chart.js';
-@Component({
-  selector: 'app-patient-chart',
-  templateUrl: './patient-chart.component.html',
-  styleUrls: ['./patient-chart.component.css']
-})
-export class PatientChartComponent implements OnInit {
+import * as Chart from 'chart.js';
 
- 
+@Component({
+  selector: 'app-physicianrating-chart',
+  templateUrl: './physicianrating-chart.component.html',
+  styleUrls: ['./physicianrating-chart.component.css']
+})
+export class PhysicianratingChartComponent implements OnInit {
+
   constructor(private _snackBar: MatSnackBar) { }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+  }
   canvas: any;
   ctx: any;
   @ViewChild('mychart') mychart:any;
@@ -20,19 +22,12 @@ export class PatientChartComponent implements OnInit {
     this.ctx = this.canvas.getContext('2d');
 
     new Chart(this.ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
           datasets: [
-          //   {
-          //     label: 'Current Vallue',
-          //     data: [0, 20, 40, 50],
-          //     backgroundColor: "rgb(115 185 243 / 65%)",
-          //     borderColor: "#007ee7",
-          //     fill: true,
-          // },
           {
-            label: 'Number of Patients Visits',
-            data: [[10,20],[20,50],[55,10], [10, 30], [10,57]],
+            label: 'Total Visited Patients ',
+             data: [10, 30, 35, 30, 20, 25, 28, 29, 30, 26, 34],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 159, 64, 0.2)',
@@ -53,8 +48,9 @@ export class PatientChartComponent implements OnInit {
             ],
             fill: true,
         }],
-          labels: ['Jun 2021', 'July 2021', 'Aug 2021', 'Sep 2021', 'Oct 2021']
+          labels: ['May 2021','Jun 2021', 'July 2021', 'Aug 2021', 'Sep 2021', 'Oct 2021']
       },
   });
   }
+
 }

@@ -26,3 +26,11 @@ mat-error {
 .margin_top {
     margin-top: 1rem;
 }
+
+.password {
+    color: gray;
+}
+
+.email {
+    color: gray;
+}

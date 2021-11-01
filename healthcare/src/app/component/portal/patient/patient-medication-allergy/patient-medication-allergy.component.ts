@@ -11,6 +11,7 @@ import {
 import { Med_allergy, Users } from 'src/model/tabletypes';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-patient-medication-allergy',
@@ -20,6 +21,9 @@ import { UserService } from 'src/app/services/user.service';
 export class PatientMedicationAllergyComponent implements OnInit {
   med_allergy_form: FormGroup;
   user : Users;
+  displayedColumns: string[] = ['Allergy', 'Social Drug', 'Other Allergy', 'Delete'];
+  dataList: MatTableDataSource<any> = new MatTableDataSource();
+
 
   constructor(
     private _medi_allergyService: PatientService,
@@ -29,7 +33,8 @@ export class PatientMedicationAllergyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.updateData("HtWlS9M");
+
+    this.getData();
     this.user = this._userService.getUserDetails();
     console.log(this._medi_allergyService.getData);
     this.med_allergy_form = this.fb.group({
@@ -56,10 +61,28 @@ export class PatientMedicationAllergyComponent implements OnInit {
         this._snack.openSnackBar('Allergy information added!');
       });
     this.med_allergy_form.reset();
+    this.getData();
   }
 
-  updateData(id: string) {
-    return this._medi_allergyService.getData(id).subscribe(console.log);
+  getData() {
+    this._medi_allergyService.getMedicationData().subscribe((result) => {
+      this.dataList = new MatTableDataSource(result);
+    });
+  }
+
+  cancel()
+  {
+    this.med_allergy_form.reset();
+  }
+
+  deleteData(id)
+  {  this._medi_allergyService.deleteMedicationData(id).subscribe((res) => {
+    if (res) {
+      this._snack.openSnackBar('Deleted successfully');
+      this.getData();
+    }
+  });
+
   }
   get social_drugs(): AbstractControl {
     return this.med_allergy_form.get('social_drugs');
