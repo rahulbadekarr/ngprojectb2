@@ -58,18 +58,20 @@ export class PatientOrderComponent implements OnInit {
     this.patientvisit
       .getpatientvisit(this.appointment_id)
       .subscribe((r: Order) => {
-        this.orderDetail = r[0];
-        this.selectedProcedureCode = this.orderDetail.procedure_code_id;
-        this.selectedDiagnosisCode = this.orderDetail.diagnosis_code_id;
-        this.patient_orders_form.patchValue({
-          blood_pressure: [this.orderDetail.blood_pressure],
-          pulse_rate: [this.orderDetail.pulse_rate],
-          temprature: [this.orderDetail.temprature],
-          height: [this.orderDetail.height],
-          weight: [this.orderDetail.weight],
-          oxygen_levels: [this.orderDetail.oxygen_levels],
-          medication: [this.orderDetail.medication],
-        });
+        if(r[0]){
+          this.orderDetail = r[0];
+          this.selectedProcedureCode = this.orderDetail.procedure_code_id;
+          this.selectedDiagnosisCode = this.orderDetail.diagnosis_code_id;
+          this.patient_orders_form.patchValue({
+            blood_pressure: [this.orderDetail.blood_pressure],
+            pulse_rate: [this.orderDetail.pulse_rate],
+            temprature: [this.orderDetail.temprature],
+            height: [this.orderDetail.height],
+            weight: [this.orderDetail.weight],
+            oxygen_levels: [this.orderDetail.oxygen_levels],
+            medication: [this.orderDetail.medication],
+          });
+        }
       });
   }
 
@@ -89,24 +91,31 @@ export class PatientOrderComponent implements OnInit {
 
   OnSubmit() {
     let patientOrder: Order = new Order();
-    patientOrder.id = this.orderDetail.id;
-    patientOrder.procedure_code_id = this.orderDetail.procedure_code_id;
+    patientOrder.appointment_id = this.appointment_id;
     patientOrder.weight = this.weight.value;
-    patientOrder.blood_pressure = this.blood_pressure.value;
-    patientOrder.pulse_rate = this.pulse_rate.value;
-    patientOrder.height = this.height.value;
-    patientOrder.oxygen_levels = this.oxygen_levels.value;
-    patientOrder.procedure_code_id = this.selectedProcedureCode;
-    patientOrder.diagnosis_code_id = this.selectedDiagnosisCode;
-    patientOrder.medication = this.medication.value;
-    this.patientvisit.savePatientOrder(patientOrder)
-        .subscribe(res =>{
-          if(res){
-            this._snackBar.openSnackBar('Data added successfully!');
-            //this._router.navigate(['portal'])
-          }
-        })
-    console.log(patientOrder);
+      patientOrder.blood_pressure = this.blood_pressure.value;
+      patientOrder.pulse_rate = this.pulse_rate.value;
+      patientOrder.height = this.height.value;
+      patientOrder.oxygen_levels = this.oxygen_levels.value;
+      patientOrder.procedure_code_id = this.selectedProcedureCode;
+      patientOrder.diagnosis_code_id = this.selectedDiagnosisCode;
+      patientOrder.medication = this.medication.value;
+    if(this.orderDetail.id){
+      patientOrder.id = this.orderDetail?.id;
+      this.patientvisit.editPatientOrder(patientOrder)
+          .subscribe(res =>{
+            if(res){
+              this._snackBar.openSnackBar('Data edited successfully!');
+            }
+          })
+    }else{
+      this.patientvisit.savePatientOrder(patientOrder)
+          .subscribe(res =>{
+            if(res){
+              this._snackBar.openSnackBar('Data added successfully!');
+            }
+          })
+    }
   }
 
   get blood_pressure(): AbstractControl {
