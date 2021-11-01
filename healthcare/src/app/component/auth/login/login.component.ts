@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['portal']);
         }else{
           this._snackBar.openSnackBar('Log in credentials are not valid');
-          this._router.navigate(['portal']);
         }
       },
       error =>{

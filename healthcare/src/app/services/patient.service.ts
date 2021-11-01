@@ -27,6 +27,8 @@ export class PatientService {
       url = url + `patient_id=${userId}`;
     }else if(role === 'Physician'){
       url = url + `physician_id=${userId}&patient_id=${patientId}`;
+    }else if(role === 'Admin'){
+      url = url + `patient_id=${patientId}`;
     }
 
     if (startDate && endDate) {

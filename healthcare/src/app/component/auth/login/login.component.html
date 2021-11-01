@@ -20,8 +20,8 @@
 
                     <input matInput type="password" formControlName="password" placeholder="Password">
 
-                    <!-- <mat-icon matSuffix> vpn_key</mat-icon> -->
-                    <mat-icon matSuffix class="password">remove_red_eye</mat-icon>
+                    <mat-icon matSuffix class="password"> vpn_key</mat-icon>
+                    <!-- <mat-icon matSuffix class="password">remove_red_eye</mat-icon> -->
                 </mat-form-field>
                 <mat-error *ngIf="!userpassword.valid && userpassword.touched  && userpassword.hasError('required')">
                     Please enter valid password
