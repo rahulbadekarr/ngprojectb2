@@ -246,6 +246,13 @@
       "drug_allergies": "Peanut",
       "patient_id": "DKJdKg_",
       "id": "u5aepIn"
+    },
+    {
+      "social_drugs": "NA",
+      "other_allergies_reaction": "NA",
+      "drug_allergies": "Peanut Butter",
+      "patient_id": "GXWFNn7",
+      "id": "BTL4PbJ"
     }
   ],
   "immunization": [
@@ -262,6 +269,13 @@
       "vaccinedate": "2021-09-01T18:30:00.000Z",
       "patient_id": "DKJdKg_",
       "id": 2
+    },
+    {
+      "covid_19_vaccine": "Covishield",
+      "general_vaccine": "",
+      "vaccinedate": "2021-06-30T18:30:00.000Z",
+      "patient_id": "GXWFNn7",
+      "id": 3
     }
   ],
   "schedule_appointment": [

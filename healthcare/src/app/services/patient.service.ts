@@ -75,8 +75,8 @@ export class PatientService {
     return this.http.post<Med_allergy>(this.med_allergy_URL, Med_allergy);
   }
 
-  getMedicationData():Observable<any>{
-    return this.http.get(this.med_allergy_URL)
+  getMedicationData(userId : string):Observable<any>{
+    return this.http.get(`${this.med_allergy_URL}?patient_id=${userId}`)
   }
 
   deleteMedicationData(id){

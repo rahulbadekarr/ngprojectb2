@@ -80,8 +80,8 @@ export class UserService {
   }
 
 
-  getImmunizationList():Observable<any>{
-    return this.http.get(this.immuneUrl)
+  getImmunizationList(userId : string):Observable<any>{
+    return this.http.get(`${this.immuneUrl}?patient_id=${userId}`)
   }
 
   deleteImmun(id){

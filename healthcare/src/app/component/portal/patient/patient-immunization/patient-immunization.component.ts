@@ -8,6 +8,7 @@ import {
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomSnackBarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
+import { Users } from 'src/model/tabletypes';
 
 @Component({
   selector: 'app-patient-immunization',
@@ -18,6 +19,7 @@ export class PatientImmunizationComponent implements OnInit {
   displayedColumns: string[] = ['Vaccine', 'Other', 'Date', 'Delete'];
   dataList: MatTableDataSource<any> = new MatTableDataSource();
   isSubmitted = false;
+  user: Users;
 
   constructor(
     public fb: FormBuilder,
@@ -26,7 +28,8 @@ export class PatientImmunizationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.addMed.getImmunizationList().subscribe((result) => {
+    this.user = this.addMed.getUserDetails();
+    this.addMed.getImmunizationList(this.user.id).subscribe((result) => {
       this.dataList = new MatTableDataSource(result);
     });
   }
@@ -35,7 +38,7 @@ export class PatientImmunizationComponent implements OnInit {
     this.addMed.deleteImmun(item).subscribe((res) => {
       if (res) {
         this._snackBar.openSnackBar('Deleted successfully');
-        this.addMed.getImmunizationList().subscribe((result) => {
+        this.addMed.getImmunizationList(this.user.id).subscribe((result) => {
           this.dataList = new MatTableDataSource(result);
         });
       } else {
@@ -71,7 +74,7 @@ export class PatientImmunizationComponent implements OnInit {
       .saveImmunization(this.registrationForm.value)
       .subscribe((result) => {
         if (result) {
-          this.addMed.getImmunizationList().subscribe((result) => {
+          this.addMed.getImmunizationList(this.user.id).subscribe((result) => {
             this.dataList = new MatTableDataSource(result);
           });
           this._snackBar.openSnackBar('Added successfully');

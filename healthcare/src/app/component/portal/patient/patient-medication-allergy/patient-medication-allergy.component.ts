@@ -35,16 +35,14 @@ export class PatientMedicationAllergyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
-    this.getData();
     this.user = this._userService.getUserDetails();
-    console.log(this._medi_allergyService.getData);
     this.med_allergy_form = this.fb.group({
       social_drugs: ['', Validators.required],
 
       other_allergies_reaction: ['', Validators.required],
       drug_allergies: ['', Validators.required],
     });
+    this.getData();
   }
 
   createPatientAllergyDetails() {
@@ -67,7 +65,8 @@ export class PatientMedicationAllergyComponent implements OnInit {
   }
 
   getData() {
-    this._medi_allergyService.getMedicationData().subscribe((result) => {
+    this._medi_allergyService.getMedicationData(this.user.id).subscribe((result) => {
+      console.log(result)
       this.dataList = new MatTableDataSource(result);
       this.dataList.paginator = this.paginator;
     });
