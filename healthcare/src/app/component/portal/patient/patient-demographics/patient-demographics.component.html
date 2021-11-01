@@ -212,7 +212,7 @@
                             <!-- buttons  -->
                             <div class="row">
                                 <div class="col-sm-12 col-md-12">
-                                    <button mat-raised-button color="primary" (click)="onSubmit()" style="margin-right: 10px;">Add</button>
+                                    <button mat-raised-button color="primary" [disabled]="demoForm.invalid" (click)="onSubmit()" style="margin-right: 10px;">Add</button>
                                     <button mat-raised-button>Cancel</button>
                                 </div>
                             </div>
